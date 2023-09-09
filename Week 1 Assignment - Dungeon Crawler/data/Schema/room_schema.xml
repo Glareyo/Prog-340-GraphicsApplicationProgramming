@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<Room-data xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<Room>
+		<ID>ID</ID>
+		<Name>type</Name>
+		<Description>type</Description>
+		<nRoomID>6</nRoomID>
+		<sRoomID>6</sRoomID>
+		<eRoomID>6</eRoomID>
+		<wRoomID>6</wRoomID>
+		<nTrapID>6</nTrapID>
+		<sTrapID>6</sTrapID>
+		<eTrapID>6</eTrapID>
+		<wTrapID>6</wTrapID>
+	</Room>
+	<Room>
+		<ID>ID</ID>
+		<Name>type</Name>
+		<Description>type</Description>
+		<nRoomID>6</nRoomID>
+		<sRoomID>6</sRoomID>
+		<eRoomID>6</eRoomID>
+		<wRoomID>6</wRoomID>
+		<nTrapID>6</nTrapID>
+		<sTrapID>6</sTrapID>
+		<eTrapID>6</eTrapID>
+		<wTrapID>6</wTrapID>
+	</Room>
+</Room-data>

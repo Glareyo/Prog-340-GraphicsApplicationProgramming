@@ -25,6 +25,46 @@ namespace Week_1_Assignment___Dungeon_Crawler
             if (newLine) Console.WriteLine(s + message);
             else Console.Write(s + message);
         }
+        public static void CenterString(string message, ConsoleColor highlight,bool newLine)
+        {
+            //Get the window width and divide be two
+            int spaces = Console.WindowWidth / 2;
+
+            //Then get the length of the message and divide by two
+            //Subtract from spaces.
+            spaces -= (message.Length / 2);
+
+            //This will center the string to the screen.
+            string s = "";
+            for (int i = 0; i < spaces; i++) s += " ";
+
+            Console.Write(s);
+            Console.BackgroundColor = highlight;
+
+            if (newLine) Console.WriteLine(message);
+            else Console.Write(message);
+        }
+        public static void CenterString_Underline(string message)
+        {
+            //Get the window width and divide be two
+            int spaces = Console.WindowWidth / 2;
+
+            //Then get the length of the message and divide by two
+            //Subtract from spaces.
+            spaces -= (message.Length / 2);
+
+            //This will center the string to the screen.
+            string s = "";
+            for (int i = 0; i < spaces; i++) s += " ";
+
+            Console.WriteLine(s + message);
+            Console.Write(s);
+
+            for(int i = 0; i<message.Length;i++)
+                Console.Write("-");
+            Console.WriteLine();
+        }
+
 
         public static void Prompt(string message)
         {
@@ -32,7 +72,26 @@ namespace Week_1_Assignment___Dungeon_Crawler
             CenterString(message, true);
             Console.ResetColor();
         }
-
+        public static void DisplayAction(string message)
+        {
+            Console.ForegroundColor = ConsoleColor.Green;
+            CenterString_Underline(message);
+            
+            Console.ResetColor();
+        }
+        //For if the player attempts to go into a wall.
+        public static void UnaccessiblePrompt(string message = "You cannot go that way")
+        {
+            Console.ForegroundColor = ConsoleColor.Red;
+            CenterString(message, true);
+            Console.ResetColor();
+        }
+        public static void InvalidInput(string message = " Invalid Input ")
+        {
+            Console.ForegroundColor = ConsoleColor.Red;
+            CenterString(message, ConsoleColor.White,true);
+            Console.ResetColor();
+        }
         public static string PromptAndAnswer(string message)
         {
             string answer = "";
@@ -46,6 +105,28 @@ namespace Week_1_Assignment___Dungeon_Crawler
             Console.ResetColor();
 
             return answer;
+        }
+        
+        public static void Print(string message, ConsoleColor color, bool inLine)
+        {
+            Console.ForegroundColor = color;
+            if (inLine) Console.Write(message);
+            else Console.WriteLine(message);
+            Console.ResetColor();
+        }
+        public static void Print(string m1, string m2, string m3, ConsoleColor c1, ConsoleColor c2, ConsoleColor c3, bool inLine)
+        {
+            Console.ForegroundColor = c1;
+            Console.Write(m1);
+
+            Console.ForegroundColor = c2;
+            Console.Write(m2);
+
+            Console.ForegroundColor = c3;
+            if (inLine) Console.WriteLine(m3);
+            else Console.WriteLine(m3);
+
+            Console.ResetColor();
         }
     }
 }

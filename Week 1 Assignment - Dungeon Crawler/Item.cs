@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Week_1_Assignment___Dungeon_Crawler
 {
-    internal class Item
+    public class Item
     {
         string name;
         string description;

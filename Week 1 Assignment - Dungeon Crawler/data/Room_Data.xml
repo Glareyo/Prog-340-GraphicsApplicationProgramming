@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<Room-data xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<Room>
+		<ID>0</ID>
+		<Name>Wall</Name>
+		<Description>A Wall</Description>
+		<nRoomID>0</nRoomID>
+		<sRoomID>0</sRoomID>
+		<eRoomID>0</eRoomID>
+		<wRoomID>0</wRoomID>
+		<nTrapID>0</nTrapID>
+		<sTrapID>0</sTrapID>
+		<eTrapID>0</eTrapID>
+		<wTrapID>0</wTrapID>
+	</Room>
+	<Room>
+		<ID>1</ID>
+		<Name>Center</Name>
+		<Description>The Center Room</Description>
+		<nRoomID>2</nRoomID>
+		<sRoomID>3</sRoomID>
+		<eRoomID>4</eRoomID>
+		<wRoomID>5</wRoomID>
+		<nTrapID>0</nTrapID>
+		<sTrapID>0</sTrapID>
+		<eTrapID>0</eTrapID>
+		<wTrapID>0</wTrapID>
+	</Room>
+	<Room>
+		<ID>2</ID>
+		<Name>North</Name>
+		<Description>The North Room</Description>
+		<nRoomID>0</nRoomID>
+		<sRoomID>1</sRoomID>
+		<eRoomID>0</eRoomID>
+		<wRoomID>0</wRoomID>
+		<nTrapID>0</nTrapID>
+		<sTrapID>0</sTrapID>
+		<eTrapID>0</eTrapID>
+		<wTrapID>0</wTrapID>
+	</Room>
+	<Room>
+		<ID>3</ID>
+		<Name>South</Name>
+		<Description>The South Room</Description>
+		<nRoomID>1</nRoomID>
+		<sRoomID>0</sRoomID>
+		<eRoomID>0</eRoomID>
+		<wRoomID>0</wRoomID>
+		<nTrapID>0</nTrapID>
+		<sTrapID>0</sTrapID>
+		<eTrapID>0</eTrapID>
+		<wTrapID>0</wTrapID>
+	</Room>
+	<Room>
+		<ID>4</ID>
+		<Name>East</Name>
+		<Description>The East Room</Description>
+		<nRoomID>0</nRoomID>
+		<sRoomID>0</sRoomID>
+		<eRoomID>0</eRoomID>
+		<wRoomID>1</wRoomID>
+		<nTrapID>0</nTrapID>
+		<sTrapID>0</sTrapID>
+		<eTrapID>0</eTrapID>
+		<wTrapID>0</wTrapID>
+	</Room>
+	<Room>
+		<ID>5</ID>
+		<Name>West</Name>
+		<Description>The West Room</Description>
+		<nRoomID>0</nRoomID>
+		<sRoomID>0</sRoomID>
+		<eRoomID>1</eRoomID>
+		<wRoomID>0</wRoomID>
+		<nTrapID>0</nTrapID>
+		<sTrapID>0</sTrapID>
+		<eTrapID>0</eTrapID>
+		<wTrapID>0</wTrapID>
+	</Room>
+</Room-data>

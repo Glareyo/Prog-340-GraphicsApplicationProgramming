@@ -6,3 +6,11 @@ C:\Users\cedillo02\Source\Repos\Glareyo\Prog-340-GraphicsApplicationProgramming\
 C:\Users\cedillo02\Source\Repos\Glareyo\Prog-340-GraphicsApplicationProgramming\Week 1 Assignment - Dungeon Crawler\obj\Debug\Week 1 Assignment - Dungeon Crawler.csproj.CoreCompileInputs.cache
 C:\Users\cedillo02\Source\Repos\Glareyo\Prog-340-GraphicsApplicationProgramming\Week 1 Assignment - Dungeon Crawler\obj\Debug\Week 1 Assignment - Dungeon Crawler.exe
 C:\Users\cedillo02\Source\Repos\Glareyo\Prog-340-GraphicsApplicationProgramming\Week 1 Assignment - Dungeon Crawler\obj\Debug\Week 1 Assignment - Dungeon Crawler.pdb
+C:\Users\nemo1\Source\Repos\Glareyo\Prog-340-GraphicsApplicationProgramming\Week 1 Assignment - Dungeon Crawler\bin\Debug\Week 1 Assignment - Dungeon Crawler.exe.config
+C:\Users\nemo1\Source\Repos\Glareyo\Prog-340-GraphicsApplicationProgramming\Week 1 Assignment - Dungeon Crawler\bin\Debug\Week 1 Assignment - Dungeon Crawler.exe
+C:\Users\nemo1\Source\Repos\Glareyo\Prog-340-GraphicsApplicationProgramming\Week 1 Assignment - Dungeon Crawler\bin\Debug\Week 1 Assignment - Dungeon Crawler.pdb
+C:\Users\nemo1\Source\Repos\Glareyo\Prog-340-GraphicsApplicationProgramming\Week 1 Assignment - Dungeon Crawler\obj\Debug\Week 1 Assignment - Dungeon Crawler.csproj.AssemblyReference.cache
+C:\Users\nemo1\Source\Repos\Glareyo\Prog-340-GraphicsApplicationProgramming\Week 1 Assignment - Dungeon Crawler\obj\Debug\Week 1 Assignment - Dungeon Crawler.csproj.SuggestedBindingRedirects.cache
+C:\Users\nemo1\Source\Repos\Glareyo\Prog-340-GraphicsApplicationProgramming\Week 1 Assignment - Dungeon Crawler\obj\Debug\Week 1 Assignment - Dungeon Crawler.csproj.CoreCompileInputs.cache
+C:\Users\nemo1\Source\Repos\Glareyo\Prog-340-GraphicsApplicationProgramming\Week 1 Assignment - Dungeon Crawler\obj\Debug\Week 1 Assignment - Dungeon Crawler.exe
+C:\Users\nemo1\Source\Repos\Glareyo\Prog-340-GraphicsApplicationProgramming\Week 1 Assignment - Dungeon Crawler\obj\Debug\Week 1 Assignment - Dungeon Crawler.pdb

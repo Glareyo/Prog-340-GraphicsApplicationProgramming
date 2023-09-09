@@ -13,9 +13,12 @@ namespace Week_1_Assignment___Dungeon_Crawler
         int lives;
 
         //Location of the player
-        int playerLocation;
+        public Room location;
 
         //Inventory
         List<Item> inventory = new List<Item>();
+
+
+        //public Room CurrentLocation { get; set; }
     }
 }
