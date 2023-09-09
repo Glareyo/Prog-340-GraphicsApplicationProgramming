@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<Item-data xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<Item>
+		<Name>Flashlight</Name>
+		<Description>A black flashlight</Description>
+		<LocationID>1</LocationID>
+	</Item>
+	<Item>
+		<Name>Crayon</Name>
+		<Description>A red crayon</Description>
+		<LocationID>2</LocationID>
+	</Item>
+	<Item>
+		<Name>Rope</Name>
+		<Description>Some rope</Description>
+		<LocationID>1</LocationID>
+	</Item>
+	<Item>
+		<Name>Weed</Name>
+		<Description>A jar of weed</Description>
+		<LocationID>4</LocationID>
+	</Item>
+	<Item>
+		<Name>Knife</Name>
+		<Description>A karambit</Description>
+		<LocationID>3</LocationID>
+	</Item>
+	<Item>
+		<Name>Banjo</Name>
+		<Description>An old banjo with a missing string.</Description>
+		<LocationID>3</LocationID>
+	</Item>
+</Item-data>

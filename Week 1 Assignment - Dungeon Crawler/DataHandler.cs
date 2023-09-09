@@ -21,6 +21,7 @@ namespace Week_1_Assignment___Dungeon_Crawler
             allItems = new List<Item>();
 
             CreateRooms();
+            CreateItems();
         }
 
         public Room GetRoom(int id)
@@ -51,9 +52,28 @@ namespace Week_1_Assignment___Dungeon_Crawler
                 int eT = Convert.ToInt32(r.ChildNodes[9].InnerText);
                 int wT = Convert.ToInt32(r.ChildNodes[10].InnerText);
 
-                allRooms.Add(new Room(id,n,d,nR,sR,eR,wR,nT,sT,eT,wT));
+                allRooms.Add(new Room(id, n, d, nR, sR, eR, wR, nT, sT, eT, wT));
             }
         }
+        void CreateItems()
+        {
+            string file = "Item_Data";
+            string root = "Item-data/Item";
+
+
+            foreach (XmlElement i in GetList(file, root))
+            {
+                string n = i.ChildNodes[0].InnerText;
+                string d = i.ChildNodes[1].InnerText;
+                int location = Convert.ToInt32(i.ChildNodes[2].InnerText);
+
+                Item temp = new Item(n, d);
+                allItems.Add(temp);
+                allRooms[location].loot.Add(temp);
+            }
+        }
+
+
         XmlNodeList GetList(string file, string rootName)
         {
             XmlDocument doc = new XmlDocument();

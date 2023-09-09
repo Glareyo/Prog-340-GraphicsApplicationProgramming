@@ -86,8 +86,10 @@ namespace Week_1_Assignment___Dungeon_Crawler
             int[] roomIDs = CurrentLocation.GetAdjRoomIDs;
 
 
-            Console.WriteLine($"You are in the {CurrentLocation.GetName}");
-            Console.WriteLine(CurrentLocation.GetDescription);
+            Print_Underline(CurrentLocation.GetName, ConsoleColor.Magenta);
+            Print(CurrentLocation.GetDescription,ConsoleColor.White,false);
+            foreach (Item i in CurrentLocation.loot)
+                Print("There is a ", i.Name, " here", ConsoleColor.White, ConsoleColor.Cyan, ConsoleColor.White, false);
             Console.WriteLine();
 
             Print("Inputs:", ConsoleColor.Green, false);

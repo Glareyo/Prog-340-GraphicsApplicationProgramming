@@ -114,6 +114,14 @@ namespace Week_1_Assignment___Dungeon_Crawler
             else Console.WriteLine(message);
             Console.ResetColor();
         }
+        public static void Print_Underline(string message, ConsoleColor color)
+        {
+            Console.ForegroundColor = color;
+            Console.WriteLine(message);
+            for (int i = 0; i < message.Length; i++) Console.Write("-");
+            Console.WriteLine();
+            Console.ResetColor();
+        }
         public static void Print(string m1, string m2, string m3, ConsoleColor c1, ConsoleColor c2, ConsoleColor c3, bool inLine)
         {
             Console.ForegroundColor = c1;

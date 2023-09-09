@@ -28,11 +28,11 @@ namespace Week_1_Assignment___Dungeon_Crawler
         int wTrapID;
 
         //Items in room
-        List<string> loot = new List<string>();
+        public List<Item> loot = new List<Item>();
 
         public int GetID { get { return id; } }
-        public string GetName { get { return name; } }
         public string GetDescription { get { return description; } }
+        public string GetName { get { return name; } }
         public int GetNRoomID { get { return nRoomID; } }
         public int GetSRoomID { get { return sRoomID; } }
         public int GetERoomID { get { return eRoomID; } }
@@ -41,7 +41,6 @@ namespace Week_1_Assignment___Dungeon_Crawler
         //Give all room IDs via N,S,E,W
         public int[] GetAdjRoomIDs { get { return new int[] { nRoomID,sRoomID,eRoomID,wRoomID}; } }
         
-
         public Room(int _id, string _name, string _description, int _nRoomID, int _sRoomID, int _eRoomID, int _wRoomID, int _nTrapID, int _sTrapID, int _eTrapID, int _wTrapID)
         {
             this.id = _id;
@@ -56,5 +55,6 @@ namespace Week_1_Assignment___Dungeon_Crawler
             this.eTrapID = _eTrapID;
             this.wTrapID = _wTrapID;
         }
+        
     }
 }

@@ -11,6 +11,9 @@ namespace Week_1_Assignment___Dungeon_Crawler
         string name;
         string description;
 
+        public string Name { get { return name; } }
+        public string Description { get { return description; } }
+
         public Item(string _name, string _description)
         {
             this.name = _name;
