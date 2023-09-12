@@ -16,7 +16,7 @@ namespace Week_1_Assignment___Dungeon_Crawler
         public Room location;
 
         //Inventory
-        List<Item> inventory = new List<Item>();
+        public List<Item> inventory = new List<Item>();
 
 
         //public Room CurrentLocation { get; set; }

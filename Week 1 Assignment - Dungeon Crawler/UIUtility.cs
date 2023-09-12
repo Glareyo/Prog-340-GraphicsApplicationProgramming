@@ -9,23 +9,7 @@ namespace Week_1_Assignment___Dungeon_Crawler
 {
     public static class UIUtility
     {
-        public static void CenterString(string message, bool newLine)
-        {
-            //Get the window width and divide be two
-            int spaces = Console.WindowWidth/2;
-
-            //Then get the length of the message and divide by two
-            //Subtract from spaces.
-            spaces -= (message.Length / 2);
-
-            //This will center the string to the screen.
-            string s = "";
-            for (int i = 0; i < spaces; i++) s += " ";
-
-            if (newLine) Console.WriteLine(s + message);
-            else Console.Write(s + message);
-        }
-        public static void CenterString(string message, ConsoleColor highlight,bool newLine)
+        static void CreateSpaces(string message)
         {
             //Get the window width and divide be two
             int spaces = Console.WindowWidth / 2;
@@ -37,29 +21,28 @@ namespace Week_1_Assignment___Dungeon_Crawler
             //This will center the string to the screen.
             string s = "";
             for (int i = 0; i < spaces; i++) s += " ";
-
             Console.Write(s);
+        }
+        public static void CenterString(string message, bool inline)
+        {
+            CreateSpaces(message);
+            if (inline) Console.Write(message);
+            else Console.WriteLine(message);
+        }
+        public static void CenterString(string message, ConsoleColor highlight,bool inline)
+        {
+            CreateSpaces(message);
             Console.BackgroundColor = highlight;
 
-            if (newLine) Console.WriteLine(message);
-            else Console.Write(message);
+            if (inline) Console.Write(message);
+            else Console.WriteLine(message);
         }
         public static void CenterString_Underline(string message)
         {
-            //Get the window width and divide be two
-            int spaces = Console.WindowWidth / 2;
+            CreateSpaces(message);
 
-            //Then get the length of the message and divide by two
-            //Subtract from spaces.
-            spaces -= (message.Length / 2);
-
-            //This will center the string to the screen.
-            string s = "";
-            for (int i = 0; i < spaces; i++) s += " ";
-
-            Console.WriteLine(s + message);
-            Console.Write(s);
-
+            Console.WriteLine(message);
+            CreateSpaces(message);
             for(int i = 0; i<message.Length;i++)
                 Console.Write("-");
             Console.WriteLine();
@@ -69,7 +52,7 @@ namespace Week_1_Assignment___Dungeon_Crawler
         public static void Prompt(string message)
         {
             Console.ForegroundColor = ConsoleColor.Green;
-            CenterString(message, true);
+            CenterString(message, false);
             Console.ResetColor();
         }
         public static void DisplayAction(string message)
@@ -83,13 +66,13 @@ namespace Week_1_Assignment___Dungeon_Crawler
         public static void UnaccessiblePrompt(string message = "You cannot go that way")
         {
             Console.ForegroundColor = ConsoleColor.Red;
-            CenterString(message, true);
+            CenterString(message, false);
             Console.ResetColor();
         }
         public static void InvalidInput(string message = " Invalid Input ")
         {
             Console.ForegroundColor = ConsoleColor.Red;
-            CenterString(message, ConsoleColor.White,true);
+            CenterString(message, ConsoleColor.White,false);
             Console.ResetColor();
         }
         public static string PromptAndAnswer(string message)
@@ -97,7 +80,7 @@ namespace Week_1_Assignment___Dungeon_Crawler
             string answer = "";
             
             Console.ForegroundColor = ConsoleColor.Green;
-            CenterString(message, false);
+            CenterString(message, true);
             Console.ForegroundColor = ConsoleColor.Magenta;
 
             answer = Console.ReadLine();
@@ -106,23 +89,31 @@ namespace Week_1_Assignment___Dungeon_Crawler
 
             return answer;
         }
-        public static void Print(string message, ConsoleColor color, bool inLine)
+        public static void Print(string message, ConsoleColor color, bool centerString, bool inLine)
         {
             Console.ForegroundColor = color;
-            if (inLine) Console.Write(message);
+            if (centerString) CenterString(message, inLine);
+            else if (inLine) Console.Write(message);
             else Console.WriteLine(message);
             Console.ResetColor();
         }
-        public static void Print_Underline(string message, ConsoleColor color)
+        public static void Print_Underline(string message, ConsoleColor color, bool centerString)
         {
             Console.ForegroundColor = color;
-            Console.WriteLine(message);
-            for (int i = 0; i < message.Length; i++) Console.Write("-");
-            Console.WriteLine();
+            if (centerString)
+                CenterString_Underline(message);
+            else
+            {
+                Console.WriteLine(message);
+                for (int i = 0; i < message.Length; i++) Console.Write("-");
+                Console.WriteLine();
+            }
             Console.ResetColor();
         }
-        public static void Print(string m1, string m2, string m3, ConsoleColor c1, ConsoleColor c2, ConsoleColor c3, bool inLine)
+        public static void Print(string m1, string m2, string m3, ConsoleColor c1, ConsoleColor c2, ConsoleColor c3,bool centerString, bool inLine)
         {
+            if (centerString) CreateSpaces(m1+m2+ m3);
+            
             Console.ForegroundColor = c1;
             Console.Write(m1);
 
@@ -130,10 +121,19 @@ namespace Week_1_Assignment___Dungeon_Crawler
             Console.Write(m2);
 
             Console.ForegroundColor = c3;
-            if (inLine) Console.WriteLine(m3);
+            if (inLine) Console.Write(m3);
             else Console.WriteLine(m3);
-
+            
             Console.ResetColor();
+        }
+
+        public static void Continue()
+        {
+            Console.WriteLine();
+            Print("Press ", "Enter ", "to Continue", ConsoleColor.Green, ConsoleColor.Magenta, ConsoleColor.Green, true, false);
+            Console.ReadLine();
+            Console.Clear();
+            Console.WriteLine();
         }
     }
 }
