@@ -49,6 +49,15 @@ namespace Week_1_Assignment___Dungeon_Crawler
                 case "w": MovePlayer(input);
                     break;
                 case "p":
+                    bool running = true;
+                    if (player.location.loot.Count <= 0)
+                        UnaccessiblePrompt("There are no items here...");
+                    else
+                    {
+                        while (running)
+                            if (player.location.loot.Count > 0)
+                                running = PickupItem(player.location);
+                    }
                     break;
                 default: InvalidInput();
                     break;
@@ -78,7 +87,20 @@ namespace Week_1_Assignment___Dungeon_Crawler
             else
                 player.location = dataHandler.GetRoom(targetRoomId);
         }
-       
+        public bool PickupItem(Room CurrentLocation)
+        {
+            Console.Clear();
+            Print("Select an item to loot...",ConsoleColor.Green,false);
+
+            Print("0".ToString(), " - ", $"Cancel", ConsoleColor.Green, ConsoleColor.White, ConsoleColor.Red, false);
+
+            for (int i = 0; i < CurrentLocation.loot.Count; i++)
+                Print((i+1).ToString(), " - ", $"{CurrentLocation.loot[i].Name}", ConsoleColor.Green, ConsoleColor.White, ConsoleColor.Red, false);
+            
+
+            
+            return false;
+        }
         public void DisplayUI(Room CurrentLocation)
         {
             string[] movePrompts = { "N", "S", "E", "W" };

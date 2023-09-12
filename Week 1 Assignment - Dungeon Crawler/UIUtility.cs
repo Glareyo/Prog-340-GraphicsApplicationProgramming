@@ -106,7 +106,6 @@ namespace Week_1_Assignment___Dungeon_Crawler
 
             return answer;
         }
-        
         public static void Print(string message, ConsoleColor color, bool inLine)
         {
             Console.ForegroundColor = color;
