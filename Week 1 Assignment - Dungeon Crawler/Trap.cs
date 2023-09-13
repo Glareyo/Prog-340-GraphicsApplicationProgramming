@@ -6,27 +6,43 @@ using System.Threading.Tasks;
 
 namespace Week_1_Assignment___Dungeon_Crawler
 {
-    internal class Trap
+    public class Trap
     {
         //Basic info on traps
-        string name;
         int id;
-        
+        string name;
+
         string defDesript; //Default description before disarming
+        string hint;
         string disDescript; //Disarmed Description.
-        string deathDescript; //Description that appears if player continues without disarming.
+        string failedDescript; //Description that appears if player continues without disarming.
+
+
 
         //Item needed to disarm.
         string itemNeeded;
+        public bool isDisarmed;
 
-        public Trap(string _name, int _id, string _defDesript, string _disDescript, string _deathDescript, string _itemNeeded)
+        public string GetName { get { return name; } }
+        public string GetDefaultDescript { get { return defDesript; } }
+        public string GetHint { get { return hint; } }
+        public string GetDisarmDescript { get { return disDescript; } }
+        public string GetFailedDescript { get { return failedDescript; } }
+        public string GetItemNeeded { get { return itemNeeded; } }
+
+
+        public int GetID { get { return id; } }
+
+        public Trap(int _id, string _name, string _defDesript,string _hint, string _disDescript, string _failedDescript, string _itemNeeded)
         {
-            this.name = _name;
             this.id = _id;
+            this.name = _name;
             this.defDesript = _defDesript;
+            this.hint = _hint;
             this.disDescript = _disDescript;
-            this.deathDescript = _deathDescript;
+            this.failedDescript = _failedDescript;
             this.itemNeeded = _itemNeeded;
+            isDisarmed = false;
         }
     }
 }

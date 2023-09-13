@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<Trap-data xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<Trap>
+		<ID>ID</ID>
+		<Name>type</Name>
+		<defDescription>type</defDescription>
+		<hint>6</hint>
+		<disDescription>6</disDescription>
+		<failedDescription>6</failedDescription>
+		<itemNeeded>6</itemNeeded>	
+	</Trap>
+	<Trap>
+		<ID>ID</ID>
+		<Name>type</Name>
+		<defDescription>type</defDescription>
+		<hint>6</hint>
+		<disDescription>6</disDescription>
+		<failedDescription>6</failedDescription>
+		<itemNeeded>6</itemNeeded>	
+	</Trap>
+</Trap-data>

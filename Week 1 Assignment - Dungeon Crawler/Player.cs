@@ -9,8 +9,8 @@ namespace Week_1_Assignment___Dungeon_Crawler
     internal class Player
     {
         //Basic Info on player
-        string name;
-        int lives;
+        public string name;
+        public int lives = 3;
 
         //Location of the player
         public Room location;

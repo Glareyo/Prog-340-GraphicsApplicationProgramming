@@ -1,33 +1,98 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <Item-data xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
 	<Item>
-		<Name>Flashlight</Name>
-		<Description>A black flashlight</Description>
+		<Name>Wire Cutters</Name>
+		<Description>A pair of wire cutters.</Description>
 		<LocationID>1</LocationID>
 	</Item>
 	<Item>
-		<Name>Crayon</Name>
-		<Description>A red crayon</Description>
-		<LocationID>2</LocationID>
-	</Item>
-	<Item>
-		<Name>Rope</Name>
-		<Description>Some rope</Description>
+		<Name>Board</Name>
+		<Description>A sturdy board.</Description>
 		<LocationID>1</LocationID>
 	</Item>
 	<Item>
-		<Name>Weed</Name>
-		<Description>A jar of weed</Description>
+		<Name>Torch</Name>
+		<Description>A single, lit torch.</Description>
+		<LocationID>1</LocationID>
+	</Item>
+	<Item>
+		<Name>Long Stick</Name>
+		<Description>A long stick.</Description>
 		<LocationID>4</LocationID>
 	</Item>
 	<Item>
-		<Name>Knife</Name>
-		<Description>A karambit</Description>
-		<LocationID>3</LocationID>
+		<Name>Lever</Name>
+		<Description>It appears to be a lever of some sort.</Description>
+		<LocationID>5</LocationID>
 	</Item>
 	<Item>
-		<Name>Banjo</Name>
-		<Description>An old banjo with a missing string.</Description>
-		<LocationID>3</LocationID>
+		<Name>Vase</Name>
+		<Description>An antique vase.</Description>
+		<LocationID>7</LocationID>
+	</Item>
+	<Item>
+		<Name>Torch</Name>
+		<Description>A single, lit torch.</Description>
+		<LocationID>8</LocationID>
+	</Item>
+	<Item>
+		<Name>Bag</Name>
+		<Description>A large, canvas bag.</Description>
+		<LocationID>9</LocationID>
+	</Item>
+	<Item>
+		<Name>Shovel</Name>
+		<Description>An old shovel for digging.</Description>
+		<LocationID>10</LocationID>
+	</Item>
+	<Item>
+		<Name>Knife</Name>
+		<Description>A rusty knife, but it is still sharp.</Description>
+		<LocationID>12</LocationID>
+	</Item>
+	<Item>
+		<Name>Laddle</Name>
+		<Description>A small laddle.</Description>
+		<LocationID>12</LocationID>
+	</Item>
+	<Item>
+		<Name>Pan</Name>
+		<Description>A cast iron pan.</Description>
+		<LocationID>12</LocationID>
+	</Item>
+	<Item>
+		<Name>Heavy Wheels</Name>
+		<Description>A small collection of wooden, heavy wheels.</Description>
+		<LocationID>16</LocationID>
+	</Item>
+	<Item>
+		<Name>Rope</Name>
+		<Description>A strong, long piece of rope.</Description>
+		<LocationID>15</LocationID>
+	</Item>
+	<Item>
+		<Name>Skull</Name>
+		<Description>A skull.</Description>
+		<LocationID>17</LocationID>
+	</Item>
+	<Item>
+		<Name>Board</Name>
+		<Description>A sturdy board.</Description>
+		<LocationID>19</LocationID>
+	</Item>
+	<Item>
+		<Name>Book</Name>
+		<Description>An old book.</Description>
+		<LocationID>21</LocationID>
+	</Item>
+	<Item>
+		<Name>Captain's Key</Name>
+		<Description>A golden key</Description>
+		<LocationID>22</LocationID>
+	</Item>
+	<Item>
+		<Name>Ancient Relic</Name>
+		<Description>The ancient relic.</Description>
+		<LocationID>1</LocationID>
 	</Item>
 </Item-data>

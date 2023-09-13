@@ -11,15 +11,19 @@ namespace Week_1_Assignment___Dungeon_Crawler
     {
         List<Room> allRooms;
         List<Item> allItems;
+        List<Trap> allTraps;
 
         public List<Room> GetRoomData { get { return allRooms; } }
-        public List<Item> GetItemData { get; }
+        public List<Item> GetItemData { get { return allItems; } }
+        public List<Trap> GetTrapData { get { return allTraps; } }
 
         public DataHandler()
         {
             allRooms = new List<Room>();
             allItems = new List<Item>();
+            allTraps = new List<Trap>();
 
+            CreateTraps();
             CreateRooms();
             CreateItems();
         }
@@ -31,7 +35,30 @@ namespace Week_1_Assignment___Dungeon_Crawler
 
             return null;
         }
+        public Trap GetTrap(int id)
+        {
+            foreach(Trap t in allTraps)
+                if (id == t.GetID) return t;
+            return null;
+        }
+        void CreateTraps()
+        {
+            string file = "Trap_Data";
+            string root = "Trap-data/Trap";
 
+            foreach (XmlElement r in GetList(file, root))
+            {
+                int id = Convert.ToInt32(r.ChildNodes[0].InnerText);
+                string n = r.ChildNodes[1].InnerText;
+                string def = r.ChildNodes[2].InnerText;
+                string hint = r.ChildNodes[3].InnerText;
+                string dis = r.ChildNodes[4].InnerText;
+                string failed = r.ChildNodes[5].InnerText;
+                string i = r.ChildNodes[6].InnerText;
+
+                allTraps.Add(new Trap(id, n, def, hint, dis, failed, i));
+            }
+        }
         void CreateRooms()
         {
             string file = "Room_Data";
@@ -47,12 +74,9 @@ namespace Week_1_Assignment___Dungeon_Crawler
                 int sR = Convert.ToInt32(r.ChildNodes[4].InnerText);
                 int eR = Convert.ToInt32(r.ChildNodes[5].InnerText);
                 int wR = Convert.ToInt32(r.ChildNodes[6].InnerText);
-                int nT = Convert.ToInt32(r.ChildNodes[7].InnerText);
-                int sT = Convert.ToInt32(r.ChildNodes[8].InnerText);
-                int eT = Convert.ToInt32(r.ChildNodes[9].InnerText);
-                int wT = Convert.ToInt32(r.ChildNodes[10].InnerText);
+                Trap T = GetTrap(Convert.ToInt32(r.ChildNodes[7].InnerText));
 
-                allRooms.Add(new Room(id, n, d, nR, sR, eR, wR, nT, sT, eT, wT));
+                allRooms.Add(new Room(id, n, d, nR, sR, eR, wR, T));
             }
         }
         void CreateItems()

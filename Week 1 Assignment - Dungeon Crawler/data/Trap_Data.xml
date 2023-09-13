@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<Trap-data xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<Trap>
+		<ID>1</ID>
+		<Name>Tripwire</Name>
+		<defDescription>A thin tripwire lines the floor, barely visible to the eye.</defDescription>
+		<hint>You'll need something that can cut the wire.</hint>
+		<disDescription>The tripwire splits, severing it's  connection to a pit trap.</disDescription>
+		<failedDescription>The trip wire activates, revealing a dark pit that you fall into…</failedDescription>
+		<itemNeeded>Wire Cutters</itemNeeded>
+	</Trap>
+	<Trap>
+		<ID>2</ID>
+		<Name>Sink Hole</Name>
+		<defDescription>A large hole in the ground leads down to a dark end.</defDescription>
+		<hint>Perhaps something sturdy to cross would work?</hint>
+		<disDescription>The board lays perfectly across the sinkhole, creating a makeshift bridge.</disDescription>
+		<failedDescription>You fall into the deep depths of the hole.</failedDescription>
+		<itemNeeded>Board</itemNeeded>
+	</Trap>
+	<Trap>
+		<ID>3</ID>
+		<Name>Rocky Rubble</Name>
+		<defDescription>A large pile of rocks blocks the path ahead.</defDescription>
+		<hint>A tool used for digging would help remove the rubble.</hint>
+		<disDescription>The shovel works perfectly, creating a crawlable hole for you to pass through.</disDescription>
+		<failedDescription>In an attempt to crawl through, the rubble falls on you.</failedDescription>
+		<itemNeeded>Shovel</itemNeeded>
+	</Trap>
+	<Trap>
+		<ID>4</ID>
+		<Name>Open Pit</Name>
+		<defDescription>A large trapdoor is open, leading down into a dark pit.</defDescription>
+		<hint>There seems to be a mechanism missing it's lever arm.</hint>
+		<disDescription>The lever fits in perfectly, and with a pull, the trapdoors close.</disDescription>
+		<failedDescription>You fall in the pit below.</failedDescription>
+		<itemNeeded>Lever</itemNeeded>
+	</Trap>
+	<Trap>
+		<ID>5</ID>
+		<Name>Hanging Axe</Name>
+		<defDescription>There is an axe tied to a rope on the door, ready to swing.</defDescription>
+		<hint>The rope isn't that strong. A blade could do the trick.</hint>
+		<disDescription>The rope frays off, swinging the axe down, missing it's target.</disDescription>
+		<failedDescription>The axe swings down.</failedDescription>
+		<itemNeeded>Knife</itemNeeded>
+	</Trap>
+	<Trap>
+		<ID>6</ID>
+		<Name>Snake</Name>
+		<defDescription>A snake slithers on the ground, hissing with fangs full of poison.</defDescription>
+		<hint>A bag or trap of some sort should keep the snake at bay.</hint>
+		<disDescription>The bag engulfs the snake, effectively trapping it.</disDescription>
+		<failedDescription>The snake bites.</failedDescription>
+		<itemNeeded>Bag</itemNeeded>
+	</Trap>
+	<Trap>
+		<ID>7</ID>
+		<Name>Pressure Plate</Name>
+		<defDescription>The ground seems a bit of, with a few of the bricks sticking up a bit.</defDescription>
+		<hint>Perhaps poking it with something long is safer.</hint>
+		<disDescription>With successful pokes, the long stick sets off the traps.</disDescription>
+		<failedDescription>A flurry of traquilizer darts fly out, knocking you out cold.</failedDescription>
+		<itemNeeded>Long Stick</itemNeeded>
+	</Trap>
+	<Trap>
+		<ID>8</ID>
+		<Name>Spiders</Name>
+		<defDescription>The ground and walls are covered with several spiders.</defDescription>
+		<hint>Something to scare them away would suffice, such as a flame or fire.</hint>
+		<disDescription>With a few brushes of the torch, the spiders scurry away into the cracks of the wall.</disDescription>
+		<failedDescription>The spiders pounce.</failedDescription>
+		<itemNeeded>Torch</itemNeeded>
+	</Trap>
+	<Trap>
+		<ID>9</ID>
+		<Name>Quick Sand</Name>
+		<defDescription>The sand here seems to be untrustworthy.</defDescription>
+		<hint>A bridge here would suffice.</hint>
+		<disDescription>The board lays across the sand, creating a bridge.</disDescription>
+		<failedDescription>You sink into the sand rapidly.</failedDescription>
+		<itemNeeded>Board</itemNeeded>
+	</Trap>
+	<Trap>
+		<ID>10</ID>
+		<Name>Tranquilizer Darts</Name>
+		<defDescription>A hall filled with pressure plates lie ahead, with dart guns lining the walls.</defDescription>
+		<hint>Maybe rolling something down the hall can deactivate the traps.</hint>
+		<disDescription>Rolling the wheels, the traps activate, sending darts flying across the room.</disDescription>
+		<failedDescription>You become a porcupine.</failedDescription>
+		<itemNeeded>Heavy Wheels</itemNeeded>
+	</Trap>
+	<Trap>
+		<ID>11</ID>
+		<Name>Spike Trap</Name>
+		<defDescription>A bottomless pit filled with spikes at the bottom.</defDescription>
+		<hint>Perhaps using something long to swing across should work.</hint>
+		<disDescription>Using the rope, you are able to swing across.</disDescription>
+		<failedDescription>You fall into the pit full of spikes.</failedDescription>
+		<itemNeeded>Rope</itemNeeded>
+	</Trap>
+	<Trap>
+		<ID>12</ID>
+		<Name>Trapdoor</Name>
+		<defDescription>There is a carpet here, before the door.</defDescription>
+		<hint>It seems that the door needs a key.</hint>
+		<disDescription>The key clicks open the door.</disDescription>
+		<failedDescription>The carpet gives, revealing itself to be a hidden trapdoor as you fall into the dark.</failedDescription>
+		<itemNeeded>Captain's Key</itemNeeded>
+	</Trap>
+	<Trap>
+		<ID>13</ID>
+		<Name>Poisonous Gas</Name>
+		<defDescription>There is a thick gas here, making it hard to breath.</defDescription>
+		<hint>The gas might be flammable, though.</hint>
+		<disDescription>The flames is able to extinguish the gas with ease.</disDescription>
+		<failedDescription>The gas engulfs your lungs, knocking you out.</failedDescription>
+		<itemNeeded>Torch</itemNeeded>
+	</Trap>
+</Trap-data>

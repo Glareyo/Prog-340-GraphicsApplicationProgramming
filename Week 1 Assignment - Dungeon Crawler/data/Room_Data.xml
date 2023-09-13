@@ -8,74 +8,266 @@
 		<sRoomID>0</sRoomID>
 		<eRoomID>0</eRoomID>
 		<wRoomID>0</wRoomID>
-		<nTrapID>0</nTrapID>
-		<sTrapID>0</sTrapID>
-		<eTrapID>0</eTrapID>
-		<wTrapID>0</wTrapID>
+		<trapID>0</trapID>
 	</Room>
 	<Room>
 		<ID>1</ID>
-		<Name>Center</Name>
-		<Description>The Center Room</Description>
+		<Name>Entry </Name>
+		<Description>A large entry way, leading into a deep dungeon.</Description>
 		<nRoomID>2</nRoomID>
-		<sRoomID>3</sRoomID>
-		<eRoomID>4</eRoomID>
-		<wRoomID>5</wRoomID>
-		<nTrapID>0</nTrapID>
-		<sTrapID>0</sTrapID>
-		<eTrapID>0</eTrapID>
-		<wTrapID>0</wTrapID>
+		<sRoomID>0</sRoomID>
+		<eRoomID>0</eRoomID>
+		<wRoomID>0</wRoomID>
+		<trapID>0</trapID>
 	</Room>
 	<Room>
 		<ID>2</ID>
-		<Name>North</Name>
-		<Description>The North Room</Description>
+		<Name>Main Corridor</Name>
+		<Description>A large room with arching ceilings, cracked with age.</Description>
 		<nRoomID>0</nRoomID>
 		<sRoomID>1</sRoomID>
-		<eRoomID>0</eRoomID>
-		<wRoomID>0</wRoomID>
-		<nTrapID>0</nTrapID>
-		<sTrapID>0</sTrapID>
-		<eTrapID>0</eTrapID>
-		<wTrapID>0</wTrapID>
+		<eRoomID>3</eRoomID>
+		<wRoomID>5</wRoomID>
+		<trapID>1</trapID>
 	</Room>
 	<Room>
 		<ID>3</ID>
-		<Name>South</Name>
-		<Description>The South Room</Description>
-		<nRoomID>1</nRoomID>
+		<Name>Hallway</Name>
+		<Description>A small, stone bricked hallway.</Description>
+		<nRoomID>11</nRoomID>
 		<sRoomID>0</sRoomID>
-		<eRoomID>0</eRoomID>
-		<wRoomID>0</wRoomID>
-		<nTrapID>0</nTrapID>
-		<sTrapID>0</sTrapID>
-		<eTrapID>0</eTrapID>
-		<wTrapID>0</wTrapID>
+		<eRoomID>4</eRoomID>
+		<wRoomID>2</wRoomID>
+		<trapID>2</trapID>
 	</Room>
 	<Room>
 		<ID>4</ID>
-		<Name>East</Name>
-		<Description>The East Room</Description>
+		<Name>Prisoner Room</Name>
+		<Description>A small room filled with old cells.</Description>
 		<nRoomID>0</nRoomID>
 		<sRoomID>0</sRoomID>
 		<eRoomID>0</eRoomID>
-		<wRoomID>1</wRoomID>
-		<nTrapID>0</nTrapID>
-		<sTrapID>0</sTrapID>
-		<eTrapID>0</eTrapID>
-		<wTrapID>0</wTrapID>
+		<wRoomID>3</wRoomID>
+		<trapID>0</trapID>
 	</Room>
 	<Room>
 		<ID>5</ID>
-		<Name>West</Name>
-		<Description>The West Room</Description>
+		<Name>Hallway</Name>
+		<Description>A long, stone bricked hallway.</Description>
 		<nRoomID>0</nRoomID>
 		<sRoomID>0</sRoomID>
-		<eRoomID>1</eRoomID>
+		<eRoomID>2</eRoomID>
+		<wRoomID>6</wRoomID>
+		<trapID>0</trapID>
+	</Room>
+	<Room>
+		<ID>6</ID>
+		<Name>Waiting Room</Name>
+		<Description>A small room with a few chairs.</Description>
+		<nRoomID>7</nRoomID>
+		<sRoomID>10</sRoomID>
+		<eRoomID>5</eRoomID>
 		<wRoomID>0</wRoomID>
-		<nTrapID>0</nTrapID>
-		<sTrapID>0</sTrapID>
-		<eTrapID>0</eTrapID>
-		<wTrapID>0</wTrapID>
+		<trapID>7</trapID>
+	</Room>
+	<Room>
+		<ID>7</ID>
+		<Name>Hallway</Name>
+		<Description>A 3 point hall with a dimly lit wall torch.</Description>
+		<nRoomID>0</nRoomID>
+		<sRoomID>6</sRoomID>
+		<eRoomID>8</eRoomID>
+		<wRoomID>9</wRoomID>
+		<trapID>0</trapID>
+	</Room>
+	<Room>
+		<ID>8</ID>
+		<Name>Restrooms</Name>
+		<Description>A small room with medieval toilets.</Description>
+		<nRoomID>0</nRoomID>
+		<sRoomID>0</sRoomID>
+		<eRoomID>0</eRoomID>
+		<wRoomID>7</wRoomID>
+		<trapID>0</trapID>
+	</Room>
+	<Room>
+		<ID>9</ID>
+		<Name>Servant Quarters</Name>
+		<Description>A small room with a few beds and tables.</Description>
+		<nRoomID>0</nRoomID>
+		<sRoomID>0</sRoomID>
+		<eRoomID>7</eRoomID>
+		<wRoomID>0</wRoomID>
+		<trapID>8</trapID>
+	</Room>
+	<Room>
+		<ID>10</ID>
+		<Name>Servant Quarters</Name>
+		<Description>A larger room with bunkbeds and tables.</Description>
+		<nRoomID>6</nRoomID>
+		<sRoomID>0</sRoomID>
+		<eRoomID>0</eRoomID>
+		<wRoomID>0</wRoomID>
+		<trapID>0</trapID>
+	</Room>
+	<Room>
+		<ID>11</ID>
+		<Name>Grand Dining Hall</Name>
+		<Description>A large dining hall with an elongated table.</Description>
+		<nRoomID>13</nRoomID>
+		<sRoomID>3</sRoomID>
+		<eRoomID>12</eRoomID>
+		<wRoomID>0</wRoomID>
+		<trapID>0</trapID>
+	</Room>
+	<Room>
+		<ID>12</ID>
+		<Name>Kitchen</Name>
+		<Description>A small cooking area with stoves and tables.</Description>
+		<nRoomID>0</nRoomID>
+		<sRoomID>0</sRoomID>
+		<eRoomID>0</eRoomID>
+		<wRoomID>11</wRoomID>
+		<trapID>3</trapID>
+	</Room>
+	<Room>
+		<ID>13</ID>
+		<Name>Hallway</Name>
+		<Description>A 4-way hallway.</Description>
+		<nRoomID>16</nRoomID>
+		<sRoomID>11</sRoomID>
+		<eRoomID>14</eRoomID>
+		<wRoomID>17</wRoomID>
+		<trapID>4</trapID>
+	</Room>
+	<Room>
+		<ID>14</ID>
+		<Name>East Catacombs</Name>
+		<Description>A small room lined with coffins and burials.</Description>
+		<nRoomID>15</nRoomID>
+		<sRoomID>0</sRoomID>
+		<eRoomID>0</eRoomID>
+		<wRoomID>13</wRoomID>
+		<trapID>0</trapID>
+	</Room>
+	<Room>
+		<ID>15</ID>
+		<Name>Northeast Catacombs</Name>
+		<Description>A small room lined with coffins and burials.</Description>
+		<nRoomID>0</nRoomID>
+		<sRoomID>14</sRoomID>
+		<eRoomID>0</eRoomID>
+		<wRoomID>16</wRoomID>
+		<trapID>13</trapID>
+	</Room>
+	<Room>
+		<ID>16</ID>
+		<Name>North Catacombs</Name>
+		<Description>A small room lined with coffins and burials.</Description>
+		<nRoomID>0</nRoomID>
+		<sRoomID>13</sRoomID>
+		<eRoomID>15</eRoomID>
+		<wRoomID>0</wRoomID>
+		<trapID>0</trapID>
+	</Room>
+	<Room>
+		<ID>17</ID>
+		<Name>Grand Entry</Name>
+		<Description>A large room with a single arching way leading to a shining room at the end of the corridor.</Description>
+		<nRoomID>23</nRoomID>
+		<sRoomID>0</sRoomID>
+		<eRoomID>13</eRoomID>
+		<wRoomID>18</wRoomID>
+		<trapID>0</trapID>
+	</Room>
+	<Room>
+		<ID>18</ID>
+		<Name>Hallway</Name>
+		<Description>An old hallway.</Description>
+		<nRoomID>21</nRoomID>
+		<sRoomID>19</sRoomID>
+		<eRoomID>17</eRoomID>
+		<wRoomID>20</wRoomID>
+		<trapID>0</trapID>
+	</Room>
+	<Room>
+		<ID>19</ID>
+		<Name>Armory</Name>
+		<Description>A large room filled with armors, weapons, crossbows, and other medieval weaponry.</Description>
+		<nRoomID>18</nRoomID>
+		<sRoomID>0</sRoomID>
+		<eRoomID>0</eRoomID>
+		<wRoomID>0</wRoomID>
+		<trapID>5</trapID>
+	</Room>
+	<Room>
+		<ID>20</ID>
+		<Name>Captain's Quarters</Name>
+		<Description>A small room with an elegant desk.</Description>
+		<nRoomID>0</nRoomID>
+		<sRoomID>0</sRoomID>
+		<eRoomID>18</eRoomID>
+		<wRoomID>0</wRoomID>
+		<trapID>12</trapID>
+	</Room>
+	<Room>
+		<ID>21</ID>
+		<Name>Watchroom</Name>
+		<Description>A small room with 2 chairs.</Description>
+		<nRoomID>0</nRoomID>
+		<sRoomID>18</sRoomID>
+		<eRoomID>0</eRoomID>
+		<wRoomID>22</wRoomID>
+		<trapID>0</trapID>
+	</Room>
+	<Room>
+		<ID>22</ID>
+		<Name>Guard Quarters</Name>
+		<Description>A large room filled with bunkbed, weapons, and tables.</Description>
+		<nRoomID>0</nRoomID>
+		<sRoomID>0</sRoomID>
+		<eRoomID>21</eRoomID>
+		<wRoomID>0</wRoomID>
+		<trapID>6</trapID>
+	</Room>
+	<Room>
+		<ID>23</ID>
+		<Name>1st Corridor</Name>
+		<Description>An elongated corridor with arching ceilings and a stony brick road.</Description>
+		<nRoomID>24</nRoomID>
+		<sRoomID>17</sRoomID>
+		<eRoomID>0</eRoomID>
+		<wRoomID>0</wRoomID>
+		<trapID>9</trapID>
+	</Room>
+	<Room>
+		<ID>24</ID>
+		<Name>2nd Corridor</Name>
+		<Description>An elongated corridor with arching ceilings and a stony brick road.</Description>
+		<nRoomID>25</nRoomID>
+		<sRoomID>23</sRoomID>
+		<eRoomID>0</eRoomID>
+		<wRoomID>0</wRoomID>
+		<trapID>10</trapID>
+	</Room>
+	<Room>
+		<ID>25</ID>
+		<Name>3rd Corridor</Name>
+		<Description>An elongated corridor with arching ceilings and a stony brick road.</Description>
+		<nRoomID>26</nRoomID>
+		<sRoomID>24</sRoomID>
+		<eRoomID>0</eRoomID>
+		<wRoomID>0</wRoomID>
+		<trapID>11</trapID>
+	</Room>
+	<Room>
+		<ID>26</ID>
+		<Name>Relic Room</Name>
+		<Description>A large, shiny room with a single pedestal in the center.</Description>
+		<nRoomID>0</nRoomID>
+		<sRoomID>25</sRoomID>
+		<eRoomID>0</eRoomID>
+		<wRoomID>0</wRoomID>
+		<trapID>0</trapID>
 	</Room>
 </Room-data>
