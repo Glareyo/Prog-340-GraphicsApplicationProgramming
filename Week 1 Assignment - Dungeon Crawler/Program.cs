@@ -8,6 +8,11 @@ namespace Week_1_Assignment___Dungeon_Crawler
 {
     internal class Program
     {
+        /// <summary>
+        /// Nehemiah Cedillo
+        /// PROG 340 01 Graphics Application Programming 
+        /// </summary>
+
         //Credits
         //ASCII art generated from TextKool ASCII Art Generator
         //https://textkool.com/en/ascii-art-generator?hl=controlled%20smushing&vl=controlled%20smushing&font=Puffy&text=The%20Ancient%20Relic
