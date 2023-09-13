@@ -93,6 +93,6 @@
 	<Item>
 		<Name>Ancient Relic</Name>
 		<Description>The ancient relic.</Description>
-		<LocationID>1</LocationID>
+		<LocationID>26</LocationID>
 	</Item>
 </Item-data>
