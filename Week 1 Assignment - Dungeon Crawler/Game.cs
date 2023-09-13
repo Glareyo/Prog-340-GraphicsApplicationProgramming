@@ -50,15 +50,14 @@ namespace Week_1_Assignment___Dungeon_Crawler
                 DisplayUI(player.location); //Display UI
 
                 //Check for win/lose conditions
-                runningGame = CheckLives();
-                runningGame = CheckForRelic();
+                runningGame = CheckConditions();
             }
 
             //Rerun the game if there is a win/lose scenario
             RunGame();
         }
 
-        bool CheckLives()
+        bool CheckConditions()
         {
             if (player.lives <= 0) //Player lost all lives
             {
@@ -72,11 +71,6 @@ namespace Week_1_Assignment___Dungeon_Crawler
                 Continue();
                 return false;
             }
-            else
-                return true;
-        }
-        bool CheckForRelic()
-        {
             foreach (Item i in player.inventory)
                 if (i.Name == "Ancient Relic") //Player obtained relic
                 {
@@ -87,10 +81,8 @@ namespace Week_1_Assignment___Dungeon_Crawler
                     return false;
                 }
 
-
             return true;
         }
-
 
         //Player actions
         public void GetPlayerInput()
