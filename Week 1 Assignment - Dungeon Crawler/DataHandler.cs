@@ -7,9 +7,13 @@ using System.Xml;
 
 namespace Week_1_Assignment___Dungeon_Crawler
 {
+    //Handles the data as well as reading and instantiating items from a XML markup document
+    //Using some code I created from previous courses, such as Programming 201.
+
     public class DataHandler
     {
-        List<Room> allRooms;
+        //Holds all the items and data.
+        List<Room> allRooms; 
         List<Item> allItems;
         List<Trap> allTraps;
 
@@ -23,11 +27,13 @@ namespace Week_1_Assignment___Dungeon_Crawler
             allItems = new List<Item>();
             allTraps = new List<Trap>();
 
+            //Create the items
             CreateTraps();
             CreateRooms();
             CreateItems();
         }
 
+        //Searches through the data lists to find target items
         public Room GetRoom(int id)
         {
             foreach (Room r in allRooms)
@@ -41,6 +47,9 @@ namespace Week_1_Assignment___Dungeon_Crawler
                 if (id == t.GetID) return t;
             return null;
         }
+
+
+
         void CreateTraps()
         {
             string file = "Trap_Data";
@@ -84,7 +93,6 @@ namespace Week_1_Assignment___Dungeon_Crawler
             string file = "Item_Data";
             string root = "Item-data/Item";
 
-
             foreach (XmlElement i in GetList(file, root))
             {
                 string n = i.ChildNodes[0].InnerText;
@@ -99,11 +107,13 @@ namespace Week_1_Assignment___Dungeon_Crawler
 
 
         XmlNodeList GetList(string file, string rootName)
-        {
+        {//This searches for the file that the data can be found it for instantiating items.
+
             XmlDocument doc = new XmlDocument();
-            doc.Load($"../../data/{file}.xml");
+            doc.Load($"../../data/{file}.xml"); //Load the document
 
             XmlNode root = doc.DocumentElement;
+            //return the root so that the methods can read off the information
             return root.SelectNodes($"/{rootName}");
         }
     }

@@ -13,13 +13,8 @@ namespace Week_1_Assignment___Dungeon_Crawler
         Player player;
         static DataHandler dataHandler;
 
-        public void RunGame()
+        void Introduction()
         {
-            player = new Player();
-            dataHandler = new DataHandler();
-
-            player.location = dataHandler.GetRoom(1);
-
             Prompt("Hello Player!");
             player.name = PromptAndAnswer("Please enter your name: ");
 
@@ -35,6 +30,15 @@ namespace Week_1_Assignment___Dungeon_Crawler
 
             Console.WriteLine("\n");
             Continue();
+        }
+        public void RunGame()
+        {
+            player = new Player();
+            dataHandler = new DataHandler();
+
+            player.location = dataHandler.GetRoom(1);
+
+            Introduction();
 
             DisplayUI(player.location);
 
@@ -42,18 +46,21 @@ namespace Week_1_Assignment___Dungeon_Crawler
 
             while (runningGame)
             {
-                GetPlayerInput();
-                DisplayUI(player.location);
+                GetPlayerInput(); //Get player input
+                DisplayUI(player.location); //Display UI
+
+                //Check for win/lose conditions
                 runningGame = CheckLives();
                 runningGame = CheckForRelic();
             }
 
+            //Rerun the game if there is a win/lose scenario
             RunGame();
         }
 
         bool CheckLives()
         {
-            if (player.lives <= 0)
+            if (player.lives <= 0) //Player lost all lives
             {
                 Console.Clear();
                 Console.WriteLine();
@@ -71,7 +78,7 @@ namespace Week_1_Assignment___Dungeon_Crawler
         bool CheckForRelic()
         {
             foreach (Item i in player.inventory)
-                if (i.Name == "Ancient Relic")
+                if (i.Name == "Ancient Relic") //Player obtained relic
                 {
                     Console.Clear();
                     Console.WriteLine();
@@ -83,6 +90,9 @@ namespace Week_1_Assignment___Dungeon_Crawler
 
             return true;
         }
+
+
+        //Player actions
         public void GetPlayerInput()
         {//Handles the controls of the player
             //Get input
@@ -93,6 +103,7 @@ namespace Week_1_Assignment___Dungeon_Crawler
 
             switch (input)
             {
+                //Move the player
                 case "n": MovePlayer(input);
                     break;
                 case "s": MovePlayer(input);
@@ -101,26 +112,22 @@ namespace Week_1_Assignment___Dungeon_Crawler
                     break;
                 case "w": MovePlayer(input);
                     break;
-                case "p":
+                case "p": //Pickup items
                     bool running = true;
                     Console.Clear();
                     Console.WriteLine();
-                    if (player.location.loot.Count <= 0)
+                    if (player.location.loot.Count <= 0) //No items
                         UnaccessiblePrompt("There are no items here...");
                     else
-                    {
                         while (running)
                             if (player.location.loot.Count > 0)
                                 running = PickupItem(player.location);
-                    }
                     break;
-                case "i":
+                case "i": //Check inventory
                     Print_Underline("Your Inventory", ConsoleColor.Cyan, true);
                     Console.WriteLine();
                     for (int i = 0; i < player.inventory.Count; i++)
-                    {
                         Print($"{i+1}. ", $"{player.inventory[i].Name}","",ConsoleColor.White,ConsoleColor.Cyan,ConsoleColor.White,true,false);
-                    }
                     Continue();
                     break;
                 default: InvalidInput();
@@ -131,6 +138,7 @@ namespace Week_1_Assignment___Dungeon_Crawler
         {
             int targetRoomId = 0;
             int targetDir = 0;
+            //Target directions
             string[] dir = { "North", "South", "East", "West" };
 
             direction = direction.ToLower();
@@ -152,6 +160,7 @@ namespace Week_1_Assignment___Dungeon_Crawler
             {
                 Room targetRoom = dataHandler.GetRoom(targetRoomId);
                 if (targetRoom.GetTrap != null && targetRoom.GetTrap.isDisarmed == false)
+                    //There's a trap in the room.
                     InteractWithTrap(targetRoom.GetTrap);
                 else
                     player.location = targetRoom;
@@ -167,20 +176,23 @@ namespace Week_1_Assignment___Dungeon_Crawler
 
             while (!inputValid)
             {
-
+                //Display trap information
                 Print_Underline(t.GetName, ConsoleColor.Red, true);
                 Print(t.GetDefaultDescript, ConsoleColor.White, true, false);
                 Print(t.GetHint, ConsoleColor.Cyan, true, false);
                 Console.WriteLine();
+
+                //Prompt for action from player
                 Print_Underline("Select an Item to Use", ConsoleColor.Green, true);
 
+                //Display items and options
                 Print("0.", " - ", "Cancel", ConsoleColor.Green, ConsoleColor.White, ConsoleColor.Red, true, false);
                 for (int i = 0; i < player.inventory.Count; i++)
                     Print($"{i + 1}.", " - ", player.inventory[i].Name, ConsoleColor.Green, ConsoleColor.White, ConsoleColor.Cyan, true, false);
-                
+                //Get player input                
                 try
                 {
-                    input = Convert.ToInt32(Console.ReadLine());
+                    input = Convert.ToInt32(Console.ReadLine()); //Convert input to int.
                     input--;
 
                     Console.Clear();
@@ -188,10 +200,7 @@ namespace Week_1_Assignment___Dungeon_Crawler
 
                     if (input == -1) inputValid = true;
                     else if (input < 0 || input >= player.inventory.Count)
-                    {
                         UnaccessiblePrompt("Invalid Input");
-                    }
-
                     else
                         inputValid = true;
                 }
@@ -227,16 +236,13 @@ namespace Week_1_Assignment___Dungeon_Crawler
         }
         public bool PickupItem(Room CurrentLocation)
         {
+            //Prompt player
             Print("Select an item to loot...",ConsoleColor.Green,true,false);
-
             Print("0".ToString(), " - ", $"Cancel", ConsoleColor.Green, ConsoleColor.White, ConsoleColor.Red,true, false);
 
             for (int i = 0; i < CurrentLocation.loot.Count; i++)
                 Print((i+1).ToString(), " - ", $"{CurrentLocation.loot[i].Name}", ConsoleColor.Green, ConsoleColor.White, ConsoleColor.Red,true, false);
-
             int input;
-
-
             try
             {
                 input = Convert.ToInt32(Console.ReadLine());
@@ -248,10 +254,10 @@ namespace Week_1_Assignment___Dungeon_Crawler
                 UnaccessiblePrompt("Invalid Input");
                 return true;
             }
-
             Console.Clear();
             Console.WriteLine();
 
+            //Determine if player selected an item, or canceled
             if (input == 0) return false;
             else if (input > 0 && input <= CurrentLocation.loot.Count)
             {
@@ -271,20 +277,25 @@ namespace Week_1_Assignment___Dungeon_Crawler
             string[] directions = { "North", "South", "East", "West" };
             int[] roomIDs = CurrentLocation.GetAdjRoomIDs;
 
+            //Changes status depending on number of lives.
             ConsoleColor status = ConsoleColor.Black;
 
-            if (player.lives == 3) status = ConsoleColor.Green;
-            else if (player.lives == 2) status = ConsoleColor.Yellow;
-            else if (player.lives == 1) status = ConsoleColor.Red;
+            if (player.lives == 3) status = ConsoleColor.Green; //Good
+            else if (player.lives == 2) status = ConsoleColor.Yellow; //Ok
+            else if (player.lives == 1) status = ConsoleColor.Red; //Bad
 
+            //Print UI
             Print("Adventurer: ", $"{player.name}", "      Lives: ", $"{player.lives}", ConsoleColor.Green, ConsoleColor.Cyan, ConsoleColor.Cyan, status, true, false);
             GenerateBorderLine();
+            
+            //Show Location
             Print_Underline(CurrentLocation.GetName, ConsoleColor.Magenta,true);
             Print(CurrentLocation.GetDescription,ConsoleColor.White,true,false);
             foreach (Item i in CurrentLocation.loot)
                 Print("There is a ", i.Name, " here", ConsoleColor.White, ConsoleColor.Cyan, ConsoleColor.White,true, false);
             Console.WriteLine();
 
+            //Display controls
             Print_Underline("Inputs:", ConsoleColor.Green,true);
             for (int i = 0; i < 4; i++)
             {

@@ -7,8 +7,14 @@ using System.Threading.Tasks;
 
 namespace Week_1_Assignment___Dungeon_Crawler
 {
+    /// <summary>
+    /// This class is static, so that the game can quickly call upon a variety of print options for specific tasks
+    /// or highlight specific moments and information.
+    /// </summary>
+    
     public static class UIUtility
     {
+        //Used to center strings
         static void CreateSpaces(string message)
         {
             //Get the window width and divide be two
@@ -23,6 +29,8 @@ namespace Week_1_Assignment___Dungeon_Crawler
             for (int i = 0; i < spaces; i++) s += " ";
             Console.Write(s);
         }
+
+        //These methods are used to Make the strings the print out on the console appear centered.
         public static void CenterString(string message, bool inline)
         {
             CreateSpaces(message);
@@ -62,7 +70,9 @@ namespace Week_1_Assignment___Dungeon_Crawler
             
             Console.ResetColor();
         }
-        //For if the player attempts to go into a wall.
+
+
+        //For if the player attempts to go into a wall, or cannot do a certain action.
         public static void UnaccessiblePrompt(string message = "You cannot go that way")
         {
             Console.ForegroundColor = ConsoleColor.Red;
@@ -75,6 +85,8 @@ namespace Week_1_Assignment___Dungeon_Crawler
             CenterString(message, ConsoleColor.White,false);
             Console.ResetColor();
         }
+        
+        //Allows user input
         public static string PromptAndAnswer(string message)
         {
             string answer = "";
@@ -89,6 +101,9 @@ namespace Week_1_Assignment___Dungeon_Crawler
 
             return answer;
         }
+        
+        
+        //Multiple print options, such as being able to have different colors within a single line.
         public static void Print(string message, ConsoleColor color, bool centerString, bool inLine)
         {
             Console.ForegroundColor = color;
@@ -145,6 +160,9 @@ namespace Week_1_Assignment___Dungeon_Crawler
 
             Console.ResetColor();
         }
+        
+        
+        //Acts as a buffer for the player to continue forward.
         public static void Continue()
         {
             Console.WriteLine();
@@ -154,13 +172,19 @@ namespace Week_1_Assignment___Dungeon_Crawler
             Console.WriteLine();
         }
 
+        //Create a full screen border
         public static void GenerateBorderLine()
         {
-            for (int i = 0; i <= Console.WindowWidth; i++)
+            for (int i = 0; i < Console.WindowWidth; i++)
                 Console.Write("-");
             Console.WriteLine();
         }
 
+
+
+        //ASCII Arts
+        //ASCII art generated from TextKool ASCII Art Generator
+        //https://textkool.com/en/ascii-art-generator?hl=controlled%20smushing&vl=controlled%20smushing&font=Puffy&text=The%20Ancient%20Relic
         public static void GameWon()
         {
             //ASCII art generated from TextKool ASCII Art Generator

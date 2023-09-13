@@ -14,8 +14,9 @@ namespace Week_1_Assignment___Dungeon_Crawler
 
         static void Main(string[] args)
         {
+            //Create a new game
             Game game = new Game();
-            game.RunGame();
+            game.RunGame(); //Begin game
         }
     }
 }

@@ -8,6 +8,7 @@ namespace Week_1_Assignment___Dungeon_Crawler
 {
     public class Item
     {
+        //Item class
         string name;
         string description;
 

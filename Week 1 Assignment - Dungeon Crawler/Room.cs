@@ -26,6 +26,8 @@ namespace Week_1_Assignment___Dungeon_Crawler
         //Items in room
         public List<Item> loot = new List<Item>();
 
+
+        //Encapsulation so that the information does not change.
         public int GetID { get { return id; } }
         public string GetDescription { get { return description; } }
         public string GetName { get { return name; } }
@@ -34,6 +36,8 @@ namespace Week_1_Assignment___Dungeon_Crawler
         public int GetERoomID { get { return eRoomID; } }
         public int GetWRoomID { get { return wRoomID; } }
         public Trap GetTrap { get { return trap; } }
+
+
 
         //Give all room IDs via N,S,E,W
         public int[] GetAdjRoomIDs { get { return new int[] { nRoomID,sRoomID,eRoomID,wRoomID}; } }
