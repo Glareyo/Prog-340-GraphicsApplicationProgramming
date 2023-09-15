@@ -33,6 +33,7 @@ form{
 
 .result-section{
     margin-top: 2rem;
+    font-weight: bold;
 
     display: flex;
     flex-direction: column;
