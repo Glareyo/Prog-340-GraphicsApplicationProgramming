@@ -1,3 +1,4 @@
+// https://www.youtube.com/watch?v=hdI2bqOjy3c
 document.getElementById('main-form');
 
 const btn = document.getElementById('my-btn');
@@ -26,8 +27,8 @@ btn.addEventListener('click',(e) => {
     
     
     product.appendChild(document.createTextNode(n1 + n2));
+
+    // https://www.bing.com/search?q=javascript+square+root&qs=AS&pq=javascript+square&sc=10-17&cvid=8ABF9FBD6207418AAE549B4AB66A0D1B&FORM=QBRE&sp=1&ghc=1&lq=0
     result1.appendChild(document.createTextNode(Math.sqrt(n1)));
     result2.appendChild(document.createTextNode(Math.sqrt(n2)));
-
-    //document.querySelector('#product-result'). = 'Hello';
 });
