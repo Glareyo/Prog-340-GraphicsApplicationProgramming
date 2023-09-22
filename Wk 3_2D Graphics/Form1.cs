@@ -38,11 +38,31 @@ namespace Wk_3_2D_Graphics
             int moonY = 0;
             int moonSize = 300;
 
+            int fenceY = Size.Height-220;
+            int fenceThickness = 10;
+
+
             #region Background
             e.Graphics.FillRegion(Brushes.DarkBlue,new Region(new Rectangle(0,0,Size.Width,Size.Height)));
             e.Graphics.FillRegion(Brushes.DarkGreen, new Region(new Rectangle(0, Size.Height - (Size.Height / 3), Size.Width, Size.Height)));
             e.Graphics.FillEllipse(Brushes.GhostWhite, moonX - moonSize/2, moonY - moonSize/2, moonSize, moonSize);
-            
+
+            #endregion
+
+            #region Fence Line
+            //Fence Top
+            e.Graphics.FillRectangle(Brushes.Brown, 0, fenceY, Size.Width, fenceThickness);
+            e.Graphics.DrawRectangle(outlinePen, 0, fenceY, Size.Width, fenceThickness);
+            //Fence Bottom
+            e.Graphics.FillRectangle(Brushes.Brown, 0, fenceY+fenceThickness+20, Size.Width, fenceThickness);
+            e.Graphics.DrawRectangle(outlinePen, 0, fenceY+fenceThickness+20, Size.Width, fenceThickness);
+
+            for(int fencePostCount = 0; fencePostCount < Size.Width; fencePostCount+=20)
+            {
+                e.Graphics.FillRectangle(Brushes.Brown, fencePostCount, fenceY -20, fencePostCount+10, fenceY + fenceThickness + 50);
+
+            }
+
             #endregion
 
             ///Drawings for the UFO
@@ -65,6 +85,8 @@ namespace Wk_3_2D_Graphics
                 e.Graphics.DrawEllipse(outlinePen, ufoX + (i * (ufoWidth / 5) - 15), ufoY + (ufoHeight / 2 - (circleSizes/2)), circleSizes, circleSizes);
             }
             #endregion
+
+            
 
             #region Tank: Drawings for the Tank
             RectangleF t = new RectangleF(40, 40, 20, 20);
