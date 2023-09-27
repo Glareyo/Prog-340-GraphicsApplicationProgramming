@@ -9,3 +9,14 @@ C:\Users\cedillo02\Source\Repos\Glareyo\Prog-340-GraphicsApplicationProgramming\
 C:\Users\cedillo02\Source\Repos\Glareyo\Prog-340-GraphicsApplicationProgramming\Wk 3_2D Graphics\obj\Debug\Wk 3_2D Graphics.exe
 C:\Users\cedillo02\Source\Repos\Glareyo\Prog-340-GraphicsApplicationProgramming\Wk 3_2D Graphics\obj\Debug\Wk 3_2D Graphics.pdb
 C:\Users\cedillo02\Source\Repos\Glareyo\Prog-340-GraphicsApplicationProgramming\Wk 3_2D Graphics\obj\Debug\Wk_3_2D_Graphics.Form1.resources
+C:\Users\nemo1\Source\Repos\Glareyo\Prog-340-GraphicsApplicationProgramming\Wk 3_2D Graphics\bin\Debug\Wk 3_2D Graphics.exe.config
+C:\Users\nemo1\Source\Repos\Glareyo\Prog-340-GraphicsApplicationProgramming\Wk 3_2D Graphics\bin\Debug\Wk 3_2D Graphics.exe
+C:\Users\nemo1\Source\Repos\Glareyo\Prog-340-GraphicsApplicationProgramming\Wk 3_2D Graphics\bin\Debug\Wk 3_2D Graphics.pdb
+C:\Users\nemo1\Source\Repos\Glareyo\Prog-340-GraphicsApplicationProgramming\Wk 3_2D Graphics\obj\Debug\Wk 3_2D Graphics.csproj.AssemblyReference.cache
+C:\Users\nemo1\Source\Repos\Glareyo\Prog-340-GraphicsApplicationProgramming\Wk 3_2D Graphics\obj\Debug\Wk 3_2D Graphics.csproj.SuggestedBindingRedirects.cache
+C:\Users\nemo1\Source\Repos\Glareyo\Prog-340-GraphicsApplicationProgramming\Wk 3_2D Graphics\obj\Debug\Wk_3_2D_Graphics.Form1.resources
+C:\Users\nemo1\Source\Repos\Glareyo\Prog-340-GraphicsApplicationProgramming\Wk 3_2D Graphics\obj\Debug\Wk_3_2D_Graphics.Properties.Resources.resources
+C:\Users\nemo1\Source\Repos\Glareyo\Prog-340-GraphicsApplicationProgramming\Wk 3_2D Graphics\obj\Debug\Wk 3_2D Graphics.csproj.GenerateResource.cache
+C:\Users\nemo1\Source\Repos\Glareyo\Prog-340-GraphicsApplicationProgramming\Wk 3_2D Graphics\obj\Debug\Wk 3_2D Graphics.csproj.CoreCompileInputs.cache
+C:\Users\nemo1\Source\Repos\Glareyo\Prog-340-GraphicsApplicationProgramming\Wk 3_2D Graphics\obj\Debug\Wk 3_2D Graphics.exe
+C:\Users\nemo1\Source\Repos\Glareyo\Prog-340-GraphicsApplicationProgramming\Wk 3_2D Graphics\obj\Debug\Wk 3_2D Graphics.pdb

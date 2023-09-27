@@ -20,8 +20,13 @@ namespace Wk_3_2D_Graphics
         {
             Brush brush = new SolidBrush(Color.Cyan);
             Pen outlinePen = new Pen(Color.Black, 2);
+            Font UIFont = new Font(Name, 12);
+            Font TitleFont = new Font(Name, 36);
 
             Point[] points = { new Point(50,50), new Point(100,150),new Point(20,90) };
+
+            int windowWidth = Width;
+            int windowHeight = Height;
 
             int ufoX = 450;
             int ufoY = 200;
@@ -38,30 +43,59 @@ namespace Wk_3_2D_Graphics
             int moonY = 0;
             int moonSize = 300;
 
-            int fenceY = Size.Height-220;
-            int fenceThickness = 10;
 
+            //Button Size and Locations
+            int button_width = 150;
+            int button_height = 60;
+
+            int startButton_x = 50;
+            int startButton_y = (windowHeight / 2) - button_height;
+
+            int endButton_x = 50;
+            int endButton_y = (windowHeight/2) + button_height;
+
+            //Title Size and Location
+            
+
+            int title_x = 150;
+            int title_y = 80;
+            int titleSize_x = 490;
+            int titleSize_y = 50;
+
+            int hexagon_x = title_x - 50;
+            int hexagon_y = title_y - titleSize_y / 2;
+
+            int hexagon2_x = title_x + titleSize_x - 50;
+            int hexagon2_y = title_y - titleSize_y / 2;
+
+            int hexagon_width = 100;
+            int hexagon_height = 100;
+
+            Point[] hexagonPoints1 =
+            {
+                new Point(hexagon_x+15, hexagon_y), //Top left corner - Start point
+                new Point(hexagon_x+hexagon_width-15,hexagon_y), //Top right corner
+                new Point(hexagon_x+hexagon_width,hexagon_y+(hexagon_height/2)), //Middle right corner
+                new Point(hexagon_x+hexagon_width-15,hexagon_y+hexagon_height), //Bottom Right Corner
+                new Point(hexagon_x+15, hexagon_y + hexagon_height),
+                new Point(hexagon_x,hexagon_y+(hexagon_height/2))
+
+            };
+            Point[] hexagonPoints2 =
+            {
+                new Point(hexagon2_x+15, hexagon2_y), //Top left corner - Start point
+                new Point(hexagon2_x+hexagon_width-15,hexagon2_y), //Top right corner
+                new Point(hexagon2_x+hexagon_width,hexagon2_y+(hexagon_height/2)), //Middle right corner
+                new Point(hexagon2_x+hexagon_width-15,hexagon2_y+hexagon_height), //Bottom Right Corner
+                new Point(hexagon2_x+15, hexagon2_y + hexagon_height),
+                new Point(hexagon2_x,hexagon2_y+(hexagon_height/2))
+
+            };
 
             #region Background
             e.Graphics.FillRegion(Brushes.DarkBlue,new Region(new Rectangle(0,0,Size.Width,Size.Height)));
             e.Graphics.FillRegion(Brushes.DarkGreen, new Region(new Rectangle(0, Size.Height - (Size.Height / 3), Size.Width, Size.Height)));
             e.Graphics.FillEllipse(Brushes.GhostWhite, moonX - moonSize/2, moonY - moonSize/2, moonSize, moonSize);
-
-            #endregion
-
-            #region Fence Line
-            //Fence Top
-            e.Graphics.FillRectangle(Brushes.Brown, 0, fenceY, Size.Width, fenceThickness);
-            e.Graphics.DrawRectangle(outlinePen, 0, fenceY, Size.Width, fenceThickness);
-            //Fence Bottom
-            e.Graphics.FillRectangle(Brushes.Brown, 0, fenceY+fenceThickness+20, Size.Width, fenceThickness);
-            e.Graphics.DrawRectangle(outlinePen, 0, fenceY+fenceThickness+20, Size.Width, fenceThickness);
-
-            for(int fencePostCount = 0; fencePostCount < Size.Width; fencePostCount+=20)
-            {
-                e.Graphics.FillRectangle(Brushes.Brown, fencePostCount, fenceY -20, fencePostCount+10, fenceY + fenceThickness + 50);
-
-            }
 
             #endregion
 
@@ -86,14 +120,39 @@ namespace Wk_3_2D_Graphics
             }
             #endregion
 
-            
 
             #region Tank: Drawings for the Tank
-            RectangleF t = new RectangleF(40, 40, 20, 20);
-            e.Graphics.FillRectangle(brush, t);
+            //RectangleF t = new RectangleF(40, 40, 20, 20);
+            //e.Graphics.FillRectangle(brush, t);
             #endregion
 
+            #region UI Buttons
+            e.Graphics.FillRectangle(Brushes.WhiteSmoke, startButton_x, startButton_y, button_width, button_height);
+            e.Graphics.DrawRectangle(outlinePen, startButton_x, startButton_y, button_width, button_height);
 
+            e.Graphics.FillRectangle(Brushes.WhiteSmoke, endButton_x, endButton_y, button_width, button_height);
+            e.Graphics.DrawRectangle(outlinePen, endButton_x, endButton_y, button_width, button_height);
+
+            string startGame = "Start Game";
+
+            int startButtonStringLoc_x = startButton_x + (button_width/4);
+            int startButtonStringLoc_y = startButton_y + (button_height/3);
+            e.Graphics.DrawString(startGame, UIFont, Brushes.Black, startButtonStringLoc_x, startButtonStringLoc_y);
+
+            string exitGame = "Exit Game";
+
+            int exitButtonStringLoc_x = endButton_x + (button_width / 4);
+            int exitButtonStringLoc_y = endButton_y + (button_height / 3);
+            e.Graphics.DrawString(exitGame, UIFont, Brushes.Black, exitButtonStringLoc_x, exitButtonStringLoc_y);
+
+            #endregion
+
+            #region Title
+            e.Graphics.FillPolygon(Brushes.Gray, hexagonPoints1);
+            e.Graphics.FillPolygon(Brushes.Gray, hexagonPoints2);
+            e.Graphics.FillRectangle(Brushes.SlateGray, title_x, title_y, titleSize_x, titleSize_y);
+            e.Graphics.DrawString("The Alien Abductions", TitleFont, Brushes.Yellow, title_x, title_y);
+            #endregion
         }
     }
 }
