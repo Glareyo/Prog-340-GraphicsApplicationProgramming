@@ -90,16 +90,19 @@
         var diamondShape = new THREE.Shape();
         //Attributes of the shape
 
+
         //Create Geometry
         var diamond_geometry = new THREE.ShapeGeometry(diamondShape);
         var diamond_material = new THREE.MeshLambertMaterial({color : 0xFFCC00});
         var diamond_mesh = new THREE.Mesh(diamond_geometry,diamond_material);
 
+        const tx = 0, ty = 0;
+
 
         // myScene.add(box_mesh);
         // myScene.add(sphere_mesh);
         // myScene.add(cone_mesh);
-        myScene.add(diamond_mesh);
+        // myScene.add(diamond_mesh);
 
 
         var render = function(){
