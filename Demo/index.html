@@ -61,13 +61,21 @@
         // Constructor take 2 parameters; Geometry and Material
         // Geometry = Shape ==> Smoother = More Triangles
         // Material = Visible cover, only way to actually see the mesh
-        var geometry = new THREE.BoxGeometry(1,1,1);
+        var geometry = new THREE.BoxGeometry(2,0.5,0.2);
         var material = new THREE.MeshLambertMaterial({color : 0xFFCC00});
         var mesh = new THREE.Mesh(geometry,material);
         myScene.add(mesh);
 
-        renderer.render(myScene,myProjectionCamera);
 
+        var render = function(){
+            requestAnimationFrame(render);
+            mesh.rotation.X += 0.01;
+            mesh.rotation.y += 0.01;
+            mesh.rotation.z += 0.01;
+            renderer.render(myScene,myProjectionCamera);
+        }
+
+        render();
         
         
 
