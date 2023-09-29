@@ -87,22 +87,28 @@
 
         //Shape Geometry (Make A Diamond)
         //Documentation Used - https://threejs.org/docs/index.html#api/en/geometries/ShapeGeometry
+        //Documentation Usaed - https://discoverthreejs.com/book/first-steps/built-in-geometries/#:~:text=The%20three.js%20core%20includes%20a%20large%20selection%20of,from%20basic%20cylinders%20and%20circles%20to%20exotic%20dodecahedrons.
         var diamondShape = new THREE.Shape();
         //Attributes of the shape
+        var dx = 0;
+        var dy = 0;
 
-
+        diamondShape.moveTo(dx+5,dy+5);
+        diamondShape.bezierCurveTo(dx+1,dy,dx,dy,dx,dy+0.1);
+        diamondShape.bezierCurveTo(dx,dy,dx,dy,dx,dy-0.5);
+        // diamondShape.bezierCurveTo(dx+0.1,dy+0.1,dx,dy,dx,dy);
+        // diamondShape.bezierCurveTo(dx,dy,dx,dy,dx,dy);
+        // diamondShape.bezierCurveTo(dx,dy,dx,dy,dx,dy);
         //Create Geometry
         var diamond_geometry = new THREE.ShapeGeometry(diamondShape);
         var diamond_material = new THREE.MeshLambertMaterial({color : 0xFFCC00});
         var diamond_mesh = new THREE.Mesh(diamond_geometry,diamond_material);
 
-        const tx = 0, ty = 0;
-
 
         // myScene.add(box_mesh);
         // myScene.add(sphere_mesh);
         // myScene.add(cone_mesh);
-        // myScene.add(diamond_mesh);
+        myScene.add(diamond_mesh);
 
 
         var render = function(){
