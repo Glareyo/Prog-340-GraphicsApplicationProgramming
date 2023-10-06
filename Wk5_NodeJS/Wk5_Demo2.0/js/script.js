@@ -26,14 +26,20 @@ const axesHelper = new THREE.AxesHelper(3);
 scene.add(axesHelper);
 
 // Set up the camera and update the orbit.
-camera.position.set(2,2,5);
+camera.position.set(-10,30,30);
 orbit.update();
 
 // Create the geometry and material of the box
 const boxGeo = new THREE.BoxGeometry();
-const boxMat = new THREE.MeshBasicMaterial({color: 0x00ff00});
+const boxMat = new THREE.MeshBasicMaterial({color: 0x00FF00});
 const box = new THREE.Mesh(boxGeo,boxMat);
 scene.add(box); // Add to Scene
+
+const planeGeo = new THREE.BoxGeometry();
+const planeMat = new THREE.MeshStandardMaterial({color: 0xFFFFFF, side:THREE.DoubleSide});
+const plane = new THREE.Mesh(planeGeo,planeMat);
+scene.add(plane);
+plane.rotation.x = -0.5 * Math.PI;
 
 // Animation function ==> blueprint that can be animated
 function animate(time)
@@ -45,3 +51,4 @@ function animate(time)
 
 // Loop the animation
 renderer.setAnimationLoop(animate);
+
