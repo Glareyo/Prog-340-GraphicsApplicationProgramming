@@ -2,6 +2,7 @@ import * as THREE from "three";
 
 // Reason for specifics ==> Import from a specifc module.
 import { OrbitControls } from 'three/examples/jsm/controls/OrbitControl.js';
+import { data } from "browserslist";
 
 var height = window.innerHeight;
 var width = window.innerWidth;
@@ -44,11 +45,24 @@ const plane = new THREE.Mesh(planeGeo,planeMat);
 scene.add(plane);
 plane.rotation.x = -0.5 * Math.PI;
 
-const sphereGeo = new THREE.SphereGeometry(4,36,36);
-const sphereMat = new THREE.MeshStandardMaterial({color: 0xFFFFFF, side:THREE.DoubleSide});
+const sphereGeo = new THREE.SphereGeometry(4,36,36); 
+const sphereMat = new THREE.MeshStandardMaterial({color: 0xFFFFFF,wireframe:false});
 const sphere = new THREE.Mesh(planeGeo,planeMat);
 scene.add(sphere);
+sphere.position(-10,-10,0);
 
+const gui = new dat.Gui();
+
+const guiOptions = {
+    SphereColor: '#0000FF',
+    wireFrame: true,
+    speed: .02,
+    angle: .02,
+
+};
+                        // SphereColor ==> must match name in the guiOptions
+gui.addColor(guiOptions,'SphereColor').onChange(function(e){sphere.material.color.set(e);});
+gui.add(guiOptions,'wireframe').onChange(function(e){sphere.material.wireframe = e;});
 
 // Animation function ==> blueprint that can be animated
 function animate(time)
