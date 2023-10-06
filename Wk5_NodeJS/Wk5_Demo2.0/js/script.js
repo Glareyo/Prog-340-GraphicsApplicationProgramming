@@ -1,3 +1,27 @@
+///Things to search online about
+// - NodeJS ==> Installation
+// - Adding Shadows
+// - Animations
+// - GUI options / UI Options
+
+/// V Stackoverflow Links V ///
+
+// Can't install parcel
+// https://stackoverflow.com/questions/63399475/i-cant-install-parcel-with-npm
+
+// Parcel Not Recognizing as a Command <== Maybe most important
+// https://stackoverflow.com/questions/67729696/parcel-is-not-recognized-as-an-internal-or-external-command-operable-program
+// - input 'npm uninstall parcel'
+// - input 'npm uninstall -g parcel'
+// ==> Unistalls parcels
+// Input 'npm install parcel --save-dev' ==> Another way to install parcel
+
+// Parcel Command Not Found <== Important as well.
+// https://stackoverflow.com/questions/59707387/parcel-command-not-found
+// - input 'npx parcel build index.html' ==> Might fix problem
+
+/// ^ Stackoverflow Links ^ ///
+
 import * as THREE from "three";
 
 // Reason for specifics ==> Import from a specifc module.
