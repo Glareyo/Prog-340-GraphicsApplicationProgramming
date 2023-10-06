@@ -1,5 +1,7 @@
 import * as THREE from "three";
-import {OrbitControls} from 'three/examples/jsm/controls/OrbitControl.js';
+
+// Reason for specifics ==> Import from a specifc module.
+import { OrbitControls } from 'three/examples/jsm/controls/OrbitControl.js';
 
 var height = window.innerHeight;
 var width = window.innerWidth;
