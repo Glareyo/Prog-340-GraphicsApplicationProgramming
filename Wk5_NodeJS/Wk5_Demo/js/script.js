@@ -24,6 +24,8 @@ const orbit = new OrbitControls(camera,renderer,docElement);
 // Create axes helper
 const axesHelper = new THREE.AxesHelper(3);
 scene.add(axesHelper);
+const gridHelper = new THREE.GridHelper(30);
+
 
 // Set up the camera and update the orbit.
 camera.position.set(-10,30,30);
@@ -40,6 +42,13 @@ const planeMat = new THREE.MeshStandardMaterial({color: 0xFFFFFF, side:THREE.Dou
 const plane = new THREE.Mesh(planeGeo,planeMat);
 scene.add(plane);
 plane.rotation.x = -0.5 * Math.PI;
+
+const sphereGeo = new THREE.SphereGeometry();
+const sphereMat = new THREE.MeshStandardMaterial({color: 0xFFFFFF, side:THREE.DoubleSide});
+const sphere = new THREE.Mesh(planeGeo,planeMat);
+scene.add(sphere);
+plane.rotation.x = -0.5 * Math.PI;
+
 
 // Animation function ==> blueprint that can be animated
 function animate(time)
