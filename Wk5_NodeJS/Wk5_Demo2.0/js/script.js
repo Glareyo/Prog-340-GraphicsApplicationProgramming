@@ -27,6 +27,7 @@ scene.add(myAmbientLight);
 
 //Directional light
 const myDirectionalLight = new THREE.DirectionalLight(0xFFFFFF,0.7);
+myDirectionalLight.castShadow = true;
 scene.add(myDirectionalLight);
 myDirectionalLight.position(-20,10,0);
 
@@ -53,6 +54,7 @@ scene.add(box); // Add to Scene
 const planeGeo = new THREE.BoxGeometry();
 const planeMat = new THREE.MeshStandardMaterial({color: 0xFFFFFF, side:THREE.DoubleSide});
 const plane = new THREE.Mesh(planeGeo,planeMat);
+plane.receiveShadow = true; //plane can now recieve a shadow ==> Shadow will appear on the plane
 scene.add(plane);
 plane.rotation.x = -0.5 * Math.PI;
 
@@ -60,6 +62,7 @@ plane.rotation.x = -0.5 * Math.PI;
 const sphereGeo = new THREE.SphereGeometry(4,36,36); 
 const sphereMat = new THREE.MeshStandardMaterial({color: 0xFFFFFF,wireframe:true});
 const sphere = new THREE.Mesh(sphereGeo,sphereMat);
+sphere.castShadow = true; //Sphere can now cast a shadow
 scene.add(sphere);
 sphere.position(-10,-10,0);
 
