@@ -24,7 +24,7 @@
         //Create a project camera. Requires 4 inputs
         var myProjectionCamera = new THREE.PerspectiveCamera(50,window.innerWidth/window.innerHeight,.1,1000);
         // Change camera position
-        myProjectionCamera.position.z = 2;
+        myProjectionCamera.position.z = 4;
         // Update the camera view
         myProjectionCamera.updateProjectionMatrix();
 
@@ -104,11 +104,31 @@
         // var diamond_geometry = new THREE.ShapeGeometry(diamondShape);
         // var diamond_material = new THREE.MeshLambertMaterial({color : 0xFFCC00});
         // var diamond_mesh = new THREE.Mesh(diamondShape,diamond_material);
+        const x = 0, y = 0;
 
+const heartShape = new THREE.Shape();
 
-        myScene.add(box_mesh);
-        myScene.add(sphere_mesh);
-        myScene.add(cone_mesh);
+//https://stackoverflow.com/questions/52219731/threejs-how-to-draw-shape-with-curved-edges
+// heartShape.lineTo(0,0);
+// heartShape.lineTo(0.5,0.5);
+// heartShape.lineTo(0.5,-0.5);
+
+//https://stackoverflow.com/questions/58515871/custom-shapes-with-three-js
+var coordinatesList = [
+  new THREE.Vector3(0, 0, 0),
+  new THREE.Vector3(0, 0.5, 0),
+  new THREE.Vector3(0.5, 0.5, 0)
+
+];
+
+const g = new THREE.ShapeBufferGeometry( new THREE.Shape(coordinatesList) );
+const k = new THREE.MeshBasicMaterial( { color: 0x00ff00 } );
+const e = new THREE.Mesh( g, k ) ;
+myScene.add( e );
+
+        // myScene.add(box_mesh);
+        // myScene.add(sphere_mesh);
+        // myScene.add(cone_mesh);
         // myScene.add(diamond_mesh);
 
 
