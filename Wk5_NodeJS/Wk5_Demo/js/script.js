@@ -45,3 +45,4 @@ function animate(time)
 
 // Loop the animation
 renderer.setAnimationLoop(animate);
+
