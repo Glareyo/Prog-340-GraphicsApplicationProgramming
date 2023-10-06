@@ -1,4 +1,5 @@
 import * as THREE from "three";
+import {OrbitControls} from 'three/examples/jsm/controls/OrbitControl.js';
 
 var height = window.innerHeight;
 var width = window.innerWidth;
@@ -17,6 +18,10 @@ const scene = new THREE.Scene();
 const camera = new THREE.PerspectiveCamera(45,width/height,0.1,1000);
 // Add the controls
 const orbit = new OrbitControls(camera,renderer,docElement);
+
+// Create axes helper
+const axesHelper = new THREE.AxesHelper(3);
+scene.add(axesHelper);
 
 // Set up the camera and update the orbit.
 camera.position.set(2,2,5);
