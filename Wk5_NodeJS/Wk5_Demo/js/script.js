@@ -26,7 +26,7 @@ const axesHelper = new THREE.AxesHelper(3);
 scene.add(axesHelper);
 
 // Set up the camera and update the orbit.
-camera.position.set(2,2,5);
+camera.position.set(-10,30,30);
 orbit.update();
 
 // Create the geometry and material of the box
