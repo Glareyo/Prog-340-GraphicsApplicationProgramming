@@ -46,7 +46,7 @@ scene.add(plane);
 plane.rotation.x = -0.5 * Math.PI;
 
 const sphereGeo = new THREE.SphereGeometry(4,36,36); 
-const sphereMat = new THREE.MeshStandardMaterial({color: 0xFFFFFF,wireframe:false});
+const sphereMat = new THREE.MeshStandardMaterial({color: 0xFFFFFF,wireframe:true});
 const sphere = new THREE.Mesh(planeGeo,planeMat);
 scene.add(sphere);
 sphere.position(-10,-10,0);
@@ -64,11 +64,21 @@ const guiOptions = {
 gui.addColor(guiOptions,'SphereColor').onChange(function(e){sphere.material.color.set(e);});
 gui.add(guiOptions,'wireframe').onChange(function(e){sphere.material.wireframe = e;});
 
+gui.add(guiOptions,'angle',0,1);
+gui.add(guiOptions,'speed',0,1);
+
 // Animation function ==> blueprint that can be animated
 function animate(time)
 {
     box.rotation.x = time / 1000;
     box.rotation.y = time / 1000;
+    renderer.render(scene,camera);
+
+    angle += guiOptions.speed;
+    
+    //Make the sphere bounce
+    sphere.position.y = Math.abs(Math.sin(angle));
+
     renderer.render(scene,camera);
 }
 
