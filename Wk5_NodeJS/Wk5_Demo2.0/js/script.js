@@ -26,7 +26,7 @@ import * as THREE from "three";
 
 // Reason for specifics ==> Import from a specifc module.
 import { OrbitControls } from 'three/examples/jsm/controls/OrbitControl.js';
-import { data } from "browserslist";
+import { data } from "browserslist";    
 
 var height = window.innerHeight;
 var width = window.innerWidth;
@@ -35,7 +35,7 @@ const renderer = new THREE.WebGLRenderer();
 renderer.setSize(width,height);
 renderer.shadowMap = true;
 
-document.body.appendChild(renderer,domElement);
+document.body.appendChild(renderer.domElement);
 
 //Create the scene
 const scene = new THREE.Scene();
@@ -98,7 +98,6 @@ const guiOptions = {
     wireFrame: true,
     speed: .02,
     angle: .02,
-
 };
                         // SphereColor ==> must match name in the guiOptions
 gui.addColor(guiOptions,'SphereColor').onChange(function(e){sphere.material.color.set(e);});
