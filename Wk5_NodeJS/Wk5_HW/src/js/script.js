@@ -34,8 +34,10 @@ import * as THREE from "three";
 // Reason for specifics ==> Import from a specifc module.
 import {OrbitControls} from 'three/examples/jsm/controls/OrbitControls.js';
 import {GUI} from 'dat.gui';
+import bg1 from '../img/h-default-image.png';
 
-
+// const loader = new THREE.TextureLoader('../img/h-default-image.png');
+var bgTexture = new THREE.TextureLoader().load('../img/h-default-image.png');
 
 var height = window.innerHeight;
 var width = window.innerWidth;
@@ -52,6 +54,7 @@ document.body.appendChild(renderer.domElement);
 
 //Create the scene
 const scene = new THREE.Scene();
+scene.background = bgTexture;
 
 //Create the camera
 const camera = new THREE.PerspectiveCamera(45,width/height,0.1,1000);
@@ -114,7 +117,7 @@ scene.add(ring);
 const planeGeo = new THREE.BoxGeometry(30,30,0.4);
 const planeMat = new THREE.MeshBasicMaterial({color: 0xFFFFFF, side:THREE.DoubleSide});
 const plane = new THREE.Mesh(planeGeo,planeMat);
-planeMat.color.setRGB(1,1,1);
+planeMat.color.setRGB(0,0.5,0);
 
 plane.position.set(0,0,0);
 plane.receiveShadow = true; //plane can now recieve a shadow ==> Shadow will appear on the plane

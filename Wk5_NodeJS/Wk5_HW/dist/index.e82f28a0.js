@@ -598,10 +598,15 @@ function hmrAccept(bundle /*: ParcelRequire */ , id /*: string */ ) {
 // https://stackoverflow.com/questions/59707387/parcel-command-not-found
 // - input 'npx parcel build index.html' ==> Might fix problem
 /// ^ Stackoverflow Links ^ ///
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 var _three = require("three");
 // Reason for specifics ==> Import from a specifc module.
 var _orbitControlsJs = require("three/examples/jsm/controls/OrbitControls.js");
 var _datGui = require("dat.gui");
+var _hDefaultImagePng = require("../img/h-default-image.png");
+var _hDefaultImagePngDefault = parcelHelpers.interopDefault(_hDefaultImagePng);
+// const loader = new THREE.TextureLoader('../img/h-default-image.png');
+var bgTexture = new _three.TextureLoader().load("../img/h-default-image.png");
 var height = window.innerHeight;
 var width = window.innerWidth;
 var renderer = new _three.WebGLRenderer();
@@ -613,6 +618,7 @@ renderer.shadowMap = true;
 document.body.appendChild(renderer.domElement);
 //Create the scene
 const scene = new _three.Scene();
+scene.background = bgTexture;
 //Create the camera
 const camera = new _three.PerspectiveCamera(45, width / height, 0.1, 1000);
 const orbit = new (0, _orbitControlsJs.OrbitControls)(camera, renderer.domElement);
@@ -658,7 +664,7 @@ const planeMat = new _three.MeshBasicMaterial({
     side: _three.DoubleSide
 });
 const plane = new _three.Mesh(planeGeo, planeMat);
-planeMat.color.setRGB(1, 1, 1);
+planeMat.color.setRGB(0, 0.5, 0);
 plane.position.set(0, 0, 0);
 plane.receiveShadow = true; //plane can now recieve a shadow ==> Shadow will appear on the plane
 scene.add(plane);
@@ -687,7 +693,7 @@ function animate(time) {
 }
 renderer.setAnimationLoop(animate);
 
-},{"three":"ktPTu","three/examples/jsm/controls/OrbitControls.js":"7mqRv","dat.gui":"k3xQk"}],"ktPTu":[function(require,module,exports) {
+},{"three":"ktPTu","three/examples/jsm/controls/OrbitControls.js":"7mqRv","dat.gui":"k3xQk","../img/h-default-image.png":"l8Q64","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"ktPTu":[function(require,module,exports) {
 /**
  * @license
  * Copyright 2010-2023 Three.js Authors
@@ -33765,6 +33771,44 @@ var index = {
 };
 exports.default = index;
 
-},{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}]},["4FFYD","dV6cC"], "dV6cC", "parcelRequire0a00")
+},{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"l8Q64":[function(require,module,exports) {
+module.exports = require("233b2ff74a6d96b8").getBundleURL("2MSMO") + "h-default-image.29345b3e.png" + "?" + Date.now();
+
+},{"233b2ff74a6d96b8":"lgJ39"}],"lgJ39":[function(require,module,exports) {
+"use strict";
+var bundleURL = {};
+function getBundleURLCached(id) {
+    var value = bundleURL[id];
+    if (!value) {
+        value = getBundleURL();
+        bundleURL[id] = value;
+    }
+    return value;
+}
+function getBundleURL() {
+    try {
+        throw new Error();
+    } catch (err) {
+        var matches = ("" + err.stack).match(/(https?|file|ftp|(chrome|moz|safari-web)-extension):\/\/[^)\n]+/g);
+        if (matches) // The first two stack frames will be this function and getBundleURLCached.
+        // Use the 3rd one, which will be a runtime in the original bundle.
+        return getBaseURL(matches[2]);
+    }
+    return "/";
+}
+function getBaseURL(url) {
+    return ("" + url).replace(/^((?:https?|file|ftp|(chrome|moz|safari-web)-extension):\/\/.+)\/[^/]+$/, "$1") + "/";
+}
+// TODO: Replace uses with `new URL(url).origin` when ie11 is no longer supported.
+function getOrigin(url) {
+    var matches = ("" + url).match(/(https?|file|ftp|(chrome|moz|safari-web)-extension):\/\/[^/]+/);
+    if (!matches) throw new Error("Origin not found");
+    return matches[0];
+}
+exports.getBundleURL = getBundleURLCached;
+exports.getBaseURL = getBaseURL;
+exports.getOrigin = getOrigin;
+
+},{}]},["4FFYD","dV6cC"], "dV6cC", "parcelRequire0a00")
 
 //# sourceMappingURL=index.e82f28a0.js.map
