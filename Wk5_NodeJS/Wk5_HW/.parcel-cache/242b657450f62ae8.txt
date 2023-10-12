@@ -2,7 +2,7 @@
 134C:\Users\nemo1\OneDrive\Documents\GitHub\Prog-340-GraphicsApplicationProgramming\Wk5_NodeJS\Wk5_HW\node_modules\lru-cache\package.json133414793282382531 0
 159C:\Users\nemo1\OneDrive\Documents\GitHub\Prog-340-GraphicsApplicationProgramming\Wk5_NodeJS\Wk5_HW\node_modules\three\src\extras\curves\QuadraticBezierCurve.js133414793664727443 0
 140C:\Users\nemo1\OneDrive\Documents\GitHub\Prog-340-GraphicsApplicationProgramming\Wk5_NodeJS\Wk5_HW\node_modules\css-tree\lib\walker\index.js133414793409771065 0
-103C:\Users\nemo1\OneDrive\Documents\GitHub\Prog-340-GraphicsApplicationProgramming\Wk5_NodeJS\Wk5_HW\dist133414821167187871 1
+103C:\Users\nemo1\OneDrive\Documents\GitHub\Prog-340-GraphicsApplicationProgramming\Wk5_NodeJS\Wk5_HW\dist133415961096169441 1
 143C:\Users\nemo1\OneDrive\Documents\GitHub\Prog-340-GraphicsApplicationProgramming\Wk5_NodeJS\Wk5_HW\node_modules\@swc\helpers\_\_read_only_error133414793422052781 1
 156C:\Users\nemo1\OneDrive\Documents\GitHub\Prog-340-GraphicsApplicationProgramming\Wk5_NodeJS\Wk5_HW\node_modules\three\src\renderers\webgl\WebGLCubeUVMaps.js133414793667979306 0
 153C:\Users\nemo1\OneDrive\Documents\GitHub\Prog-340-GraphicsApplicationProgramming\Wk5_NodeJS\Wk5_HW\node_modules\csso\node_modules\css-tree\lib\version.js133414793417694639 0
@@ -35,7 +35,7 @@
 154C:\Users\nemo1\OneDrive\Documents\GitHub\Prog-340-GraphicsApplicationProgramming\Wk5_NodeJS\Wk5_HW\node_modules\three\src\geometries\OctahedronGeometry.js133414793663919630 0
 185C:\Users\nemo1\OneDrive\Documents\GitHub\Prog-340-GraphicsApplicationProgramming\Wk5_NodeJS\Wk5_HW\node_modules\three\src\renderers\shaders\ShaderChunk\emissivemap_pars_fragment.glsl.js133414793660396193 0
 131C:\Users\nemo1\OneDrive\Documents\GitHub\Prog-340-GraphicsApplicationProgramming\Wk5_NodeJS\Wk5_HW\node_modules\type-fest\readme.md133414793284308685 0
-111C:\Users\nemo1\OneDrive\Documents\GitHub\Prog-340-GraphicsApplicationProgramming\Wk5_NodeJS\Wk5_HW\node_modules133414821831662290 1
+111C:\Users\nemo1\OneDrive\Documents\GitHub\Prog-340-GraphicsApplicationProgramming\Wk5_NodeJS\Wk5_HW\node_modules133414823612049579 1
 142C:\Users\nemo1\OneDrive\Documents\GitHub\Prog-340-GraphicsApplicationProgramming\Wk5_NodeJS\Wk5_HW\node_modules\cosmiconfig\dist\util.d.ts.map133414793326046397 0
 122C:\Users\nemo1\OneDrive\Documents\GitHub\Prog-340-GraphicsApplicationProgramming\Wk5_NodeJS\Wk5_HW\node_modules\nullthrows133414793293341988 1
 111C:\Users\nemo1\OneDrive\Documents\GitHub\Prog-340-GraphicsApplicationProgramming\Wk5_NodeJS\Wk5_HW\package.json133414821831702202 0
@@ -45,8 +45,8 @@
 118C:\Users\nemo1\OneDrive\Documents\GitHub\Prog-340-GraphicsApplicationProgramming\Wk5_NodeJS\Wk5_HW\node_modules\dotenv133414793293332013 1
 145C:\Users\nemo1\OneDrive\Documents\GitHub\Prog-340-GraphicsApplicationProgramming\Wk5_NodeJS\Wk5_HW\node_modules\@swc\helpers\cjs\_ts_decorate.cjs133414793373156437 0
 128C:\Users\nemo1\OneDrive\Documents\GitHub\Prog-340-GraphicsApplicationProgramming\Wk5_NodeJS\Wk5_HW\node_modules\is-glob\index.js133414793279253098 0
-116C:\Users\nemo1\OneDrive\Documents\GitHub\Prog-340-GraphicsApplicationProgramming\Wk5_NodeJS\Wk5_HW\package-lock.json133414821832220862 0
-130C:\Users\nemo1\OneDrive\Documents\GitHub\Prog-340-GraphicsApplicationProgramming\Wk5_NodeJS\Wk5_HW\node_modules\.package-lock.json133414821832480218 0
+116C:\Users\nemo1\OneDrive\Documents\GitHub\Prog-340-GraphicsApplicationProgramming\Wk5_NodeJS\Wk5_HW\package-lock.json133414823612636936 0
+130C:\Users\nemo1\OneDrive\Documents\GitHub\Prog-340-GraphicsApplicationProgramming\Wk5_NodeJS\Wk5_HW\node_modules\.package-lock.json133414823612904067 0
 137C:\Users\nemo1\OneDrive\Documents\GitHub\Prog-340-GraphicsApplicationProgramming\Wk5_NodeJS\Wk5_HW\node_modules\three\src\math\Vector4.js133414793667560419 0
 132C:\Users\nemo1\OneDrive\Documents\GitHub\Prog-340-GraphicsApplicationProgramming\Wk5_NodeJS\Wk5_HW\node_modules\three\src\geometries133414793668487946 1
 105C:\Users\nemo1\OneDrive\Documents\GitHub\Prog-340-GraphicsApplicationProgramming\Wk5_NodeJS\Wk5_HW\src\js133414794922635235 1
@@ -69,7 +69,7 @@
 169C:\Users\nemo1\OneDrive\Documents\GitHub\Prog-340-GraphicsApplicationProgramming\Wk5_NodeJS\Wk5_HW\node_modules\three\examples\jsm\nodes\accessors\BufferAttributeNode.js133414793658591012 0
 138C:\Users\nemo1\OneDrive\Documents\GitHub\Prog-340-GraphicsApplicationProgramming\Wk5_NodeJS\Wk5_HW\node_modules\htmlnano\docs\netlify.toml133414793370017734 0
 156C:\Users\nemo1\OneDrive\Documents\GitHub\Prog-340-GraphicsApplicationProgramming\Wk5_NodeJS\Wk5_HW\node_modules\@parcel\workers\src\process\ProcessWorker.js133414793335019110 0
-115C:\Users\nemo1\OneDrive\Documents\GitHub\Prog-340-GraphicsApplicationProgramming\Wk5_NodeJS\Wk5_HW\src\js\script.js133414821165731586 0
+115C:\Users\nemo1\OneDrive\Documents\GitHub\Prog-340-GraphicsApplicationProgramming\Wk5_NodeJS\Wk5_HW\src\js\script.js133415961094703348 0
 138C:\Users\nemo1\OneDrive\Documents\GitHub\Prog-340-GraphicsApplicationProgramming\Wk5_NodeJS\Wk5_HW\node_modules\three\examples\jsm\effects133414793666436543 1
 140C:\Users\nemo1\OneDrive\Documents\GitHub\Prog-340-GraphicsApplicationProgramming\Wk5_NodeJS\Wk5_HW\node_modules\@parcel\events\lib\errors.js133414793293641186 0
 147C:\Users\nemo1\OneDrive\Documents\GitHub\Prog-340-GraphicsApplicationProgramming\Wk5_NodeJS\Wk5_HW\node_modules\three\examples\jsm\nodes\shadernode133414793665878036 1
@@ -82,7 +82,7 @@
 136C:\Users\nemo1\OneDrive\Documents\GitHub\Prog-340-GraphicsApplicationProgramming\Wk5_NodeJS\Wk5_HW\node_modules\timsort\build\timsort.js133414793295995437 0
 115C:\Users\nemo1\OneDrive\Documents\GitHub\Prog-340-GraphicsApplicationProgramming\Wk5_NodeJS\Wk5_HW\src\css\main.css133414794395368077 0
 182C:\Users\nemo1\OneDrive\Documents\GitHub\Prog-340-GraphicsApplicationProgramming\Wk5_NodeJS\Wk5_HW\node_modules\three\src\renderers\shaders\ShaderChunk\lightmap_pars_fragment.glsl.js133414793661712675 0
-119C:\Users\nemo1\OneDrive\Documents\GitHub\Prog-340-GraphicsApplicationProgramming\Wk5_NodeJS\Wk5_HW\node_modules\@parcel133414821831672270 1
+119C:\Users\nemo1\OneDrive\Documents\GitHub\Prog-340-GraphicsApplicationProgramming\Wk5_NodeJS\Wk5_HW\node_modules\@parcel133414823612059568 1
 147C:\Users\nemo1\OneDrive\Documents\GitHub\Prog-340-GraphicsApplicationProgramming\Wk5_NodeJS\Wk5_HW\node_modules\three\examples\jsm\csm\CSMShader.js133414793659388874 0
 181C:\Users\nemo1\OneDrive\Documents\GitHub\Prog-340-GraphicsApplicationProgramming\Wk5_NodeJS\Wk5_HW\node_modules\three\src\renderers\shaders\ShaderChunk\bumpmap_pars_fragment.glsl.js133414793658670804 0
 174C:\Users\nemo1\OneDrive\Documents\GitHub\Prog-340-GraphicsApplicationProgramming\Wk5_NodeJS\Wk5_HW\node_modules\three\src\renderers\shaders\ShaderChunk\default_vertex.glsl.js133414793659718005 0
@@ -125,7 +125,7 @@
 161C:\Users\nemo1\OneDrive\Documents\GitHub\Prog-340-GraphicsApplicationProgramming\Wk5_NodeJS\Wk5_HW\node_modules\@swc\helpers\_\_wrap_async_generator\package.json133414793424908707 0
 124C:\Users\nemo1\OneDrive\Documents\GitHub\Prog-340-GraphicsApplicationProgramming\Wk5_NodeJS\Wk5_HW\node_modules\browserslist133414793307157671 1
 156C:\Users\nemo1\OneDrive\Documents\GitHub\Prog-340-GraphicsApplicationProgramming\Wk5_NodeJS\Wk5_HW\node_modules\dom-serializer\node_modules\entities\LICENSE133414793278624763 0
-117C:\Users\nemo1\OneDrive\Documents\GitHub\Prog-340-GraphicsApplicationProgramming\Wk5_NodeJS\Wk5_HW\node_modules\@lmdb133414821831672270 1
+117C:\Users\nemo1\OneDrive\Documents\GitHub\Prog-340-GraphicsApplicationProgramming\Wk5_NodeJS\Wk5_HW\node_modules\@lmdb133414823612069529 1
 148C:\Users\nemo1\OneDrive\Documents\GitHub\Prog-340-GraphicsApplicationProgramming\Wk5_NodeJS\Wk5_HW\node_modules\three\src\animation\AnimationClip.js133414793657573825 0
 172C:\Users\nemo1\OneDrive\Documents\GitHub\Prog-340-GraphicsApplicationProgramming\Wk5_NodeJS\Wk5_HW\node_modules\three\examples\fonts\droid\droid_serif_regular.typeface.json133414793668936753 0
 178C:\Users\nemo1\OneDrive\Documents\GitHub\Prog-340-GraphicsApplicationProgramming\Wk5_NodeJS\Wk5_HW\node_modules\three\src\renderers\shaders\ShaderChunk\envmap_pars_vertex.glsl.js133414793660446060 0
@@ -152,7 +152,7 @@
 157C:\Users\nemo1\OneDrive\Documents\GitHub\Prog-340-GraphicsApplicationProgramming\Wk5_NodeJS\Wk5_HW\node_modules\three\src\renderers\WebGLArrayRenderTarget.js133414793667859628 0
 120C:\Users\nemo1\OneDrive\Documents\GitHub\Prog-340-GraphicsApplicationProgramming\Wk5_NodeJS\Wk5_HW\node_modules\svgo\bin133414793279243124 1
 160C:\Users\nemo1\OneDrive\Documents\GitHub\Prog-340-GraphicsApplicationProgramming\Wk5_NodeJS\Wk5_HW\node_modules\caniuse-lite\data\features\css-cascade-layers.js133414793396535912 0
-129C:\Users\nemo1\OneDrive\Documents\GitHub\Prog-340-GraphicsApplicationProgramming\Wk5_NodeJS\Wk5_HW\node_modules\@msgpackr-extract133414821831672270 1
+129C:\Users\nemo1\OneDrive\Documents\GitHub\Prog-340-GraphicsApplicationProgramming\Wk5_NodeJS\Wk5_HW\node_modules\@msgpackr-extract133414823612059568 1
 143C:\Users\nemo1\OneDrive\Documents\GitHub\Prog-340-GraphicsApplicationProgramming\Wk5_NodeJS\Wk5_HW\node_modules\caniuse-lite\data\regions\IM.js133414793436543041 0
 137C:\Users\nemo1\OneDrive\Documents\GitHub\Prog-340-GraphicsApplicationProgramming\Wk5_NodeJS\Wk5_HW\node_modules\js-yaml\lib\type\merge.js133414793329062099 0
 147C:\Users\nemo1\OneDrive\Documents\GitHub\Prog-340-GraphicsApplicationProgramming\Wk5_NodeJS\Wk5_HW\node_modules\three\src\core\GLBufferAttribute.js133414793660964670 0
@@ -160,7 +160,7 @@
 140C:\Users\nemo1\OneDrive\Documents\GitHub\Prog-340-GraphicsApplicationProgramming\Wk5_NodeJS\Wk5_HW\node_modules\@parcel\transformer-svg\test133414793296314986 1
 151C:\Users\nemo1\OneDrive\Documents\GitHub\Prog-340-GraphicsApplicationProgramming\Wk5_NodeJS\Wk5_HW\node_modules\three\examples\jsm\loaders\AMFLoader.js133414793657164834 0
 181C:\Users\nemo1\OneDrive\Documents\GitHub\Prog-340-GraphicsApplicationProgramming\Wk5_NodeJS\Wk5_HW\node_modules\three\src\renderers\shaders\ShaderChunk\map_particle_fragment.glsl.js133414793662470641 0
-116C:\Users\nemo1\OneDrive\Documents\GitHub\Prog-340-GraphicsApplicationProgramming\Wk5_NodeJS\Wk5_HW\node_modules\@swc133414821831662290 1
+116C:\Users\nemo1\OneDrive\Documents\GitHub\Prog-340-GraphicsApplicationProgramming\Wk5_NodeJS\Wk5_HW\node_modules\@swc133414823612059568 1
 133C:\Users\nemo1\OneDrive\Documents\GitHub\Prog-340-GraphicsApplicationProgramming\Wk5_NodeJS\Wk5_HW\node_modules\has-flag\package.json133414793277860559 0
 136C:\Users\nemo1\OneDrive\Documents\GitHub\Prog-340-GraphicsApplicationProgramming\Wk5_NodeJS\Wk5_HW\node_modules\three\src\audio\Audio.js133414793658002594 0
 160C:\Users\nemo1\OneDrive\Documents\GitHub\Prog-340-GraphicsApplicationProgramming\Wk5_NodeJS\Wk5_HW\node_modules\@parcel\runtime-js\lib\helpers\node\js-loader.js133414793331863211 0
@@ -1301,7 +1301,7 @@
 153C:\Users\nemo1\OneDrive\Documents\GitHub\Prog-340-GraphicsApplicationProgramming\Wk5_NodeJS\Wk5_HW\node_modules\@parcel\utils\src\generateBuildMetrics.js133414793326205421 0
 154C:\Users\nemo1\OneDrive\Documents\GitHub\Prog-340-GraphicsApplicationProgramming\Wk5_NodeJS\Wk5_HW\node_modules\csso\node_modules\css-tree\dist\version.js133414793417654868 0
 144C:\Users\nemo1\OneDrive\Documents\GitHub\Prog-340-GraphicsApplicationProgramming\Wk5_NodeJS\Wk5_HW\node_modules\css-tree\cjs\tokenizer\index.cjs133414793369359330 0
-114C:\Users\nemo1\OneDrive\Documents\GitHub\Prog-340-GraphicsApplicationProgramming\Wk5_NodeJS\Wk5_HW\dist\index.html133414816040261288 0
+114C:\Users\nemo1\OneDrive\Documents\GitHub\Prog-340-GraphicsApplicationProgramming\Wk5_NodeJS\Wk5_HW\dist\index.html133415609494985216 0
 166C:\Users\nemo1\OneDrive\Documents\GitHub\Prog-340-GraphicsApplicationProgramming\Wk5_NodeJS\Wk5_HW\node_modules\@parcel\optimizer-svgo\node_modules\mdn-data\README.md133414793336278323 0
 177C:\Users\nemo1\OneDrive\Documents\GitHub\Prog-340-GraphicsApplicationProgramming\Wk5_NodeJS\Wk5_HW\node_modules\three\src\renderers\shaders\ShaderChunk\map_pars_fragment.glsl.js133414793662460662 0
 141C:\Users\nemo1\OneDrive\Documents\GitHub\Prog-340-GraphicsApplicationProgramming\Wk5_NodeJS\Wk5_HW\node_modules\csso\lib\restructure\utils.js133414793379145090 0
@@ -4510,7 +4510,7 @@
 173C:\Users\nemo1\OneDrive\Documents\GitHub\Prog-340-GraphicsApplicationProgramming\Wk5_NodeJS\Wk5_HW\node_modules\@parcel\optimizer-htmlnano\node_modules\svgo\lib\svgo-node.js133414793369532548 0
 136C:\Users\nemo1\OneDrive\Documents\GitHub\Prog-340-GraphicsApplicationProgramming\Wk5_NodeJS\Wk5_HW\node_modules\css-tree\dist\version.js133414793420001885 0
 136C:\Users\nemo1\OneDrive\Documents\GitHub\Prog-340-GraphicsApplicationProgramming\Wk5_NodeJS\Wk5_HW\node_modules\css-tree\data\patch.json133414793420785631 0
-125C:\Users\nemo1\OneDrive\Documents\GitHub\Prog-340-GraphicsApplicationProgramming\Wk5_NodeJS\Wk5_HW\dist\index.e82f28a0.js.map133414821167167926 0
+125C:\Users\nemo1\OneDrive\Documents\GitHub\Prog-340-GraphicsApplicationProgramming\Wk5_NodeJS\Wk5_HW\dist\index.e82f28a0.js.map133415961096149511 0
 143C:\Users\nemo1\OneDrive\Documents\GitHub\Prog-340-GraphicsApplicationProgramming\Wk5_NodeJS\Wk5_HW\node_modules\caniuse-lite\data\regions\EE.js133414793425103188 0
 145C:\Users\nemo1\OneDrive\Documents\GitHub\Prog-340-GraphicsApplicationProgramming\Wk5_NodeJS\Wk5_HW\node_modules\@parcel\runtime-react-refresh\src133414793283839218 1
 139C:\Users\nemo1\OneDrive\Documents\GitHub\Prog-340-GraphicsApplicationProgramming\Wk5_NodeJS\Wk5_HW\node_modules\css-tree\cjs\data-patch.cjs133414793336902128 0
@@ -5813,7 +5813,7 @@
 155C:\Users\nemo1\OneDrive\Documents\GitHub\Prog-340-GraphicsApplicationProgramming\Wk5_NodeJS\Wk5_HW\node_modules\@swc\helpers\cjs\_sliced_to_array_loose.cjs133414793369039180 0
 163C:\Users\nemo1\OneDrive\Documents\GitHub\Prog-340-GraphicsApplicationProgramming\Wk5_NodeJS\Wk5_HW\node_modules\@swc\helpers\cjs\_tagged_template_literal_loose.cjs133414793370484056 0
 139C:\Users\nemo1\OneDrive\Documents\GitHub\Prog-340-GraphicsApplicationProgramming\Wk5_NodeJS\Wk5_HW\node_modules\@swc\helpers\cjs\_throw.cjs133414793371450529 0
-122C:\Users\nemo1\OneDrive\Documents\GitHub\Prog-340-GraphicsApplicationProgramming\Wk5_NodeJS\Wk5_HW\dist\index.34df27b5.css133414821138960679 0
+122C:\Users\nemo1\OneDrive\Documents\GitHub\Prog-340-GraphicsApplicationProgramming\Wk5_NodeJS\Wk5_HW\dist\index.34df27b5.css133415708736106990 0
 142C:\Users\nemo1\OneDrive\Documents\GitHub\Prog-340-GraphicsApplicationProgramming\Wk5_NodeJS\Wk5_HW\node_modules\@swc\helpers\cjs\_to_array.cjs133414793371870398 0
 146C:\Users\nemo1\OneDrive\Documents\GitHub\Prog-340-GraphicsApplicationProgramming\Wk5_NodeJS\Wk5_HW\node_modules\@swc\helpers\cjs\_to_primitive.cjs133414793372501683 0
 150C:\Users\nemo1\OneDrive\Documents\GitHub\Prog-340-GraphicsApplicationProgramming\Wk5_NodeJS\Wk5_HW\node_modules\@babel\helper-validator-identifier\lib133414793300105183 1
@@ -6889,5 +6889,5 @@
 153C:\Users\nemo1\OneDrive\Documents\GitHub\Prog-340-GraphicsApplicationProgramming\Wk5_NodeJS\Wk5_HW\node_modules\.bin\node-gyp-build-optional-packages.cmd133414793480204137 0
 127C:\Users\nemo1\OneDrive\Documents\GitHub\Prog-340-GraphicsApplicationProgramming\Wk5_NodeJS\Wk5_HW\node_modules\.bin\semver.ps1133414793480214115 0
 121C:\Users\nemo1\OneDrive\Documents\GitHub\Prog-340-GraphicsApplicationProgramming\Wk5_NodeJS\Wk5_HW\node_modules\.bin\svgo133414793480204137 0
-126C:\Users\nemo1\OneDrive\Documents\GitHub\Prog-340-GraphicsApplicationProgramming\Wk5_NodeJS\Wk5_HW\dist\index.34df27b5.css.map133414821139000594 0
-121C:\Users\nemo1\OneDrive\Documents\GitHub\Prog-340-GraphicsApplicationProgramming\Wk5_NodeJS\Wk5_HW\dist\index.e82f28a0.js133414821167088139 0
+126C:\Users\nemo1\OneDrive\Documents\GitHub\Prog-340-GraphicsApplicationProgramming\Wk5_NodeJS\Wk5_HW\dist\index.34df27b5.css.map133415708736136936 0
+121C:\Users\nemo1\OneDrive\Documents\GitHub\Prog-340-GraphicsApplicationProgramming\Wk5_NodeJS\Wk5_HW\dist\index.e82f28a0.js133415961095969961 0
