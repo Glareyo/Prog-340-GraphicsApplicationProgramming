@@ -631,12 +631,6 @@ scene.add(mySpotLight);
 mySpotLight.position.set(-20, 10, 20);
 const dirSpotLightHelper = new _three.DirectionalLightHelper(mySpotLight);
 scene.add(dirSpotLightHelper);
-// scene.add(dirLightHelper);
-// var light = new THREE.PointLight(0xFFFFFF,1,500);
-// light.position.set(10,10,25);
-// scene.add(light);
-// var ambientLight = new THREE.AmbientLight(0xFFFFFF,1,500);
-// scene.add(ambientLight);
 //Cone Geometry ==> Rotating
 var coneHeight = 5;
 const coneGeo = new _three.ConeGeometry(1, coneHeight);
