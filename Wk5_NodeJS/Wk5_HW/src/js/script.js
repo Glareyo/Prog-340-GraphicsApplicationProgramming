@@ -5,29 +5,17 @@
 // - https://www.bing.com/videos/riverview/relatedvideo?q=ThreeJS+import+dat.gui&mid=3EBB511F05CE1DEFAAA33EBB511F05CE1DEFAAA3&FORM=VIRE
 // Helped demonstrate how to use and add GUI
 
+// - https://threejs.org/manual/#en/backgrounds
+// Documentation Used to learn about backgrounds
+
+
+
 ///Things to search online about
 // - NodeJS ==> Installation
 // - Adding Shadows
 // - Animations
 // - GUI options / UI Options
 
-/// V Stackoverflow Links V ///
-
-// Can't install parcel
-// https://stackoverflow.com/questions/63399475/i-cant-install-parcel-with-npm
-
-// Parcel Not Recognizing as a Command <== Maybe most important
-// https://stackoverflow.com/questions/67729696/parcel-is-not-recognized-as-an-internal-or-external-command-operable-program
-// - input 'npm uninstall parcel'
-// - input 'npm uninstall -g parcel'
-// ==> Unistalls parcels
-// Input 'npm install parcel --save-dev' ==> Another way to install parcel
-
-// Parcel Command Not Found <== Important as well.
-// https://stackoverflow.com/questions/59707387/parcel-command-not-found
-// - input 'npx parcel build index.html' ==> Might fix problem
-
-/// ^ Stackoverflow Links ^ ///
 
 import * as THREE from "three";
 
@@ -36,25 +24,33 @@ import {OrbitControls} from 'three/examples/jsm/controls/OrbitControls.js';
 import {GUI} from 'dat.gui';
 import bg1 from '../img/h-default-image.png';
 
-// const loader = new THREE.TextureLoader('../img/h-default-image.png');
-var bgTexture = new THREE.TextureLoader().load('../img/h-default-image.png');
 
 var height = window.innerHeight;
 var width = window.innerWidth;
 
 var renderer = new THREE.WebGLRenderer();
-renderer.setClearColor("#e5e5e5");
+// renderer.setClearColor("#e5e5e5");
 renderer.setSize(width,height);
 renderer.shadowMap = true;
-// renderer.setClearColorHex( 0x000000, 1 );
-// renderer.setClearColorHex( 0xffffff, 0);
-
 
 document.body.appendChild(renderer.domElement);
 
 //Create the scene
 const scene = new THREE.Scene();
-scene.background = bgTexture;
+
+///Documentation Used to learn about backgrounds
+//https://threejs.org/manual/#en/backgrounds
+//Set up background
+var loader = new THREE.TextureLoader();
+const texture = loader.load(
+    bg1,
+    () => {
+      texture.mapping = THREE.EquirectangularReflectionMapping;
+      texture.colorSpace = THREE.SRGBColorSpace;
+      scene.background = texture;
+    });
+// Code excerpt taken from documentation
+
 
 //Create the camera
 const camera = new THREE.PerspectiveCamera(45,width/height,0.1,1000);
@@ -66,11 +62,6 @@ scene.add(axesHelper);
 
 camera.position.set(-10,30,30);
 orbit.update();
-
-// const myDirectionalLight = new THREE.DirectionalLight(0xFFFFFF,0.2);
-// myDirectionalLight.castShadow = true;
-// scene.add(myDirectionalLight);
-// myDirectionalLight.position.set(-20,10,20);
 
 const mySpotLight = new THREE.SpotLight(0xFFFFFF,0.2);
 mySpotLight.castShadow = true;
@@ -93,8 +84,8 @@ coneMat.color.setRGB(0.1,0.3,0.4);
 const cone = new THREE.Mesh(coneGeo,coneMat);
 cone.position.set(0,coneHeight/2,0);
 cone.castShadow = true; //Sphere can now cast a shadow
-
 scene.add(cone);
+
 
 
 
@@ -102,15 +93,12 @@ scene.add(cone);
 var ringHeight = 8;
 const ringGeo = new THREE.RingGeometry(4,ringHeight,50,4,4,5);
 const ringMat = new THREE.MeshBasicMaterial();
-
 https://stackoverflow.com/questions/44463634/how-to-change-color-with-three-js#:~:text=THREE.Material%20does%20some%20magic%20when%20you%20provide%20certain,change%20it%20you%20need%20to%20do%20yourMaterial.color.setRGB%20%281%2C0%2C1%29
 //Explained how to change colors on a material
 ringMat.color.setRGB(0.1,0.3,0.4);
-
 const ring = new THREE.Mesh(ringGeo,ringMat);
 ring.position.set(0,ringHeight,0);
 ring.castShadow = true; //Ring can now cast a shadow
-
 scene.add(ring);
 
 //Plane Object
@@ -138,8 +126,8 @@ const guiOptions = {
 
 gui.addColor(guiOptions,'RingColor').onChange(function(e){ring.material.color.set(e);});
 
-var RingSpeed = 0.1;
 
+var RingSpeed = 0.1;
 function animate(time)
 {
     cone.rotation.x = time / 1000;

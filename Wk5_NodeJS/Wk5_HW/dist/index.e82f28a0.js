@@ -580,24 +580,13 @@ function hmrAccept(bundle /*: ParcelRequire */ , id /*: string */ ) {
 // Explained how to change colors on a material
 // - https://www.bing.com/videos/riverview/relatedvideo?q=ThreeJS+import+dat.gui&mid=3EBB511F05CE1DEFAAA33EBB511F05CE1DEFAAA3&FORM=VIRE
 // Helped demonstrate how to use and add GUI
+// - https://threejs.org/manual/#en/backgrounds
+// Documentation Used to learn about backgrounds
 ///Things to search online about
 // - NodeJS ==> Installation
 // - Adding Shadows
 // - Animations
 // - GUI options / UI Options
-/// V Stackoverflow Links V ///
-// Can't install parcel
-// https://stackoverflow.com/questions/63399475/i-cant-install-parcel-with-npm
-// Parcel Not Recognizing as a Command <== Maybe most important
-// https://stackoverflow.com/questions/67729696/parcel-is-not-recognized-as-an-internal-or-external-command-operable-program
-// - input 'npm uninstall parcel'
-// - input 'npm uninstall -g parcel'
-// ==> Unistalls parcels
-// Input 'npm install parcel --save-dev' ==> Another way to install parcel
-// Parcel Command Not Found <== Important as well.
-// https://stackoverflow.com/questions/59707387/parcel-command-not-found
-// - input 'npx parcel build index.html' ==> Might fix problem
-/// ^ Stackoverflow Links ^ ///
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 var _three = require("three");
 // Reason for specifics ==> Import from a specifc module.
@@ -605,20 +594,25 @@ var _orbitControlsJs = require("three/examples/jsm/controls/OrbitControls.js");
 var _datGui = require("dat.gui");
 var _hDefaultImagePng = require("../img/h-default-image.png");
 var _hDefaultImagePngDefault = parcelHelpers.interopDefault(_hDefaultImagePng);
-// const loader = new THREE.TextureLoader('../img/h-default-image.png');
-var bgTexture = new _three.TextureLoader().load("../img/h-default-image.png");
 var height = window.innerHeight;
 var width = window.innerWidth;
 var renderer = new _three.WebGLRenderer();
-renderer.setClearColor("#e5e5e5");
+// renderer.setClearColor("#e5e5e5");
 renderer.setSize(width, height);
 renderer.shadowMap = true;
-// renderer.setClearColorHex( 0x000000, 1 );
-// renderer.setClearColorHex( 0xffffff, 0);
 document.body.appendChild(renderer.domElement);
 //Create the scene
 const scene = new _three.Scene();
-scene.background = bgTexture;
+///Documentation Used to learn about backgrounds
+//https://threejs.org/manual/#en/backgrounds
+//Set up background
+var loader = new _three.TextureLoader();
+const texture = loader.load((0, _hDefaultImagePngDefault.default), ()=>{
+    texture.mapping = _three.EquirectangularReflectionMapping;
+    texture.colorSpace = _three.SRGBColorSpace;
+    scene.background = texture;
+});
+// Code excerpt taken from documentation
 //Create the camera
 const camera = new _three.PerspectiveCamera(45, width / height, 0.1, 1000);
 const orbit = new (0, _orbitControlsJs.OrbitControls)(camera, renderer.domElement);
@@ -627,10 +621,6 @@ const axesHelper = new _three.AxesHelper(6);
 scene.add(axesHelper);
 camera.position.set(-10, 30, 30);
 orbit.update();
-// const myDirectionalLight = new THREE.DirectionalLight(0xFFFFFF,0.2);
-// myDirectionalLight.castShadow = true;
-// scene.add(myDirectionalLight);
-// myDirectionalLight.position.set(-20,10,20);
 const mySpotLight = new _three.SpotLight(0xFFFFFF, 0.2);
 mySpotLight.castShadow = true;
 scene.add(mySpotLight);
