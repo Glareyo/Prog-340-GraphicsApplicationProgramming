@@ -24,6 +24,13 @@ import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls.js';
 import { GUI } from 'dat.gui';
 import bg1 from '../img/h-default-image.png';
 
+import diceOne from '../img/one.JPG';
+import diceTwo from '../img/two.JPG';
+import diceThree from '../img/three.JPG';
+import diceFour from '../img/four.JPG';
+import diceFive from '../img/five.JPG';
+import diceSix from '../img/six.JPG';
+
 
 var height = window.innerHeight;
 var width = window.innerWidth;
@@ -39,6 +46,13 @@ document.body.appendChild(renderer.domElement);
 
 //Create the scene
 const scene = new THREE.Scene();
+
+//Adding Fog
+{
+    const color = 'lightblue';
+	scene.fog = new THREE.Fog( color, 1, 1 );
+}
+
 
 ///Documentation Used to learn about backgrounds
 //https://threejs.org/manual/#en/backgrounds
@@ -61,7 +75,6 @@ const texture = loader.load(
 //Cube texture background
 {
     // - Set as an array ==> [image1,image2,image3,image4,image5,image6]
-
     // const cubeLoader = new THREE.CubeTexureLoader();
 	// scene.background = cubeLoader.load([bg1,bg1,bg1,bg1,bg1,bg1])
 }
@@ -104,7 +117,32 @@ cone.position.set(0, coneHeight / 2, 0);
 cone.castShadow = true; //Sphere can now cast a shadow
 scene.add(cone);
 
+//Adding textures to Geos
+{
+    // - map:loader.load(//image) ==> Loads the texture onto the geo material
 
+    // const box1Geo = new THREE.BoxGeometry(4,4,4);
+    // const box1Mat = new THREE.MeshBasicMaterial({color: 0xFFFFFF,map:loader.load(bg1)});
+    // const box1 = new THREE.Mesh(box1Geo,box1Mat);
+
+    // - Another way to load in a texture
+    // box1.material.map = loader.load(bg1);
+    // box1.position.set(0,1,0);
+
+    // - A way to customize textures on multiple sides
+    // const box2Materials = [
+    //     new THREE.MeshBasicMaterial({map:loader.load(diceOne)}),
+    //     new THREE.MeshBasicMaterial({map:loader.load(diceTwo)}),
+    //     new THREE.MeshBasicMaterial({map:loader.load(diceThree)}),
+    //     new THREE.MeshBasicMaterial({map:loader.load(diceFour)}),
+    //     new THREE.MeshBasicMaterial({map:loader.load(diceFive)}),
+    //     new THREE.MeshStandardMaterial({map:loader.load(diceSix)}) //MeshStandard on purpose, otherwise different results may occur.
+    // ]
+
+    // const box2Geo = new THREE.BoxGeometry(4,4,4);
+    // const box2 = new THREE.Mesh(box1Geo,box1Materials);
+    // scene.add(box2);
+}
 
 
 //Cone Geometry ==> Rotating
