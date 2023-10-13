@@ -31,6 +31,8 @@ var width = window.innerWidth;
 var renderer = new THREE.WebGLRenderer();
 // renderer.setClearColor("#e5e5e5");
 renderer.setSize(width,height);
+
+//Possible renderer.shadowMap.enabled = true;
 renderer.shadowMap = true;
 
 document.body.appendChild(renderer.domElement);
@@ -68,20 +70,16 @@ mySpotLight.castShadow = true;
 scene.add(mySpotLight);
 mySpotLight.position.set(-20,10,20);
 
-// const myDirectionLight = new THREE.DirectionalLight(0xFFFFFF,0.2);
-// myDirectionLight.castShadow = true;
-// scene.add(myDirectionLight);
-// myDirectionLight.position.set(-20,20,0);
-// myDirectionLight.shadow.camera.bottom = -12;
-
-
 const dirSpotLightHelper = new THREE.DirectionalLightHelper(mySpotLight);
 scene.add(dirSpotLightHelper);
 
 //Cone Geometry ==> Rotating
 var coneHeight = 5;
 const coneGeo = new THREE.ConeGeometry(1,coneHeight);
-const coneMat = new THREE.MeshBasicMaterial();
+const coneMat = new THREE.MeshBasicMaterial(); //Possible Shadow Error ==> Change material to a MeshStandardMaterial
+// OR USE MeshPhongMaterial() OR MeshStandardMaterial() ==> MeshBasicMaterial DOES NOT WORK FOR SHADOWS
+// Credit
+// https://threejs.org/manual/#en/shadows
 
 https://stackoverflow.com/questions/44463634/how-to-change-color-with-three-js#:~:text=THREE.Material%20does%20some%20magic%20when%20you%20provide%20certain,change%20it%20you%20need%20to%20do%20yourMaterial.color.setRGB%20%281%2C0%2C1%29
 //Explained how to change colors on a material
