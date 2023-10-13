@@ -47,6 +47,8 @@ document.body.appendChild(renderer.domElement);
 //Create the scene
 const scene = new THREE.Scene();
 
+//Credit
+// https://threejs.org/manual/#en/fog
 //Adding Fog
 {
     const color = 'lightblue';
@@ -197,19 +199,36 @@ plane.rotation.x = -0.5 * Math.PI;
 
 //Adding a ray to interact with objects
 {
-    const mousePos = new THREE.Vector2();
+    // const mousePos = new THREE.Vector2();
 
-    window.addEventListener('mousemove',function(e){
-        mousePos.x = (e.clientX / width) * 2 - 1;
-        mousePos.y = (e.clientY / height) * 2 + 1;
-    });
+    // window.addEventListener('mousemove',function(e){
+    //     mousePos.x = (e.clientX / width) * 2 - 1;
+    //     mousePos.y = (e.clientY / height) * 2 + 1;
+    // });
 
-    const rayCaster = new THREE.Raycaster();
-    rayCaster.setFromCamera(mousePos,camera);
+    // const rayCaster = new THREE.Raycaster();
+    // rayCaster.setFromCamera(mousePos,camera);
 
-    //Gets the name of the object being interacted with.
-    const intersectObj = rayCaster.intersectObjects(scene.children);
-    console.log(intersectObj);
+    // //Gets the name of the object being interacted with.
+    // const intersectObj = rayCaster.intersectObjects(scene.children);
+    // console.log(intersectObj);
+
+    // // Loop
+    // // Different between: == vs ===
+    // for(var i = 0; i<intersectObj.length;i++)
+    // {
+
+    //     //Can use either ID or Name
+    //     if (intersectObj[i].object.id === cone.id)
+    //     {
+    //         intersectObj[i].object.material.color.set(0xFF0000);
+    //     }
+    //     if (intersectObj[i].object.id === ring.name)
+    //     {
+    //         intersectObj[i].object.rotation.x = time/1000;
+    //         intersectObj[i].object.rotation.y = time/1000;
+    //     }
+    // }
 }
 
 
