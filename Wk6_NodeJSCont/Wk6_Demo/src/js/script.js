@@ -50,7 +50,8 @@ const scene = new THREE.Scene();
 //Adding Fog
 {
     const color = 'lightblue';
-	scene.fog = new THREE.Fog( color, 1, 1 );
+    // color,near,far
+	scene.fog = new THREE.Fog( color, 0.1, 100 );
 }
 
 
@@ -194,6 +195,22 @@ plane.rotation.x = -0.5 * Math.PI;
     gui.add(guiOptions, "intensity", 0, 5, 0.1).name("Spotlight: Intensity");
 }
 
+//Adding a ray to interact with objects
+{
+    const mousePos = new THREE.Vector2();
+
+    window.addEventListener('mousemove',function(e){
+        mousePos.x = (e.clientX / width) * 2 - 1;
+        mousePos.y = (e.clientY / height) * 2 + 1;
+    });
+
+    const rayCaster = new THREE.Raycaster();
+    rayCaster.setFromCamera(mousePos,camera);
+
+    //Gets the name of the object being interacted with.
+    const intersectObj = rayCaster.intersectObjects(scene.children);
+    console.log(intersectObj);
+}
 
 
 
