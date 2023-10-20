@@ -223,37 +223,76 @@ plane.rotation.x = -0.5 * Math.PI;
     /// Frowned upon method, use Index.html instead ^
 
     const ShaderSphereGeo = new THREE.SphereGeometry( 1, 3, 5 );
+    // const ShaderSphereMat = new THREE.ShaderMaterial({
+    //     vertexShader: vShader,
+    //     fragmentShader: fShader,
+    // });
     const ShaderSphereMat = new THREE.ShaderMaterial({
-        vertexShader: vShader,
-        fragmentShader: fShader,
+        vertexShader: document.getElementById("vertexShader").textContent,
+        fragmentShader: document.getElementById("fragmentShader").textContent,
     });
+    cons
     const shaderSphere = new THREE.Mesh(ShaderSphereGeo,ShaderSphereMat);
     scene.add(shaderSphere);
 }
 
 {//PLanets
-    const sunGeo = new THREE.SphereGeometry( 1, 3, 5 );
-    const sunMat =  new THREE.MeshPhongMaterial( { color: '#CA8' } );
-    const sun = new THREE.Mesh(sunGeo,sunMat);
-    scene.add(sun);
+    {//PLanets
+		const sunGeo = new THREE.SphereGeometry(1, 30, 5);
+		const sunMat = new THREE.MeshPhongMaterial({ color: '#CA8' });
+		const sunShader = new THREE.ShaderMaterial({
+        vertexShader: document.getElementById("vertexShader").textContent,
+        fragmentShader: document.getElementById("fragmentShader").textContent,
+    });
+		const sun = new THREE.Mesh(sunGeo, sunShader);
+		//Use Shader???
+		scene.add(sun);
 
-    
+		const mercuryGeo = new THREE.SphereGeometry(1, 30, 5);
+		const mercuryMat = new THREE.MeshPhongMaterial({ color: '#CA8' });
+		const mercury = new THREE.Mesh(mercuryGeo, mercuryMat);
+		mercury.receiveShadow = true;
+		scene.add(mercury);
 
-    const mercuryGeo = new THREE.SphereGeometry( 1, 3, 5 );
-    const mercuryMat =  new THREE.MeshPhongMaterial( { color: '#CA8' } );
-    const mercury = new THREE.Mesh(sunGeo,sunMat);
-    scene.add(mercury);
 
-    //Credit:
-    //https://discourse.threejs.org/t/parenting-meshes/48952
-    sun.add(mercury);
 
-    mercury.position.set(5,0,0);
-	sun.position.set(0,10,10);
 
-    const mercuryObj = new THREE.Object3D();
-    mercuryObj.add(mercury);
-    scene.add(mercuryObj);
+		sun.position.set(0, 10, 10);
+
+		mercury.position.set(5, 0, 0);
+
+		const mercuryObj = new THREE.Object3D();
+		mercuryObj.add(mercury);
+		mercuryObj.receiveShadow = true;
+		scene.add(mercuryObj);
+
+		//Credit:
+		//https://discourse.threejs.org/t/parenting-meshes/48952
+		sun.add(mercuryObj);
+		
+		//Credit
+		//https://threejs.org/docs/index.html#api/en/lights/PointLight
+		const sunColor = 0xFFFFFF;
+		const sunIntensity = 3;
+
+		const sunLight = new THREE.PointLight(sunColor,sunIntensity);
+
+		scene.add(sunLight);
+		const sunLightObj = new THREE.Object3D();
+		sunLightObj.add(sunLight);
+		
+		sun.add(sunLight);
+
+		// function animate(time) {
+		// 	sun.rotateY(0.01);
+		// 	mercury.rotateY(0.01);
+		// 	mercuryObj.rotateY(0.01);
+
+		// 	renderer.render(scene, camera);
+
+		// }
+		// renderer.setAnimationLoop(animate);
+	}
 }
 
 //A way to minimize code for navigation
