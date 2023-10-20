@@ -31,6 +31,21 @@ import diceFour from '../img/four.JPG';
 import diceFive from '../img/five.JPG';
 import diceSix from '../img/six.JPG';
 
+import{GLTFLoader} from 'three/examples/jsm/loaders/GLTFLoader.js';
+const deerUrl = new URL('../assets/deer.glb',import.meta.url);
+
+const assetLoader = new GLTFLoader();
+assetLoader.load(
+    deerUrl.href,
+    function(gltf){
+        const model = gltf.scene;
+        scene.add(model);
+        model.position.set(-12,4,10);
+    },
+    undefined,
+    function(error) {
+        console.error(error);
+    });
 
 var height = window.innerHeight;
 var width = window.innerWidth;
@@ -53,7 +68,7 @@ const scene = new THREE.Scene();
 {
     const color = 'lightblue';
     // color,near,far
-	scene.fog = new THREE.Fog( color, 0.1, 100 );
+    scene.fog = new THREE.Fog(color, 0.1, 100);
 }
 
 
@@ -79,9 +94,9 @@ const texture = loader.load(
 {
     // - Set as an array ==> [image1,image2,image3,image4,image5,image6]
     // const cubeLoader = new THREE.CubeTexureLoader();
-	// scene.background = cubeLoader.load([bg1,bg1,bg1,bg1,bg1,bg1])
+    // scene.background = cubeLoader.load([bg1,bg1,bg1,bg1,bg1,bg1])
 }
-	
+
 
 
 //Create the camera
@@ -171,8 +186,75 @@ plane.receiveShadow = true; //plane can now recieve a shadow ==> Shadow will app
 scene.add(plane);
 plane.rotation.x = -0.5 * Math.PI;
 
+{//Vertexes and changing the shape
+    const plane2Geo = new THREE.BoxGeometry(30, 30, 0.4);
+    const plane2Mat = new THREE.MeshBasicMaterial({ color: 0xFFFFFF, side: THREE.DoubleSide });
+    const plane2 = new THREE.Mesh(plane2Geo, plane2Mat);
+    scene.add(plane2);
 
+    // Modify the vertex
+    plane2.geometry.attributes.position.array[0] -= 5 * Math.random();
+    plane2.geometry.attributes.position.array[1] -= 5 * Math.random();
+    plane2.geometry.attributes.position.array[2] -= 5 * Math.random();
 
+    //Modify the Z Position of the last vertex
+    const lastZPos = plane2.geometry.attributes.position.array.length - 1;
+    plane2.geometry.attributes.position.array[lastZPos] += 10 * Math.random();
+
+    //Update the array
+    plane2.geometry.attributes.position.needsUpdate = true;
+}
+
+{//Shaders
+
+    /// Frowned upon method, use Index.html instead v
+    const vShader = ` 
+    void main() 
+        {
+            gl_Position = projectionMatrix * modelViewMatrix * vec4(position,1.0);
+        }
+    `;
+    const fShader = ` 
+    void main() 
+        {
+            gl_FragColor = vec4(0.5,0.5,1.0,1.0);
+        }
+    `;
+    /// Frowned upon method, use Index.html instead ^
+
+    const ShaderSphereGeo = new THREE.SphereGeometry( 1, 3, 5 );
+    const ShaderSphereMat = new THREE.ShaderMaterial({
+        vertexShader: vShader,
+        fragmentShader: fShader,
+    });
+    const shaderSphere = new THREE.Mesh(ShaderSphereGeo,ShaderSphereMat);
+    scene.add(shaderSphere);
+}
+
+{//PLanets
+    const sunGeo = new THREE.SphereGeometry( 1, 3, 5 );
+    const sunMat =  new THREE.MeshPhongMaterial( { color: '#CA8' } );
+    const sun = new THREE.Mesh(sunGeo,sunMat);
+    scene.add(sun);
+
+    
+
+    const mercuryGeo = new THREE.SphereGeometry( 1, 3, 5 );
+    const mercuryMat =  new THREE.MeshPhongMaterial( { color: '#CA8' } );
+    const mercury = new THREE.Mesh(sunGeo,sunMat);
+    scene.add(mercury);
+
+    //Credit:
+    //https://discourse.threejs.org/t/parenting-meshes/48952
+    sun.add(mercury);
+
+    mercury.position.set(5,0,0);
+	sun.position.set(0,10,10);
+
+    const mercuryObj = new THREE.Object3D();
+    mercuryObj.add(mercury);
+    scene.add(mercuryObj);
+}
 
 //A way to minimize code for navigation
 {// GUI Controls
@@ -232,7 +314,12 @@ plane.rotation.x = -0.5 * Math.PI;
 }
 
 
-
+// window.addEventListener('resize',function(){
+//     width = window.innerWidth;
+//     height = window.innerHeight;
+//     camera.aspect = width/height;
+//     camera.update
+// }
 
 var RingSpeed = 0.1;
 function animate(time) {
@@ -249,6 +336,10 @@ function animate(time) {
     mySpotLight.angle = angle;
     mySpotLight.penumbra = penumbro;
     mySpotLight.intensity = intensity;
+
+    sun.rotateY(0.01);
+    mercury.rotateY(0.01);
+    mercuryObj.rotateY(0.01);
 
     renderer.render(scene, camera);
 
