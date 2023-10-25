@@ -17,6 +17,10 @@
 // - GUI options / UI Options
 
 
+
+// DISPLAY TO SCREEN
+// Terminal => type 'parcel src/index.html
+
 import * as THREE from "three";
 
 // Reason for specifics ==> Import from a specifc module.
