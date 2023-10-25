@@ -617,21 +617,273 @@ scene.add(mySpotLight);
 mySpotLight.position.set(-20, 10, 20);
 const dirSpotLightHelper = new _three.DirectionalLightHelper(mySpotLight);
 scene.add(dirSpotLightHelper);
-//Plane Object
-const planeGeo = new _three.BoxGeometry(30, 30, 0.4);
-const planeMat = new _three.MeshBasicMaterial({
-    color: 0xFFFFFF,
-    side: _three.DoubleSide
-});
-const plane = new _three.Mesh(planeGeo, planeMat);
-planeMat.color.setRGB(0, 0.5, 0);
-plane.position.set(0, 0, 0);
-plane.receiveShadow = true; //plane can now recieve a shadow ==> Shadow will appear on the plane
-scene.add(plane);
-plane.rotation.x = -0.5 * Math.PI;
+var planetRound = 30;
+var sunScale = 1;
+var mercuryScale = 0.5;
+var venusScale = 1;
+var earthScale = 1;
+var marsScale = 0.8;
+var jupiterScale = 3;
+var saturnScale = 2.7;
+var uranusScale = 1.5;
+var neptuneScale = 0.9;
+var plutoScale = 0.5;
+var sunPosX = 0;
+var mercuryPosX = 5;
+var venusPosX = 15;
+var earthPosX = 20;
+var marsPosX = 25;
+var jupiterPosX = 30;
+var saturnPosX = 35;
+var uranusPosX = 40;
+var neptunePosX = 45;
+var plutoPosX = 50;
+var sunSpinSpd = 1;
+var mercurySpinSpd = 1;
+var venusSpinSpd = 1;
+var earthSpinSpd = 1;
+var marsSpinSpd = 1;
+var jupiterSpinSpd = 1;
+var saturnSpinSpd = 1;
+var uranusSpinSpd = 1;
+var neptuneSpinSpd = 1;
+var plutoSpinSpd = 1;
+var mercuryRotationSpd = 9;
+var venusRotationSpd = 8;
+var earthRotationSpd = 7;
+var marsRotationSpd = 6;
+var jupiterRotationSpd = 5;
+var saturnRotationSpd = 4;
+var uranusRotationSpd = 3;
+var neptuneRotationSpd = 2;
+var plutoRotationSpd = 1;
+// var sun = 0;
+// var mercury = 0;
+// var venus = 0;
+// var earth = 0;
+// var mars = 0;
+// var jupiter = 0;
+// var saturn = 0;
+// var uranus = 0;
+// var neptune = 0;
+// var pluto = 0;
+// Vars set for calling in animation
+var mercury;
+var venus;
+var earth;
+var mars;
+var jupiter;
+var saturn;
+var uranus;
+var neptune;
+var pluto;
+var mercuryObj;
+var venusObj;
+var earthObj;
+var marsObj;
+var jupiterObj;
+var saturnObj;
+var uranusObj;
+var neptuneObj;
+var plutoObj;
+{
+    //Sun
+    const sunGeo = new _three.SphereGeometry(sunScale, 30, planetRound);
+    const sunShader = new _three.ShaderMaterial({
+        vertexShader: document.getElementById("vertexShader").textContent,
+        fragmentShader: document.getElementById("fragmentShader").textContent
+    });
+    const sun = new _three.Mesh(sunGeo, sunShader);
+    scene.add(sun);
+    //Mercury
+    const mercuryGeo = new _three.SphereGeometry(mercuryScale, 30, planetRound);
+    const mercuryMat = new _three.MeshPhongMaterial({
+        color: "#CA8"
+    });
+    mercury = new _three.Mesh(mercuryGeo, mercuryMat);
+    mercury.receiveShadow = true;
+    scene.add(mercury);
+    //Object 3D Creations
+    mercuryObj = new _three.Object3D();
+    mercuryObj.add(mercury);
+    mercuryObj.receiveShadow = true;
+    //Add 3D Objects to Scene
+    scene.add(mercuryObj);
+    //Venus
+    const venusGeo = new _three.SphereGeometry(venusScale, 30, planetRound);
+    const venusMat = new _three.MeshPhongMaterial({
+        color: "#CA8"
+    });
+    venus = new _three.Mesh(venusGeo, venusMat);
+    venus.receiveShadow = true;
+    scene.add(venus);
+    //Object 3D Creations
+    venusObj = new _three.Object3D();
+    venusObj.add(venus);
+    venusObj.receiveShadow = true;
+    //Add 3D Objects to Scene
+    scene.add(venusObj);
+    //earth
+    const earthGeo = new _three.SphereGeometry(earthScale, 30, planetRound);
+    const earthMat = new _three.MeshPhongMaterial({
+        color: "#CA8"
+    });
+    earth = new _three.Mesh(earthGeo, earthMat);
+    earth.receiveShadow = true;
+    scene.add(earth);
+    //Object 3D Creations
+    earthObj = new _three.Object3D();
+    earthObj.add(earth);
+    earthObj.receiveShadow = true;
+    //Add 3D Objects to Scene
+    scene.add(earthObj);
+    //mars
+    const marsGeo = new _three.SphereGeometry(marsScale, 30, planetRound);
+    const marsMat = new _three.MeshPhongMaterial({
+        color: "#CA8"
+    });
+    mars = new _three.Mesh(marsGeo, marsMat);
+    mars.receiveShadow = true;
+    scene.add(mars);
+    //Object 3D Creations
+    marsObj = new _three.Object3D();
+    marsObj.add(mars);
+    marsObj.receiveShadow = true;
+    //Add 3D Objects to Scene
+    scene.add(marsObj);
+    //jupiter
+    const jupiterGeo = new _three.SphereGeometry(jupiterScale, 30, planetRound);
+    const jupiterMat = new _three.MeshPhongMaterial({
+        color: "#CA8"
+    });
+    jupiter = new _three.Mesh(jupiterGeo, jupiterMat);
+    jupiter.receiveShadow = true;
+    scene.add(jupiter);
+    //Object 3D Creations
+    jupiterObj = new _three.Object3D();
+    jupiterObj.add(jupiter);
+    jupiterObj.receiveShadow = true;
+    //Add 3D Objects to Scene
+    scene.add(jupiterObj);
+    //saturn
+    const saturnGeo = new _three.SphereGeometry(saturnScale, 30, planetRound);
+    const saturnMat = new _three.MeshPhongMaterial({
+        color: "#CA8"
+    });
+    saturn = new _three.Mesh(saturnGeo, saturnMat);
+    saturn.receiveShadow = true;
+    scene.add(saturn);
+    //Object 3D Creations
+    saturnObj = new _three.Object3D();
+    saturnObj.add(saturn);
+    saturnObj.receiveShadow = true;
+    //Add 3D Objects to Scene
+    scene.add(saturnObj);
+    //uranus
+    const uranusGeo = new _three.SphereGeometry(uranusScale, 30, planetRound);
+    const uranusMat = new _three.MeshPhongMaterial({
+        color: "#CA8"
+    });
+    uranus = new _three.Mesh(uranusGeo, uranusMat);
+    uranus.receiveShadow = true;
+    scene.add(uranus);
+    //Object 3D Creations
+    uranusObj = new _three.Object3D();
+    uranusObj.add(uranus);
+    uranusObj.receiveShadow = true;
+    //Add 3D Objects to Scene
+    scene.add(uranusObj);
+    //neptune
+    const neptuneGeo = new _three.SphereGeometry(neptuneScale, 30, planetRound);
+    const neptuneMat = new _three.MeshPhongMaterial({
+        color: "#CA8"
+    });
+    neptune = new _three.Mesh(neptuneGeo, neptuneMat);
+    neptune.receiveShadow = true;
+    scene.add(neptune);
+    //Object 3D Creations
+    neptuneObj = new _three.Object3D();
+    neptuneObj.add(neptune);
+    neptuneObj.receiveShadow = true;
+    //Add 3D Objects to Scene
+    scene.add(neptuneObj);
+    //pluto
+    const plutoGeo = new _three.SphereGeometry(plutoScale, 30, planetRound);
+    const plutoMat = new _three.MeshPhongMaterial({
+        color: "#CA8"
+    });
+    pluto = new _three.Mesh(plutoGeo, plutoMat);
+    pluto.receiveShadow = true;
+    scene.add(pluto);
+    //Object 3D Creations
+    plutoObj = new _three.Object3D();
+    plutoObj.add(pluto);
+    plutoObj.receiveShadow = true;
+    //Add 3D Objects to Scene
+    scene.add(plutoObj);
+    //Credit:
+    //https://discourse.threejs.org/t/parenting-meshes/48952
+    // Add obj to sun
+    sun.add(mercuryObj);
+    sun.add(venusObj);
+    sun.add(earthObj);
+    sun.add(marsObj);
+    sun.add(jupiterObj);
+    sun.add(saturnObj);
+    sun.add(uranusObj);
+    sun.add(neptuneObj);
+    sun.add(plutoObj);
+    sun.position.set(sunPosX, 0, 0);
+    mercury.position.set(mercuryPosX, 0, 0);
+    venus.position.set(venusPosX, 0, 0);
+    earth.position.set(earthPosX, 0, 0);
+    mars.position.set(marsPosX, 0, 0);
+    jupiter.position.set(jupiterPosX, 0, 0);
+    saturn.position.set(saturnPosX, 0, 0);
+    uranus.position.set(uranusPosX, 0, 0);
+    neptune.position.set(neptunePosX, 0, 0);
+    pluto.position.set(plutoPosX, 0, 0);
+    //Credit
+    //https://threejs.org/docs/index.html#api/en/lights/PointLight
+    const sunColor = 0xFFFFFF;
+    const sunIntensity = 20000;
+    {
+        const sunLight = new _three.PointLight(sunColor, sunIntensity);
+        scene.add(sunLight);
+        const sunLightObj = new _three.Object3D();
+        sunLightObj.add(sunLight);
+        sun.add(sunLight);
+    }
+}mercuryRotationSpd /= 1000;
+venusRotationSpd /= 1000;
+earthRotationSpd /= 1000;
+marsRotationSpd /= 1000;
+jupiterRotationSpd /= 1000;
+saturnRotationSpd /= 1000;
+uranusRotationSpd /= 1000;
+neptuneRotationSpd /= 1000;
+plutoRotationSpd /= 1000;
 const gui = new (0, _datGui.GUI)();
 function animate(time) {
     renderer.render(scene, camera);
+    mercury.rotateY(mercurySpinSpd);
+    venus.rotateY(venusSpinSpd);
+    earth.rotateY(earthSpinSpd);
+    mars.rotateY(marsSpinSpd);
+    jupiter.rotateY(jupiterSpinSpd);
+    saturn.rotateY(saturnSpinSpd);
+    uranus.rotateY(uranusSpinSpd);
+    neptune.rotateY(neptuneSpinSpd);
+    pluto.rotateY(plutoSpinSpd);
+    mercuryObj.rotateY(mercuryRotationSpd);
+    venusObj.rotateY(venusRotationSpd);
+    earthObj.rotateY(earthRotationSpd);
+    marsObj.rotateY(marsRotationSpd);
+    jupiterObj.rotateY(jupiterRotationSpd);
+    saturnObj.rotateY(saturnRotationSpd);
+    uranusObj.rotateY(uranusRotationSpd);
+    neptuneObj.rotateY(neptuneRotationSpd);
+    plutoObj.rotateY(plutoRotationSpd);
 }
 renderer.setAnimationLoop(animate);
 
