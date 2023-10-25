@@ -68,7 +68,6 @@ mySpotLight.castShadow = true;
 scene.add(mySpotLight);
 mySpotLight.position.set(-20,10,20);
 
-
 const dirSpotLightHelper = new THREE.DirectionalLightHelper(mySpotLight);
 scene.add(dirSpotLightHelper);
 
