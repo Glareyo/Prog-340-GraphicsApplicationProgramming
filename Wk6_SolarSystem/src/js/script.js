@@ -30,8 +30,18 @@ import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls.js';
 import { GUI } from 'dat.gui';
 import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader.js';
 
-import bg1 from '../img/h-default-image.png';
+import earthTexture from '../img/earth-texture.png';
+import mercuryTexture from '../img/mercury-texture.png';
+import venusTexture from '../img/venus-texture.png';
+import moonTexture from '../img/moon-texture.png';
+import marsTexture from '../img/mars-texture.png';
+import jupiterTexture from '../img/jupiter-texture.png';
+import saturnTexture from '../img/saturn-texture.png';
+import uranusTexture from '../img/uranus-texture.png';
+import neptuneTexture from '../img/neptune-texture.png';
+import plutoTexture from '../img/pluto-texture.png';
 
+import bg1 from '../img/h-default-image.png';
 
 var height = window.innerHeight;
 var width = window.innerWidth;
@@ -65,6 +75,8 @@ mySpotLight.position.set(-20, 10, 20);
 
 const dirSpotLightHelper = new THREE.DirectionalLightHelper(mySpotLight);
 
+var textureLoader = new THREE.TextureLoader();
+
 
 //Credits:
 //https://sketchfab.com/3d-models/gold-star-15adb339f45f4620a111c43e33388ba4
@@ -88,7 +100,7 @@ const dirSpotLightHelper = new THREE.DirectionalLightHelper(mySpotLight);
 var planetRound = 30;
 
 
-var sunScale = 1;
+var sunScale = 5;
 var mercuryScale = 0.5;
 var venusScale = 1;
 var earthScale = 1;
@@ -100,36 +112,47 @@ var neptuneScale = 0.9;
 var plutoScale = 0.5;
 
 var sunPosX = 0;
-var mercuryPosX = 5;
+var mercuryPosX = 8;
 var venusPosX = 15;
-var earthPosX = 20;
-var marsPosX = 25;
-var jupiterPosX = 30;
-var saturnPosX = 35;
-var uranusPosX = 40;
-var neptunePosX = 45;
-var plutoPosX = 50;
+var earthPosX = 30;
+var marsPosX = 40;
+var jupiterPosX = 60;
+var saturnPosX = 80;
+var uranusPosX = 100;
+var neptunePosX = 120;
+var plutoPosX = 160;
 
 var sunSpinSpd = 1;
-var mercurySpinSpd = 1;
-var venusSpinSpd = 1;
-var earthSpinSpd = 0.001;
-var marsSpinSpd = 1;
-var jupiterSpinSpd = 1;
-var saturnSpinSpd = 1;
-var uranusSpinSpd = 1;
-var neptuneSpinSpd = 1;
-var plutoSpinSpd = 1;
+var mercurySpinSpd = 0.01;
+var venusSpinSpd = 0.01;
+var earthSpinSpd = 0.01;
+var marsSpinSpd = 0.01;
+var jupiterSpinSpd = 0.01;
+var saturnSpinSpd = 0.01;
+var uranusSpinSpd = 0.01;
+var neptuneSpinSpd = 0.01;
+var plutoSpinSpd = 0.01;
 
-var mercuryRotationSpd = 9;
-var venusRotationSpd = 8;
-var earthRotationSpd = 7;
-var marsRotationSpd = 6;
-var jupiterRotationSpd = 5;
-var saturnRotationSpd = 4;
-var uranusRotationSpd = 3;
-var neptuneRotationSpd = 2;
-var plutoRotationSpd = 1;
+var mercuryRotationSpd = 1.6;
+var venusRotationSpd = 0.9;
+var earthRotationSpd = 0.85;
+var marsRotationSpd = 0.70;
+var jupiterRotationSpd = 0.65;
+var saturnRotationSpd = 0.60;
+var uranusRotationSpd = 0.45;
+var neptuneRotationSpd = 0.3;
+var plutoRotationSpd = 0.2;
+
+// Uncomment these to stop the planets from rotating
+// var mercuryRotationSpd = 0;
+// var venusRotationSpd = 0;
+// var earthRotationSpd = 0;
+// var marsRotationSpd = 0;
+// var jupiterRotationSpd = 0;
+// var saturnRotationSpd = 0;
+// var uranusRotationSpd = 0;
+// var neptuneRotationSpd = 0;
+// var plutoRotationSpd = 0;
 
 // var sun = 0;
 // var mercury = 0;
@@ -187,7 +210,7 @@ var plutoObj;
 
     //Mercury
     const mercuryGeo = new THREE.SphereGeometry(mercuryScale, 30, planetRound);
-    const mercuryMat = new THREE.MeshPhongMaterial({ color: '#CA8' });
+    const mercuryMat = new THREE.MeshLambertMaterial({ map: textureLoader.load(mercuryTexture) });
     mercury = new THREE.Mesh(mercuryGeo, mercuryMat);
     mercury.receiveShadow = true;
     scene.add(mercury);
@@ -200,7 +223,7 @@ var plutoObj;
 
     //Venus
     const venusGeo = new THREE.SphereGeometry(venusScale, 30, planetRound);
-    const venusMat = new THREE.MeshPhongMaterial({ color: '#CA8' });
+    const venusMat = new THREE.MeshLambertMaterial({ map: textureLoader.load(venusTexture) });
     venus = new THREE.Mesh(venusGeo, venusMat);
     venus.receiveShadow = true;
     scene.add(venus);
@@ -213,7 +236,7 @@ var plutoObj;
 
     //earth
     const earthGeo = new THREE.SphereGeometry(earthScale, 30, planetRound);
-    const earthMat = new THREE.MeshPhongMaterial({ color: '#CA8' });
+    const earthMat = new THREE.MeshLambertMaterial({ map: textureLoader.load(earthTexture) });
     earth = new THREE.Mesh(earthGeo, earthMat);
     earth.receiveShadow = true;
     scene.add(earth);
@@ -226,7 +249,7 @@ var plutoObj;
 
     //Moon
     const moonGeo = new THREE.SphereGeometry(0.25, 30, planetRound);
-    const moonMat = new THREE.MeshPhongMaterial({ color: '#CA8' });
+    const moonMat = new THREE.MeshLambertMaterial({ map: textureLoader.load(moonTexture) });
     moon = new THREE.Mesh(moonGeo, moonMat);
     moon.receiveShadow = true;
     scene.add(moon);
@@ -255,7 +278,7 @@ var plutoObj;
 
     //mars
     const marsGeo = new THREE.SphereGeometry(marsScale, 30, planetRound);
-    const marsMat = new THREE.MeshPhongMaterial({ color: '#CA8' });
+    const marsMat = new THREE.MeshLambertMaterial({ map: textureLoader.load(marsTexture) });
     mars = new THREE.Mesh(marsGeo, marsMat);
     mars.receiveShadow = true;
     scene.add(mars);
@@ -268,7 +291,7 @@ var plutoObj;
 
     //jupiter
     const jupiterGeo = new THREE.SphereGeometry(jupiterScale, 30, planetRound);
-    const jupiterMat = new THREE.MeshPhongMaterial({ color: '#CA8' });
+    const jupiterMat = new THREE.MeshLambertMaterial({ map: textureLoader.load(jupiterTexture) });
     jupiter = new THREE.Mesh(jupiterGeo, jupiterMat);
     jupiter.receiveShadow = true;
     scene.add(jupiter);
@@ -281,7 +304,7 @@ var plutoObj;
 
     //saturn
     const saturnGeo = new THREE.SphereGeometry(saturnScale, 30, planetRound,);
-    const saturnMat = new THREE.MeshPhongMaterial({ color: '#CA8' });
+    const saturnMat = new THREE.MeshLambertMaterial({ map: textureLoader.load(saturnTexture) });
     saturn = new THREE.Mesh(saturnGeo, saturnMat);
     saturn.receiveShadow = true;
     scene.add(saturn);
@@ -324,7 +347,7 @@ var plutoObj;
 
     //uranus
     const uranusGeo = new THREE.SphereGeometry(uranusScale, 30, planetRound);
-    const uranusMat = new THREE.MeshPhongMaterial({ color: '#CA8' });
+    const uranusMat = new THREE.MeshLambertMaterial({ map: textureLoader.load(uranusTexture) });
     uranus = new THREE.Mesh(uranusGeo, uranusMat);
     uranus.receiveShadow = true;
     scene.add(uranus);
@@ -337,7 +360,7 @@ var plutoObj;
 
     //neptune
     const neptuneGeo = new THREE.SphereGeometry(neptuneScale, 30, planetRound);
-    const neptuneMat = new THREE.MeshPhongMaterial({ color: '#CA8' });
+    const neptuneMat = new THREE.MeshLambertMaterial({ map: textureLoader.load(neptuneTexture) });
     neptune = new THREE.Mesh(neptuneGeo, neptuneMat);
     neptune.receiveShadow = true;
     scene.add(neptune);
@@ -350,7 +373,7 @@ var plutoObj;
 
     //pluto
     const plutoGeo = new THREE.SphereGeometry(plutoScale, 30, planetRound);
-    const plutoMat = new THREE.MeshPhongMaterial({ color: '#CA8' });
+    const plutoMat = new THREE.MeshLambertMaterial({ map: textureLoader.load(plutoTexture) });
     pluto = new THREE.Mesh(plutoGeo, plutoMat);
     pluto.receiveShadow = true;
     scene.add(pluto);
@@ -405,7 +428,7 @@ var plutoObj;
     //https://threejs.org/docs/index.html#api/en/lights/PointLight
     // Demonstrated the implementation of point lights
     const sunColor = 0xFFFFFF;
-    const sunIntensity = 30000;
+    const sunIntensity = 3000;
     {//Sun Light Source
         const sunLight = new THREE.PointLight(sunColor, sunIntensity);
 
@@ -438,12 +461,18 @@ function animate(time) {
 
     {// Planet Animations
         mercury.rotateY(mercurySpinSpd);
+        mercury.rotateX(mercurySpinSpd);
+        
         venus.rotateY(venusSpinSpd);
+
         earth.rotateY(earthSpinSpd);
+
         mars.rotateY(marsSpinSpd);
         jupiter.rotateY(jupiterSpinSpd);
+
         // saturn.rotateY(saturnSpinSpd);
-        uranus.rotateY(uranusSpinSpd);
+        
+        uranus.rotateZ(uranusSpinSpd);
         neptune.rotateY(neptuneSpinSpd);
         pluto.rotateY(plutoSpinSpd);
 

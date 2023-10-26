@@ -598,6 +598,26 @@ var _three = require("three");
 var _orbitControlsJs = require("three/examples/jsm/controls/OrbitControls.js");
 var _datGui = require("dat.gui");
 var _gltfloaderJs = require("three/examples/jsm/loaders/GLTFLoader.js");
+var _earthTexturePng = require("../img/earth-texture.png");
+var _earthTexturePngDefault = parcelHelpers.interopDefault(_earthTexturePng);
+var _mercuryTexturePng = require("../img/mercury-texture.png");
+var _mercuryTexturePngDefault = parcelHelpers.interopDefault(_mercuryTexturePng);
+var _venusTexturePng = require("../img/venus-texture.png");
+var _venusTexturePngDefault = parcelHelpers.interopDefault(_venusTexturePng);
+var _moonTexturePng = require("../img/moon-texture.png");
+var _moonTexturePngDefault = parcelHelpers.interopDefault(_moonTexturePng);
+var _marsTexturePng = require("../img/mars-texture.png");
+var _marsTexturePngDefault = parcelHelpers.interopDefault(_marsTexturePng);
+var _jupiterTexturePng = require("../img/jupiter-texture.png");
+var _jupiterTexturePngDefault = parcelHelpers.interopDefault(_jupiterTexturePng);
+var _saturnTexturePng = require("../img/saturn-texture.png");
+var _saturnTexturePngDefault = parcelHelpers.interopDefault(_saturnTexturePng);
+var _uranusTexturePng = require("../img/uranus-texture.png");
+var _uranusTexturePngDefault = parcelHelpers.interopDefault(_uranusTexturePng);
+var _neptuneTexturePng = require("../img/neptune-texture.png");
+var _neptuneTexturePngDefault = parcelHelpers.interopDefault(_neptuneTexturePng);
+var _plutoTexturePng = require("../img/pluto-texture.png");
+var _plutoTexturePngDefault = parcelHelpers.interopDefault(_plutoTexturePng);
 var _hDefaultImagePng = require("../img/h-default-image.png");
 var _hDefaultImagePngDefault = parcelHelpers.interopDefault(_hDefaultImagePng);
 var height = window.innerHeight;
@@ -622,6 +642,7 @@ mySpotLight.castShadow = true;
 // scene.add(mySpotLight);
 mySpotLight.position.set(-20, 10, 20);
 const dirSpotLightHelper = new _three.DirectionalLightHelper(mySpotLight);
+var textureLoader = new _three.TextureLoader();
 //Credits:
 //https://sketchfab.com/3d-models/gold-star-15adb339f45f4620a111c43e33388ba4
 //Oleksandr Pelypenko
@@ -636,7 +657,7 @@ const dirSpotLightHelper = new _three.DirectionalLightHelper(mySpotLight);
         model.scale.set(5, 5, 5);
     });
 }var planetRound = 30;
-var sunScale = 1;
+var sunScale = 5;
 var mercuryScale = 0.5;
 var venusScale = 1;
 var earthScale = 1;
@@ -647,34 +668,44 @@ var uranusScale = 1.5;
 var neptuneScale = 0.9;
 var plutoScale = 0.5;
 var sunPosX = 0;
-var mercuryPosX = 5;
+var mercuryPosX = 8;
 var venusPosX = 15;
-var earthPosX = 20;
-var marsPosX = 25;
-var jupiterPosX = 30;
-var saturnPosX = 35;
-var uranusPosX = 40;
-var neptunePosX = 45;
-var plutoPosX = 50;
+var earthPosX = 30;
+var marsPosX = 40;
+var jupiterPosX = 60;
+var saturnPosX = 80;
+var uranusPosX = 100;
+var neptunePosX = 120;
+var plutoPosX = 160;
 var sunSpinSpd = 1;
-var mercurySpinSpd = 1;
-var venusSpinSpd = 1;
-var earthSpinSpd = 0.001;
-var marsSpinSpd = 1;
-var jupiterSpinSpd = 1;
-var saturnSpinSpd = 1;
-var uranusSpinSpd = 1;
-var neptuneSpinSpd = 1;
-var plutoSpinSpd = 1;
-var mercuryRotationSpd = 9;
-var venusRotationSpd = 8;
-var earthRotationSpd = 7;
-var marsRotationSpd = 6;
-var jupiterRotationSpd = 5;
-var saturnRotationSpd = 4;
-var uranusRotationSpd = 3;
-var neptuneRotationSpd = 2;
-var plutoRotationSpd = 1;
+var mercurySpinSpd = 0.01;
+var venusSpinSpd = 0.01;
+var earthSpinSpd = 0.01;
+var marsSpinSpd = 0.01;
+var jupiterSpinSpd = 0.01;
+var saturnSpinSpd = 0.01;
+var uranusSpinSpd = 0.01;
+var neptuneSpinSpd = 0.01;
+var plutoSpinSpd = 0.01;
+var mercuryRotationSpd = 1.6;
+var venusRotationSpd = 0.9;
+var earthRotationSpd = 0.85;
+var marsRotationSpd = 0.70;
+var jupiterRotationSpd = 0.65;
+var saturnRotationSpd = 0.60;
+var uranusRotationSpd = 0.45;
+var neptuneRotationSpd = 0.3;
+var plutoRotationSpd = 0.2;
+// Uncomment these to stop the planets from rotating
+// var mercuryRotationSpd = 0;
+// var venusRotationSpd = 0;
+// var earthRotationSpd = 0;
+// var marsRotationSpd = 0;
+// var jupiterRotationSpd = 0;
+// var saturnRotationSpd = 0;
+// var uranusRotationSpd = 0;
+// var neptuneRotationSpd = 0;
+// var plutoRotationSpd = 0;
 // var sun = 0;
 // var mercury = 0;
 // var venus = 0;
@@ -718,8 +749,8 @@ var plutoObj;
     scene.add(sun);
     //Mercury
     const mercuryGeo = new _three.SphereGeometry(mercuryScale, 30, planetRound);
-    const mercuryMat = new _three.MeshPhongMaterial({
-        color: "#CA8"
+    const mercuryMat = new _three.MeshLambertMaterial({
+        map: textureLoader.load((0, _mercuryTexturePngDefault.default))
     });
     mercury = new _three.Mesh(mercuryGeo, mercuryMat);
     mercury.receiveShadow = true;
@@ -732,8 +763,8 @@ var plutoObj;
     scene.add(mercuryObj);
     //Venus
     const venusGeo = new _three.SphereGeometry(venusScale, 30, planetRound);
-    const venusMat = new _three.MeshPhongMaterial({
-        color: "#CA8"
+    const venusMat = new _three.MeshLambertMaterial({
+        map: textureLoader.load((0, _venusTexturePngDefault.default))
     });
     venus = new _three.Mesh(venusGeo, venusMat);
     venus.receiveShadow = true;
@@ -746,8 +777,8 @@ var plutoObj;
     scene.add(venusObj);
     //earth
     const earthGeo = new _three.SphereGeometry(earthScale, 30, planetRound);
-    const earthMat = new _three.MeshPhongMaterial({
-        color: "#CA8"
+    const earthMat = new _three.MeshLambertMaterial({
+        map: textureLoader.load((0, _earthTexturePngDefault.default))
     });
     earth = new _three.Mesh(earthGeo, earthMat);
     earth.receiveShadow = true;
@@ -760,8 +791,8 @@ var plutoObj;
     scene.add(earthObj);
     //Moon
     const moonGeo = new _three.SphereGeometry(0.25, 30, planetRound);
-    const moonMat = new _three.MeshPhongMaterial({
-        color: "#CA8"
+    const moonMat = new _three.MeshLambertMaterial({
+        map: textureLoader.load((0, _moonTexturePngDefault.default))
     });
     moon = new _three.Mesh(moonGeo, moonMat);
     moon.receiveShadow = true;
@@ -789,8 +820,8 @@ var plutoObj;
     }
     //mars
     const marsGeo = new _three.SphereGeometry(marsScale, 30, planetRound);
-    const marsMat = new _three.MeshPhongMaterial({
-        color: "#CA8"
+    const marsMat = new _three.MeshLambertMaterial({
+        map: textureLoader.load((0, _marsTexturePngDefault.default))
     });
     mars = new _three.Mesh(marsGeo, marsMat);
     mars.receiveShadow = true;
@@ -803,8 +834,8 @@ var plutoObj;
     scene.add(marsObj);
     //jupiter
     const jupiterGeo = new _three.SphereGeometry(jupiterScale, 30, planetRound);
-    const jupiterMat = new _three.MeshPhongMaterial({
-        color: "#CA8"
+    const jupiterMat = new _three.MeshLambertMaterial({
+        map: textureLoader.load((0, _jupiterTexturePngDefault.default))
     });
     jupiter = new _three.Mesh(jupiterGeo, jupiterMat);
     jupiter.receiveShadow = true;
@@ -817,8 +848,8 @@ var plutoObj;
     scene.add(jupiterObj);
     //saturn
     const saturnGeo = new _three.SphereGeometry(saturnScale, 30, planetRound);
-    const saturnMat = new _three.MeshPhongMaterial({
-        color: "#CA8"
+    const saturnMat = new _three.MeshLambertMaterial({
+        map: textureLoader.load((0, _saturnTexturePngDefault.default))
     });
     saturn = new _three.Mesh(saturnGeo, saturnMat);
     saturn.receiveShadow = true;
@@ -855,8 +886,8 @@ var plutoObj;
     saturn.add(saturnRing3);
     //uranus
     const uranusGeo = new _three.SphereGeometry(uranusScale, 30, planetRound);
-    const uranusMat = new _three.MeshPhongMaterial({
-        color: "#CA8"
+    const uranusMat = new _three.MeshLambertMaterial({
+        map: textureLoader.load((0, _uranusTexturePngDefault.default))
     });
     uranus = new _three.Mesh(uranusGeo, uranusMat);
     uranus.receiveShadow = true;
@@ -869,8 +900,8 @@ var plutoObj;
     scene.add(uranusObj);
     //neptune
     const neptuneGeo = new _three.SphereGeometry(neptuneScale, 30, planetRound);
-    const neptuneMat = new _three.MeshPhongMaterial({
-        color: "#CA8"
+    const neptuneMat = new _three.MeshLambertMaterial({
+        map: textureLoader.load((0, _neptuneTexturePngDefault.default))
     });
     neptune = new _three.Mesh(neptuneGeo, neptuneMat);
     neptune.receiveShadow = true;
@@ -883,8 +914,8 @@ var plutoObj;
     scene.add(neptuneObj);
     //pluto
     const plutoGeo = new _three.SphereGeometry(plutoScale, 30, planetRound);
-    const plutoMat = new _three.MeshPhongMaterial({
-        color: "#CA8"
+    const plutoMat = new _three.MeshLambertMaterial({
+        map: textureLoader.load((0, _plutoTexturePngDefault.default))
     });
     pluto = new _three.Mesh(plutoGeo, plutoMat);
     pluto.receiveShadow = true;
@@ -928,7 +959,7 @@ var plutoObj;
     //https://threejs.org/docs/index.html#api/en/lights/PointLight
     // Demonstrated the implementation of point lights
     const sunColor = 0xFFFFFF;
-    const sunIntensity = 30000;
+    const sunIntensity = 3000;
     {
         const sunLight = new _three.PointLight(sunColor, sunIntensity);
         scene.add(sunLight);
@@ -949,12 +980,13 @@ const gui = new (0, _datGui.GUI)();
 function animate(time) {
     renderer.render(scene, camera);
     mercury.rotateY(mercurySpinSpd);
+    mercury.rotateX(mercurySpinSpd);
     venus.rotateY(venusSpinSpd);
     earth.rotateY(earthSpinSpd);
     mars.rotateY(marsSpinSpd);
     jupiter.rotateY(jupiterSpinSpd);
     // saturn.rotateY(saturnSpinSpd);
-    uranus.rotateY(uranusSpinSpd);
+    uranus.rotateZ(uranusSpinSpd);
     neptune.rotateY(neptuneSpinSpd);
     pluto.rotateY(plutoSpinSpd);
     mercuryObj.rotateY(mercuryRotationSpd);
@@ -969,7 +1001,7 @@ function animate(time) {
 }
 renderer.setAnimationLoop(animate);
 
-},{"three":"ktPTu","three/examples/jsm/controls/OrbitControls.js":"7mqRv","dat.gui":"k3xQk","three/examples/jsm/loaders/GLTFLoader.js":"dVRsF","../img/h-default-image.png":"l8Q64","6461797741a44d4e":"8U5PR","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"ktPTu":[function(require,module,exports) {
+},{"three":"ktPTu","three/examples/jsm/controls/OrbitControls.js":"7mqRv","dat.gui":"k3xQk","three/examples/jsm/loaders/GLTFLoader.js":"dVRsF","../img/earth-texture.png":"2WwDV","../img/mercury-texture.png":"9vlu3","../img/venus-texture.png":"9dB3W","../img/moon-texture.png":"cnun9","../img/mars-texture.png":"7Tbvx","../img/jupiter-texture.png":"6AgIP","../img/saturn-texture.png":"cwUBr","../img/uranus-texture.png":"7zhxa","../img/neptune-texture.png":"9zVtm","../img/pluto-texture.png":"055sN","../img/h-default-image.png":"l8Q64","6461797741a44d4e":"8U5PR","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"ktPTu":[function(require,module,exports) {
 /**
  * @license
  * Copyright 2010-2023 Three.js Authors
@@ -37090,10 +37122,10 @@ function mergeBufferAttributes(attributes) {
     return mergeAttributes(attributes);
 }
 
-},{"three":"ktPTu","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"l8Q64":[function(require,module,exports) {
-module.exports = require("233b2ff74a6d96b8").getBundleURL("2MSMO") + "h-default-image.29345b3e.png" + "?" + Date.now();
+},{"three":"ktPTu","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"2WwDV":[function(require,module,exports) {
+module.exports = require("a1bdada01111d705").getBundleURL("2MSMO") + "earth-texture.f757b02e.png" + "?" + Date.now();
 
-},{"233b2ff74a6d96b8":"lgJ39"}],"lgJ39":[function(require,module,exports) {
+},{"a1bdada01111d705":"lgJ39"}],"lgJ39":[function(require,module,exports) {
 "use strict";
 var bundleURL = {};
 function getBundleURLCached(id) {
@@ -37128,7 +37160,37 @@ exports.getBundleURL = getBundleURLCached;
 exports.getBaseURL = getBaseURL;
 exports.getOrigin = getOrigin;
 
-},{}],"8U5PR":[function(require,module,exports) {
+},{}],"9vlu3":[function(require,module,exports) {
+module.exports = require("52d89bbd312ce80").getBundleURL("2MSMO") + "mercury-texture.06b539b0.png" + "?" + Date.now();
+
+},{"52d89bbd312ce80":"lgJ39"}],"9dB3W":[function(require,module,exports) {
+module.exports = require("501273012e33a8f6").getBundleURL("2MSMO") + "venus-texture.e0856d40.png" + "?" + Date.now();
+
+},{"501273012e33a8f6":"lgJ39"}],"cnun9":[function(require,module,exports) {
+module.exports = require("e4416ca356a9114b").getBundleURL("2MSMO") + "moon-texture.3af43690.png" + "?" + Date.now();
+
+},{"e4416ca356a9114b":"lgJ39"}],"7Tbvx":[function(require,module,exports) {
+module.exports = require("ed5230ca46d8e623").getBundleURL("2MSMO") + "mars-texture.a7431a2d.png" + "?" + Date.now();
+
+},{"ed5230ca46d8e623":"lgJ39"}],"6AgIP":[function(require,module,exports) {
+module.exports = require("b3428b3535a8727b").getBundleURL("2MSMO") + "jupiter-texture.c2fc62b4.png" + "?" + Date.now();
+
+},{"b3428b3535a8727b":"lgJ39"}],"cwUBr":[function(require,module,exports) {
+module.exports = require("46ae44660639df45").getBundleURL("2MSMO") + "saturn-texture.0795d915.png" + "?" + Date.now();
+
+},{"46ae44660639df45":"lgJ39"}],"7zhxa":[function(require,module,exports) {
+module.exports = require("354205a60da9e86b").getBundleURL("2MSMO") + "uranus-texture.3a633b6b.png" + "?" + Date.now();
+
+},{"354205a60da9e86b":"lgJ39"}],"9zVtm":[function(require,module,exports) {
+module.exports = require("a912465d6e7edf3").getBundleURL("2MSMO") + "neptune-texture.61f87768.png" + "?" + Date.now();
+
+},{"a912465d6e7edf3":"lgJ39"}],"055sN":[function(require,module,exports) {
+module.exports = require("a7af00a27aca1277").getBundleURL("2MSMO") + "pluto-texture.97593dba.png" + "?" + Date.now();
+
+},{"a7af00a27aca1277":"lgJ39"}],"l8Q64":[function(require,module,exports) {
+module.exports = require("233b2ff74a6d96b8").getBundleURL("2MSMO") + "h-default-image.29345b3e.png" + "?" + Date.now();
+
+},{"233b2ff74a6d96b8":"lgJ39"}],"8U5PR":[function(require,module,exports) {
 module.exports = require("587b3b4a10cda6c0").getBundleURL("2MSMO") + "gold_star.fd523c49.glb" + "?" + Date.now();
 
 },{"587b3b4a10cda6c0":"lgJ39"}]},["4FFYD","dV6cC"], "dV6cC", "parcelRequire0a00")
