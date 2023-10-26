@@ -36,7 +36,7 @@ const deerUrl = new URL('../assets/deer.glb',import.meta.url);
 
 const assetLoader = new GLTFLoader();
 assetLoader.load(
-    deerUrl.href,
+    deerUrl ,
     function(gltf){
         const model = gltf.scene;
         scene.add(model);

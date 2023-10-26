@@ -2,21 +2,34 @@
 // - https://stackoverflow.com/questions/44463634/how-to-change-color-with-three-js#:~:text=THREE.Material%20does%20some%20magic%20when%20you%20provide%20certain,change%20it%20you%20need%20to%20do%20yourMaterial.color.setRGB%20%281%2C0%2C1%29
 // Explained how to change colors on a material
 
-// - https://www.bing.com/videos/riverview/relatedvideo?q=ThreeJS+import+dat.gui&mid=3EBB511F05CE1DEFAAA33EBB511F05CE1DEFAAA3&FORM=VIRE
-// Helped demonstrate how to use and add GUI
-
 // - https://threejs.org/manual/#en/backgrounds
 // Documentation Used to learn about backgrounds
 
 //https://threejs.org/docs/#api/en/geometries/RingGeometry
-    //Showed how to make the ring have two sides rather than 1
+//Showed how to make the ring have two sides rather than 1
+
+//Credits:
+//https://sketchfab.com/3d-models/gold-star-15adb339f45f4620a111c43e33388ba4
+//Oleksandr Pelypenko
+// Provided Gold Star Asset
+
+//Credit
+//https://threejs.org/docs/index.html#api/en/lights/PointLight
+// Demonstrated the implementation of point lights
+
+//Credit:
+//https://discourse.threejs.org/t/parenting-meshes/48952
+// Add obj to sun
+
 
 
 import * as THREE from "three";
 
-// Reason for specifics ==> Import from a specifc module.
+// Reason for specifics ==> Import from a specifc module. 
 import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls.js';
 import { GUI } from 'dat.gui';
+import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader.js';
+
 import bg1 from '../img/h-default-image.png';
 
 
@@ -51,9 +64,29 @@ mySpotLight.position.set(-20, 10, 20);
 
 
 const dirSpotLightHelper = new THREE.DirectionalLightHelper(mySpotLight);
-// scene.add(dirSpotLightHelper);
 
+
+//Credits:
+//https://sketchfab.com/3d-models/gold-star-15adb339f45f4620a111c43e33388ba4
+//Oleksandr Pelypenko
+// Provided Gold Star Asset
+
+{//Load Star
+    const starUrl = new URL('../assets/gold_star.glb', import.meta.url);
+
+    const assetLoader = new GLTFLoader();
+    assetLoader.load(
+        starUrl.href,
+        function (gltf) {
+            var model = gltf.scene;
+            scene.add(model);
+            model.position.set(0, 15, 0);
+            model.scale.set(5, 5, 5);
+        });
+
+}
 var planetRound = 30;
+
 
 var sunScale = 1;
 var mercuryScale = 0.5;
@@ -80,7 +113,7 @@ var plutoPosX = 50;
 var sunSpinSpd = 1;
 var mercurySpinSpd = 1;
 var venusSpinSpd = 1;
-var earthSpinSpd = 1;
+var earthSpinSpd = 0.001;
 var marsSpinSpd = 1;
 var jupiterSpinSpd = 1;
 var saturnSpinSpd = 1;
@@ -111,6 +144,10 @@ var plutoRotationSpd = 1;
 
 
 // Vars set for calling in animation
+var sun;
+
+var moon;
+
 var mercury;
 var venus;
 var earth;
@@ -138,11 +175,14 @@ var plutoObj;
     //Sun
     const sunGeo = new THREE.SphereGeometry(sunScale, 30, planetRound);
     const sunShader = new THREE.ShaderMaterial({
-        vertexShader: document.getElementById("vertexShader").textContent,
+        vertexShader: document.getElementById("sunVertices").textContent,
         fragmentShader: document.getElementById("sunShader").textContent,
     });
-    const sun = new THREE.Mesh(sunGeo, sunShader);
+    sun = new THREE.Mesh(sunGeo, sunShader);
     scene.add(sun);
+
+
+
 
 
     //Mercury
@@ -184,6 +224,35 @@ var plutoObj;
     //Add 3D Objects to Scene
     scene.add(earthObj);
 
+    //Moon
+    const moonGeo = new THREE.SphereGeometry(0.25, 30, planetRound);
+    const moonMat = new THREE.MeshPhongMaterial({ color: '#CA8' });
+    moon = new THREE.Mesh(moonGeo, moonMat);
+    moon.receiveShadow = true;
+    scene.add(moon);
+    //Object 3D Creations
+    moonObj = new THREE.Object3D();
+    moonObj.add(moon);
+    moonObj.receiveShadow = true;
+    // //Add 3D Objects to Scene
+    scene.add(moonObj);
+    earth.add(moon);
+    {
+        //Credit
+        //https://threejs.org/docs/index.html#api/en/lights/PointLight
+        // Demonstrated the implementation of point lights
+        const moonColor = 0xFFFFFF;
+        const moonIntensity = 1;
+        {//Sun Light Source
+            const moonLight = new THREE.PointLight(moonColor, moonIntensity);
+
+            scene.add(moonLight);
+            const moonLightObj = new THREE.Object3D();
+            moonLightObj.add(moonLight);
+            moon.add(moonLight);
+        }
+    }
+
     //mars
     const marsGeo = new THREE.SphereGeometry(marsScale, 30, planetRound);
     const marsMat = new THREE.MeshPhongMaterial({ color: '#CA8' });
@@ -218,11 +287,9 @@ var plutoObj;
     scene.add(saturn);
 
     //Add Saturns Rings
-    const saturnRingGeo1 = new THREE.RingGeometry(saturnScale+0.5,saturnScale+1,planetRound);
-    const saturnRingGeo2 = new THREE.RingGeometry(saturnScale+1.5,saturnScale+2,planetRound);
-    const saturnRingGeo3 = new THREE.RingGeometry(saturnScale+2.5,saturnScale+3,planetRound);
-    //const saturnRingMat = new THREE.MeshPhongMaterial({ color: '#CA8',side:THREE.DoubleSide });
-    
+    const saturnRingGeo1 = new THREE.RingGeometry(saturnScale + 0.5, saturnScale + 1, planetRound);
+    const saturnRingGeo2 = new THREE.RingGeometry(saturnScale + 1.5, saturnScale + 2, planetRound);
+    const saturnRingGeo3 = new THREE.RingGeometry(saturnScale + 2.5, saturnScale + 3, planetRound);
 
     //Credit
     //https://threejs.org/docs/#api/en/geometries/RingGeometry
@@ -230,16 +297,16 @@ var plutoObj;
     const saturnRingMat = new THREE.ShaderMaterial({
         vertexShader: document.getElementById("vertexShader").textContent,
         fragmentShader: document.getElementById("saturnRingShader").textContent,
-        side:THREE.DoubleSide
+        side: THREE.DoubleSide
     });
 
-    saturnRing1 =  new THREE.Mesh(saturnRingGeo1,saturnRingMat);
+    saturnRing1 = new THREE.Mesh(saturnRingGeo1, saturnRingMat);
     saturnRing1.receiveShadow = true;
     scene.add(saturnRing1);
-    saturnRing2 =  new THREE.Mesh(saturnRingGeo2,saturnRingMat);
+    saturnRing2 = new THREE.Mesh(saturnRingGeo2, saturnRingMat);
     saturnRing2.receiveShadow = true;
     scene.add(saturnRing2);
-    saturnRing3 =  new THREE.Mesh(saturnRingGeo3,saturnRingMat);
+    saturnRing3 = new THREE.Mesh(saturnRingGeo3, saturnRingMat);
     saturnRing3.receiveShadow = true;
     scene.add(saturnRing3);
 
@@ -251,7 +318,7 @@ var plutoObj;
     saturnObj.receiveShadow = true;
     //Add 3D Objects to Scene
     scene.add(saturnObj);
-    saturn.add(saturnRing1);    
+    saturn.add(saturnRing1);
     saturn.add(saturnRing2);
     saturn.add(saturnRing3);
 
@@ -315,7 +382,10 @@ var plutoObj;
         sun.position.set(sunPosX, 0, 0);
         mercury.position.set(mercuryPosX, 0, 0);
         venus.position.set(venusPosX, 0, 0);
+
         earth.position.set(earthPosX, 0, 0);
+        moon.position.set(earthScale + 1.5, 0, 0);
+
         mars.position.set(marsPosX, 0, 0);
         jupiter.position.set(jupiterPosX, 0, 0);
 
@@ -333,6 +403,7 @@ var plutoObj;
     }
     //Credit
     //https://threejs.org/docs/index.html#api/en/lights/PointLight
+    // Demonstrated the implementation of point lights
     const sunColor = 0xFFFFFF;
     const sunIntensity = 30000;
     {//Sun Light Source
@@ -356,6 +427,8 @@ var plutoObj;
     neptuneRotationSpd /= 1000;
     plutoRotationSpd /= 1000;
 }
+
+
 
 const gui = new GUI();
 
@@ -384,7 +457,6 @@ function animate(time) {
         neptuneObj.rotateY(neptuneRotationSpd);
         plutoObj.rotateY(plutoRotationSpd);
     }
-
 
 
 
