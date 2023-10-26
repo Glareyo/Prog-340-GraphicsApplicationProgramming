@@ -582,11 +582,8 @@ function hmrAccept(bundle /*: ParcelRequire */ , id /*: string */ ) {
 // Helped demonstrate how to use and add GUI
 // - https://threejs.org/manual/#en/backgrounds
 // Documentation Used to learn about backgrounds
-///Things to search online about
-// - NodeJS ==> Installation
-// - Adding Shadows
-// - Animations
-// - GUI options / UI Options
+//https://threejs.org/docs/#api/en/geometries/RingGeometry
+//Showed how to make the ring have two sides rather than 1
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 var _three = require("three");
 // Reason for specifics ==> Import from a specifc module.
@@ -613,10 +610,10 @@ camera.position.set(-10, 30, 30);
 orbit.update();
 const mySpotLight = new _three.SpotLight(0xFFFFFF, 0.2);
 mySpotLight.castShadow = true;
-scene.add(mySpotLight);
+// scene.add(mySpotLight);
 mySpotLight.position.set(-20, 10, 20);
 const dirSpotLightHelper = new _three.DirectionalLightHelper(mySpotLight);
-scene.add(dirSpotLightHelper);
+// scene.add(dirSpotLightHelper);
 var planetRound = 30;
 var sunScale = 1;
 var mercuryScale = 0.5;
@@ -677,6 +674,7 @@ var saturn;
 var uranus;
 var neptune;
 var pluto;
+var saturnRing;
 var mercuryObj;
 var venusObj;
 var earthObj;
@@ -691,7 +689,7 @@ var plutoObj;
     const sunGeo = new _three.SphereGeometry(sunScale, 30, planetRound);
     const sunShader = new _three.ShaderMaterial({
         vertexShader: document.getElementById("vertexShader").textContent,
-        fragmentShader: document.getElementById("fragmentShader").textContent
+        fragmentShader: document.getElementById("sunShader").textContent
     });
     const sun = new _three.Mesh(sunGeo, sunShader);
     scene.add(sun);
@@ -773,12 +771,37 @@ var plutoObj;
     saturn = new _three.Mesh(saturnGeo, saturnMat);
     saturn.receiveShadow = true;
     scene.add(saturn);
+    //Add Saturns Rings
+    const saturnRingGeo1 = new _three.RingGeometry(saturnScale + 0.5, saturnScale + 1, planetRound);
+    const saturnRingGeo2 = new _three.RingGeometry(saturnScale + 1.5, saturnScale + 2, planetRound);
+    const saturnRingGeo3 = new _three.RingGeometry(saturnScale + 2.5, saturnScale + 3, planetRound);
+    //const saturnRingMat = new THREE.MeshPhongMaterial({ color: '#CA8',side:THREE.DoubleSide });
+    //Credit
+    //https://threejs.org/docs/#api/en/geometries/RingGeometry
+    //Showed how to make the ring have two sides rather than 1
+    const saturnRingMat = new _three.ShaderMaterial({
+        vertexShader: document.getElementById("vertexShader").textContent,
+        fragmentShader: document.getElementById("saturnRingShader").textContent,
+        side: _three.DoubleSide
+    });
+    saturnRing1 = new _three.Mesh(saturnRingGeo1, saturnRingMat);
+    saturnRing1.receiveShadow = true;
+    scene.add(saturnRing1);
+    saturnRing2 = new _three.Mesh(saturnRingGeo2, saturnRingMat);
+    saturnRing2.receiveShadow = true;
+    scene.add(saturnRing2);
+    saturnRing3 = new _three.Mesh(saturnRingGeo3, saturnRingMat);
+    saturnRing3.receiveShadow = true;
+    scene.add(saturnRing3);
     //Object 3D Creations
     saturnObj = new _three.Object3D();
     saturnObj.add(saturn);
     saturnObj.receiveShadow = true;
     //Add 3D Objects to Scene
     scene.add(saturnObj);
+    saturn.add(saturnRing1);
+    saturn.add(saturnRing2);
+    saturn.add(saturnRing3);
     //uranus
     const uranusGeo = new _three.SphereGeometry(uranusScale, 30, planetRound);
     const uranusMat = new _three.MeshPhongMaterial({
@@ -840,13 +863,19 @@ var plutoObj;
     mars.position.set(marsPosX, 0, 0);
     jupiter.position.set(jupiterPosX, 0, 0);
     saturn.position.set(saturnPosX, 0, 0);
+    saturnRing1.position.set(0, 0, 0);
+    saturnRing1.rotateX(180);
+    saturnRing2.position.set(0, 0, 0);
+    saturnRing2.rotateX(180);
+    saturnRing3.position.set(0, 0, 0);
+    saturnRing3.rotateX(180);
     uranus.position.set(uranusPosX, 0, 0);
     neptune.position.set(neptunePosX, 0, 0);
     pluto.position.set(plutoPosX, 0, 0);
     //Credit
     //https://threejs.org/docs/index.html#api/en/lights/PointLight
     const sunColor = 0xFFFFFF;
-    const sunIntensity = 20000;
+    const sunIntensity = 30000;
     {
         const sunLight = new _three.PointLight(sunColor, sunIntensity);
         scene.add(sunLight);
@@ -871,7 +900,7 @@ function animate(time) {
     earth.rotateY(earthSpinSpd);
     mars.rotateY(marsSpinSpd);
     jupiter.rotateY(jupiterSpinSpd);
-    saturn.rotateY(saturnSpinSpd);
+    // saturn.rotateY(saturnSpinSpd);
     uranus.rotateY(uranusSpinSpd);
     neptune.rotateY(neptuneSpinSpd);
     pluto.rotateY(plutoSpinSpd);
